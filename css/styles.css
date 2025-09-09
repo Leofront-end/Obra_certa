@@ -73,3 +73,12 @@ button:last-child {
     color: var(--TextoPrimario);
 }
 
+@media (min-width: 744px) {
+    img, section {
+        width: 50%;
+    }
+
+    button {
+        height: 90px;
+    }
+}

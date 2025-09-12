@@ -25,6 +25,8 @@ header {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  border-bottom: 1px solid var(--BordaSecundaria);
+  box-shadow: 0px 4px 4px rgba(0, 89, 148, .25);
 }
 
 header img {

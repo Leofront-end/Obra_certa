@@ -59,7 +59,7 @@ main {
     flex-direction: column;
 }
 
-.inicio .inicio ,  button {
+button {
     width: 256px;
 }
 
@@ -67,7 +67,7 @@ main {
     margin-top: 15px;
 }
 
-div {
+.inicio div {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -80,7 +80,7 @@ button {
     border: none;
 }
 
-button a {
+.inicio button a {
     text-decoration: none;
     width: 100%;
     height: 100%;
@@ -88,20 +88,20 @@ button a {
     font-weight: bold;
 }
 
-button:first-child {
+.inicio button:first-child {
     background-color: var(--CorSecundaria);
     border: 2px solid var(--BordaSecundaria);
 }
 
-button:last-child {
+.inicio button:last-child {
     background-color: var(--CorPrimaria);
 }
 
-.link-um {
+.inicio .link-um {
     color: var(--TextoSecundario);
 }
 
-.link-dois {
+.inicio .link-dois {
     color: var(--TextoPrimario);
 }
 
@@ -111,6 +111,25 @@ button:last-child {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.Titulo {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 40px;
+    font-style: italic;
+}
+
+.login div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    width: 256px;
+}
+
+.login input {
+    height: 50px;
 }
 
 @media (min-width: 744px) {

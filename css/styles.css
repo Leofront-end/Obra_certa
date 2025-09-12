@@ -19,14 +19,23 @@ body {
 }
 
 header {
-    width: 100vw;
-    height: 80px;
-    display: flex;
-    align-items: center;
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 header img {
-    width: 80px;
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%);
+  width: 80px;
+}
+
+header span {
+    margin-left: 20px;
 }
 
 main {

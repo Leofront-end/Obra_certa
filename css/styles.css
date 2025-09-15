@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     padding: 0px;
     margin: 0px;
+    font-family: "Montserrat", sans-serif;
 }
 
 :root {
@@ -16,9 +19,11 @@
 
 body {
     width: 100vw;
+    background-color: var(--Fundo);
 }
 
 header {
+    background-color: var(--CorSecundaria);
     width: calc(100% - 46px);
     height: 80px;
     display: flex;
@@ -36,3 +41,37 @@ header img {
 .material-symbols-outlined{
     font-size: 30px;
 }
+
+main {
+
+    width: calc(100% - 46px);
+    padding: 0px 23px;
+}
+
+.hero {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.hero img {
+    width: 100%;
+}
+
+.hero p {
+    width: 100%;
+    text-align: center;
+}
+
+.Titulo {
+    font-size: 30px;
+
+    font-weight: bolder;
+    font-style: italic;
+    color: var(--BordaSecundaria);
+    margin-bottom: 5px;
+
+}
+
+

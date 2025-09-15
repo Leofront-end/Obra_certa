@@ -74,4 +74,14 @@ main {
 
 }
 
-
+.hero button {
+    font-size: 30px;
+    font-weight: bolder;
+    font-style: italic;
+    width: 100%;
+    height: 70px;
+    background-color: var(--CorPrimaria);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}

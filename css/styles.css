@@ -15,136 +15,24 @@
 }
 
 body {
-    overflow: hidden;
-}
-
-header {
-  width: 100vw;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  border-bottom: 1px solid var(--BordaSecundaria);
-  box-shadow: 0px 4px 4px rgba(0, 89, 148, .25);
-}
-
-header img {
-  position: absolute; 
-  left: 50%; 
-  transform: translateX(-50%);
-  width: 80px;
-}
-
-header span {
-    margin-left: 20px;
-}
-
-main {
-    height: 100vh;
     width: 100vw;
 }
 
-.inicio {
-    background-image: url('../assets/images/fundo.png'), var(--FundoGradient);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    height: 100%;
-
-    display: none;
+header {
+    width: calc(100% - 46px);
+    height: 80px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    padding: 0px 23px;
+    border-bottom: 1px solid var(--BordaSecundaria);
+    box-shadow: 0px 4px 4px rgba(0, 87, 146,0.25)
 }
 
-button {
-    width: 256px;
+header img {
+    width: 80px;
 }
 
-.inicio img {
-    margin-top: 15px;
-}
-
-.inicio div {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-bottom: 15px;   
-}
-
-button {
-    height: 70px;
-    border-radius: 15px;
-    border: none;
-}
-
-.inicio button a {
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
+.material-symbols-outlined{
     font-size: 30px;
-    font-weight: bold;
-}
-
-.inicio button:first-child {
-    background-color: var(--CorSecundaria);
-    border: 2px solid var(--BordaSecundaria);
-}
-
-.inicio button:last-child {
-    background-color: var(--CorPrimaria);
-}
-
-.inicio .link-um {
-    color: var(--TextoSecundario);
-}
-
-.inicio .link-dois {
-    color: var(--TextoPrimario);
-}
-
-.login {
-    height: calc(100% - 80px);
-    background-color: var(--Fundo);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.Titulo {
-    margin-top: 30px;
-    font-weight: bold;
-    font-size: 40px;
-    font-style: italic;
-}
-
-.login div {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 30px;
-    width: 256px;
-}
-
-.login input {
-    height: 50px;
-}
-
-@media (min-width: 744px) {
-    .inicio img {
-        width: 438px;
-    }
-
-    button {
-        height: 90px;
-        width: 592px;
-    }
-}
-
-@media (min-width: 1440px) {
-    button {
-        width: 592px;
-    }
 }

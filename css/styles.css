@@ -63,7 +63,7 @@ main .hero, main .feedback{
     text-align: center;
 }
 
-.Titulo {
+.Titulo, .TituloFooter {
     font-size: 30px;
 
     font-weight: bolder;
@@ -156,4 +156,24 @@ main .hero, main .feedback{
 
 .ativo {
     background-color: #005792;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    background-color: var(--BordaSecundaria);
+    padding: 23px;
+    color: var(--CorSecundaria);
+}
+
+.TituloFooter {
+    text-align: start;
+    font-size: 20px;
+    color: var(--CorSecundaria);
+}
+
+footer a {
+    color: var(--CorSecundaria);
 }

@@ -13,7 +13,7 @@
     --CorSecundaria: #FFFFFF;
     --TextoSecundario: #005792;
     --BordaSecundaria: #005792;
-    --FundoGradient: linear-gradient(180deg,rgba(245, 245, 245, 1) 5%, rgba(0, 87, 146, 1) 100%);
+    --FundoGradient: linear-gradient(180deg,rgba(245, 245, 245, 1) 0%, rgba(0, 87, 146, 1) 100%);
     --Fundo: #F5F5F5;
 }
 
@@ -42,8 +42,7 @@ header img {
     font-size: 30px;
 }
 
-main {
-
+main .hero{
     width: calc(100% - 46px);
     padding: 0px 23px;
 }
@@ -71,6 +70,7 @@ main {
     font-style: italic;
     color: var(--BordaSecundaria);
     margin-bottom: 5px;
+    text-align: center;
 
 }
 
@@ -84,4 +84,41 @@ main {
     border: none;
     border-radius: 15px;
     cursor: pointer;
+}
+
+.beneficios {
+    padding: 0px 23px 30px 23px ;
+    margin-top: 30px;
+    background: var(--FundoGradient);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.beneficios div {
+    background-color: var(--CorSecundaria);
+    border: 2px solid var(--BordaSecundaria);
+    border-radius: 15px;
+    padding: 23px;
+    box-shadow: 0px 4px 4px rgba(0, 87, 146,.25);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.beneficios .material-symbols-outlined {
+    font-size: 80px;
+    color: var(--TextoSecundario);
+}
+
+.beneficios .subTitulo {
+    font-size: 30px;
+    color: #000000;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.beneficios .texto {
+    font-size: 30px;
 }

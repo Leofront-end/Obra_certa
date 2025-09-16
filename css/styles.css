@@ -75,6 +75,7 @@ main .hero, main .feedback{
 }
 
 .hero button {
+    margin-top: 30px;
     font-size: 30px;
     font-weight: bolder;
     font-style: italic;

@@ -42,7 +42,7 @@ header img {
     font-size: 30px;
 }
 
-main .hero{
+main .hero, main .feedback{
     width: calc(100% - 46px);
     padding: 0px 23px;
 }
@@ -86,7 +86,7 @@ main .hero{
     cursor: pointer;
 }
 
-.beneficios {
+.beneficios, .feedback {
     padding: 0px 23px 30px 23px ;
     margin-top: 30px;
     background: var(--FundoGradient);
@@ -95,7 +95,7 @@ main .hero{
     gap: 30px;
 }
 
-.beneficios div {
+.card {
     background-color: var(--CorSecundaria);
     border: 2px solid var(--BordaSecundaria);
     border-radius: 15px;
@@ -113,12 +113,47 @@ main .hero{
 }
 
 .beneficios .subTitulo {
-    font-size: 30px;
+    font-size: 20px;
     color: #000000;
     font-weight: bolder;
     text-align: center;
 }
 
 .beneficios .texto {
-    font-size: 30px;
+    font-size: 15px;
+}
+
+.feedback {
+    align-items: center;
+    background: var(--Fundo);
+}
+
+.cardHeader {
+    display: flex;
+    gap: 15px;
+}
+
+.cardHeader span {
+    font-size: 25px;
+}
+
+.carrosel {
+    display: flex;
+    align-items: center;
+}
+
+.indicadores {
+    display: flex;
+    gap: 5px;
+}
+
+.indicador {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #737373;
+}
+
+.ativo {
+    background-color: #005792;
 }

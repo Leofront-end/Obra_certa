@@ -38,6 +38,10 @@ header img {
     width: 80px;
 }
 
+header span {
+    cursor: pointer;
+}
+
 .material-symbols-outlined{
     font-size: 30px;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
                 <li><a href="#feedback">Feedback</a></li>
                 <li><a href="" class="cadastro">Cadastrar</a></li>
             </ul>
-            <button>Entrar</button>
+            <button class="login">Entrar</button>
         </nav>
     </header>
     <main>
@@ -93,6 +93,31 @@
             <img src="#" alt="">
             <p class="Titulo">+1.000 obras gerenciadas</p>
         </section>
+        <dialog id="modalLogin">
+            <div>
+                <p class="Titulo">Login</p>
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha">
+            </div>
+            <button>Entrar</button>
+            <div>
+                <p>ou</p>
+                <p>entrar com</p>
+                <button></button>
+            </div>
+            <div>
+                <p></p>
+            </div>
+        </dialog>
     </main>
     <footer>
         <div>
@@ -112,5 +137,6 @@
             <p><a href="#">Tik Tok</a></p>
         </div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -200,6 +200,15 @@ footer a {
     color: var(--CorSecundaria);
 }
 
+dialog {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--BordaSecundaria);
+    padding: 23px;
+    border-radius: 23px;
+}
+
 @media screen and (min-width: 744px) {
     header .material-symbols-outlined {
         display: none;

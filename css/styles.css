@@ -38,15 +38,23 @@ header img {
     width: 80px;
 }
 
-header span {
+header span, li {
     cursor: pointer;
+}
+
+nav {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
 }
 
 .material-symbols-outlined{
     font-size: 30px;
 }
 
-main .hero, main .feedback{
+main .hero, main #feedback{
     width: calc(100% - 46px);
     padding: 0px 23px;
 }
@@ -91,7 +99,7 @@ main .hero, main .feedback{
     cursor: pointer;
 }
 
-.beneficios, .feedback {
+#beneficios, #feedback {
     padding: 0px 23px 30px 23px ;
     margin-top: 30px;
     background: var(--FundoGradient);
@@ -115,12 +123,12 @@ main .hero, main .feedback{
     gap: 30px;
 }
 
-.beneficios .material-symbols-outlined {
+#beneficios .material-symbols-outlined {
     font-size: 80px;
     color: var(--TextoSecundario);
 }
 
-.beneficios .subTitulo {
+#beneficios .subTitulo {
     height: 50px;
     font-size: 20px;
     color: #000000;
@@ -128,11 +136,11 @@ main .hero, main .feedback{
     text-align: center;
 }
 
-.beneficios .texto {
+#beneficios .texto {
     font-size: 15px;
 }
 
-.feedback {
+#feedback {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -192,7 +200,42 @@ footer a {
     color: var(--CorSecundaria);
 }
 
- @media screen and (min-width: 744px) {
+@media screen and (min-width: 744px) {
+    header .material-symbols-outlined {
+        display: none;
+    }
+
+    nav, ul{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    li a {
+        text-decoration: none;
+        color: var(--TextoPrimario);
+    }
+
+    .cadastro {
+        color: var(--CorPrimaria)
+    }
+
+    nav button {
+        font-weight: bolder;
+        font-style: italic;
+        width: 100px;
+        height: 50px;
+        background-color: var(--CorSecundaria);
+        border: 1px solid var(--CorPrimaria);
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all ease-in .5s;
+    }
+
+    nav button:hover {
+        background-color: var(--CorPrimaria);
+    }
+
     .hero {
         display: flex;
         flex-direction: row;
@@ -208,7 +251,7 @@ footer a {
         width: 50%;
     }
 
-    .beneficios {
+    #beneficios {
         display: flex;
         flex-direction: column;
         gap: 30px;
@@ -221,7 +264,7 @@ footer a {
         gap: 30px;
     }
 
-    .beneficios .Titulo {
+    #beneficios .Titulo {
         width: 100%;
     }
 

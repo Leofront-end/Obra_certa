@@ -18,7 +18,7 @@
             <ul>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#feedback">Feedback</a></li>
-                <li><a href="" class="cadastro">Cadastrar</a></li>
+                <li><a href="" class="cadastro" onclick="modalCadastros(event)">Cadastrar</a></li>
             </ul>
             <button class="login">Entrar</button>
         </nav>
@@ -29,7 +29,7 @@
             <div>
                 <p class="Titulo">Obra Certa</p>
                 <p>Transforme como você constrói</p>
-                <button>Cadastre-se Grátis</button>
+                <button  onclick="modalCadastros()">Cadastre-se Grátis</button>
             </div>
         </section>
         <section id="beneficios">
@@ -100,28 +100,26 @@
                     close
                 </span>
             </div>
-            <div>
-                <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email">
-            </div>
-            <div>
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" id="senha">
+            <form>
+                <label for="emailLogin">E-mail:</label>
+                <input type="email" name="emailLogin" id="emailLogin" placeholder="Exemplo@gmail.com">
+                <label for="senhaLogin">Senha:</label>
+                <input type="password" name="senhaLogin" id="senhaLogin" placeholder="Digite sua senha">
                 <div>
                     <input type="checkbox" name="lembrarSenha" id="lembrarSenha">
                     <label for="lembrarSenha">Lembrar senha</label>
                     <p><a href="">Esqueceu a senha?</a></p>
                 </div>
-            </div>
-            <button>Entrar</button>
-            <div>
-                <p>ou</p>
+                <button>Entrar</button>
+            </form>
+            <div class="google">
+                <p class="ou">ou</p>
                 <p>entrar com</p>
-                <button>Google</button>
+                <button><img src="assets/icon/semFundo/google.png" alt="icone google">Google</button>
             </div>
             <div>
                 <p>Não tem conta?</p>
-                <p><a href="">Cadastrar</a></p>
+                <p><a href="" class="mudarModal">Cadastrar</a></p>
             </div>
         </dialog>
         <dialog id="modalCadastro">
@@ -133,22 +131,25 @@
             </div>
             <form action="">
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email">
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+
+                <label for="emailCadastro">Email:</label>
+                <input type="email" name="emailCadastro" id="emailCadastro" placeholder="Exemplo@gmail.com">
                 
-                <label for="senha">Senha</label>
-                <input type="password" name="senha" id="senha">
+                <label for="senhaCadastro">Senha:</label>
+                <input type="password" name="senhaCadastro" id="senhaCadastro" placeholder="Digite sua senha">
                 
-                <label for="confirmarSenha"></label>
-                <input type="password" name="confirmarSenha" id="confirmarSenha">
-                <input type="checkbox" name="termosUso" id="termosUso">
-                <label for="termosUso">Li e estou de acordo com o Termo de Uso e Politica de Privacidade</label>
+                <label for="confirmarSenha">Confirmar senha:</label>
+                <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Digite sua senha">
+                <div>
+                    <input type="checkbox" name="termosUso" id="termosUso">
+                    <label for="termosUso">Li e estou de acordo com o <a href="#">Termo de Uso</a> e <a href="#">Politica de Privacidade</a></label>
+                </div>
                 <button>Cadastrar</button>
             </form>
             <div>
                 <p>Já tem conta?</p>
-                <p>Entrar</p>
+                <p class="mudarModal">Entrar</p>
             </div>
         </dialog>
     </main>

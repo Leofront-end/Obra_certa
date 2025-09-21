@@ -155,6 +155,32 @@ body {
     gap: 20px;
 }
 
+.project-card {
+    background-color: white;
+    border: 1px solid var(--cor-azul-card);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card-icon {
+    font-size: 36px;
+    color: var(--cor-azul-card);
+    margin-bottom: 15px;
+
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 15px;
+    color: var(--cor-texto-secundario);
+    line-height: 1.5;
+}
+
 @media (max-width: 768px) {
     .app-nav { /* esconder nav */
         display: none;

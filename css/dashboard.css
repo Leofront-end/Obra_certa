@@ -145,6 +145,7 @@ body {
     transform: translateY(-4px);
 }
 
+/* projetos */
 .projects-section {
     margin-bottom: 40px;
 }
@@ -160,6 +161,13 @@ body {
     border: 1px solid var(--cor-azul-card);
     padding: 20px;
     border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    background-color: rgb(238, 238, 238);
+    transform: translateY(-4px);
 }
 
 .card-icon {
@@ -180,6 +188,7 @@ body {
     color: var(--cor-texto-secundario);
     line-height: 1.5;
 }
+
 
 @media (max-width: 768px) {
     .app-nav { /* esconder nav */

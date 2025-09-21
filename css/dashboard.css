@@ -7,6 +7,7 @@
 :root {
     --cor-primaria: #FF6D1F;
     --cor-secundaria: #00385c;
+    
     --cor-texto-principal: #1A1A1A;
     --cor-texto-secundario: #4d4d4d;
     --cor-fundo-app: #f4f5f7;
@@ -142,4 +143,28 @@ body {
 .category-btn:hover {
     background-color: #e65c00;
     transform: translateY(-4px);
+}
+
+.projects-section {
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .app-nav { /* esconder nav */
+        display: none;
+    }
+
+    .category-buttons { /* uma unica coluna */
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
 }

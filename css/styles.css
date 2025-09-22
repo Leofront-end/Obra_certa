@@ -33,31 +33,88 @@ body {
 }
 
 header {
+    padding: 0px 23px ;
     background-color: var(--CorSecundaria);
-    width: calc(100% - 46px);
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
+    display: flex;   
     align-items: center;
-    padding: 0px 23px;
+    height: 70px;
     border-bottom: 1px solid var(--BordaSecundaria);
-    box-shadow: 0px 4px 4px rgba(0, 87, 146,0.25)
+    box-shadow: 0px 4px 4px rgba(0, 87, 146,0.25);
 }
 
-header img {
+.menu {
+    transition: all 1s ease-in-out;
+    padding: 23px ;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cadastro {
+    color: var(--CorPrimaria)
+}
+
+button {
+    cursor: pointer;
+    transition: all .5s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.header img {
     height: 28px;
 }
 
-header span, li {
+.header span, li {
     cursor: pointer;
 }
 
 nav {
+    height: calc(100% - 76px);
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav button {
+    font-weight: var(--font-weight-bold);
+    font-style: var(--font-style-italic);
+    width: 100px;
+    height: 50px;
+    background-color: var(--CorSecundaria);
+    border: 1px solid var(--CorPrimaria);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all ease-in .5s;
+}
+
+nav button:hover {
+    background-color: var(--CorPrimaria);
 }
 
 nav ul {
     list-style: none;
+}
+
+li a {
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    color: var(--TextoPrimario);
 }
 
 li a:hover {
@@ -226,7 +283,7 @@ dialog {
 }
 
 @media screen and (min-width: 744px) {
-    header .material-symbols-outlined {
+    .header .material-symbols-outlined {
         display: none;
     }
 
@@ -236,34 +293,8 @@ dialog {
         gap: 8px;
     }
 
-    li a {
-        font-weight: 600;
-        font-size: 15px;
-        text-decoration: none;
-        padding: 8px 12px;
-        border-radius: 6px;
-        transition: all 0.2s ease;
-        color: var(--TextoPrimario);
-    }
-
-    .cadastro {
-        color: var(--CorPrimaria)
-    }
-
-    nav button {
-        font-weight: var(--font-weight-bold);
-        font-style: var(--font-style-italic);
-        width: 100px;
-        height: 50px;
-        background-color: var(--CorSecundaria);
-        border: 1px solid var(--CorPrimaria);
-        border-radius: 15px;
-        cursor: pointer;
-        transition: all ease-in .5s;
-    }
-
-    nav button:hover {
-        background-color: var(--CorPrimaria);
+    nav {
+        flex-direction: row;
     }
 
     .hero {
@@ -377,14 +408,7 @@ dialog {
         gap: 5px;
     }
 
-    button {
-        cursor: pointer;
-        transition: all .5s;
-    }
 
-    button:hover {
-        transform: scale(1.05);
-    }
 
     .google .ou {
         display: flex;

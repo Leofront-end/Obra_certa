@@ -1,4 +1,28 @@
 const loginForm = document.querySelector('#loginForm');
+let menu = document.querySelector('header span')
+let navegacao = document.querySelector('header nav')
+let lista = document.querySelectorAll('header li')
+let header = document.querySelector('header')
+
+function fecharMenu() {
+    navegacao.style.display = 'none'
+    document.querySelector('body').style.overflow = 'scroll'
+    menu.textContent = 'menu'
+}
+
+menu.addEventListener('click', () => {
+    header.classList.toggle('menu')
+
+    if (header.classList.contains('menu')) {
+        navegacao.style.display = 'flex'
+        document.querySelector('body').style.overflow = 'hidden'
+        menu.textContent = 'close'
+    } else {
+        fecharMenu()
+    }
+})
+
+lista.forEach(e => { e.addEventListener('click', () => fecharMenu())})
 
 function abrirModal(modal) {
     if (modal) modal.showModal();

@@ -9,6 +9,7 @@
 :root {
     --CorPrimaria : #FF6D1F;
     --TextoPrimario: #000000;
+    --cor-texto-secundario: #4d4d4d;
 
     --CorSecundaria: #FFFFFF;
     --TextoSecundario: #005792;
@@ -49,6 +50,11 @@ nav {
 
 nav ul {
     list-style: none;
+}
+
+li a:hover {
+    background-color: var(--Fundo);
+    color: var(--TextoPrimario);
 }
 
 .material-symbols-outlined{
@@ -215,14 +221,23 @@ dialog {
         display: none;
     }
 
+    li {
+
+    }
+
     nav, ul{
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 8px;
     }
 
     li a {
+        font-weight: 600;
+        font-size: 15px;
         text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
         color: var(--TextoPrimario);
     }
 
@@ -317,7 +332,7 @@ dialog {
 
     form div {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 5px;
     }
 
@@ -340,6 +355,7 @@ dialog {
     }
 
     dialog span {
+        color: var(--BordaSecundaria);
         cursor: pointer;
     }
     

@@ -10,13 +10,17 @@
     --CorPrimaria : #FF6D1F;
     --TextoPrimario: #000000;
     --cor-texto-secundario: #4d4d4d;
-
+    
     --CorSecundaria: #FFFFFF;
     --TextoSecundario: #005792;
     --BordaSecundaria: #005792;
     --FundoGradient: linear-gradient(180deg,rgba(245, 245, 245, 1) 0%, rgba(0, 87, 146, 1) 100%);
     --Fundo: #F5F5F5;
     --Linha: "";
+}
+
+html {
+    scroll-behavior: smooth
 }
 
 body {
@@ -60,6 +64,7 @@ li a:hover {
 .material-symbols-outlined{
     font-size: 30px;
 }
+
 
 main .hero, main #feedback{
     width: calc(100% - 46px);
@@ -219,10 +224,6 @@ dialog {
 @media screen and (min-width: 744px) {
     header .material-symbols-outlined {
         display: none;
-    }
-
-    li {
-
     }
 
     nav, ul{

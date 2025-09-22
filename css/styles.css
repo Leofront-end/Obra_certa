@@ -31,7 +31,7 @@ body {
 header {
     background-color: var(--CorSecundaria);
     width: calc(100% - 46px);
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +41,7 @@ header {
 }
 
 header img {
-    width: 80px;
+    height: 28px;
 }
 
 header span, li {
@@ -373,12 +373,12 @@ dialog {
         gap: 5px;
     }
 
-    dialog button {
+    button {
         cursor: pointer;
         transition: all .5s;
     }
 
-    dialog button:hover {
+    button:hover {
         transform: scale(1.05);
     }
 

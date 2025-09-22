@@ -17,10 +17,14 @@
     --FundoGradient: linear-gradient(180deg,rgba(245, 245, 245, 1) 0%, rgba(0, 87, 146, 1) 100%);
     --Fundo: #F5F5F5;
     --Linha: "";
+    --font-weight-bold: 700; 
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-style-italic: italic;
 }
 
 html {
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
 }
 
 body {
@@ -90,8 +94,8 @@ main .hero, main #feedback{
 .Titulo, .TituloFooter {
     font-size: 30px;
 
-    font-weight: bolder;
-    font-style: italic;
+    font-weight: var(--font-weight-bold);
+    font-style: var(--font-style-italic);
     color: var(--BordaSecundaria);
     margin-bottom: 5px;
     text-align: center;
@@ -101,8 +105,8 @@ main .hero, main #feedback{
 .hero button {
     margin-top: 30px;
     font-size: 25px;
-    font-weight: bolder;
-    font-style: italic;
+    font-weight: var(--font-weight-bold);
+    font-style: var(--font-style-italic);
     width: 100%;
     height: 70px;
     background-color: var(--CorPrimaria);
@@ -144,7 +148,7 @@ main .hero, main #feedback{
     height: 50px;
     font-size: 20px;
     color: #000000;
-    font-weight: bolder;
+    font-weight: var(--font-weight-bold);
     text-align: center;
 }
 
@@ -247,8 +251,8 @@ dialog {
     }
 
     nav button {
-        font-weight: bolder;
-        font-style: italic;
+        font-weight: var(--font-weight-bold);
+        font-style: var(--font-style-italic);
         width: 100px;
         height: 50px;
         background-color: var(--CorSecundaria);
@@ -348,7 +352,7 @@ dialog {
         width: 366px;
         font-size: 25px;
         font-weight: bold;
-        font-style: italic;
+        font-style: var(--font-style-italic);
         background-color: var(--CorPrimaria);
         box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
         border: none;
@@ -388,7 +392,7 @@ dialog {
         align-items: center;
         gap: 5px;
         font-size: 20px;
-        font-weight: bolder;
+        font-weight: var(--font-weight-bold);
         color: var(--TextoSecundario);
     }
 
@@ -409,7 +413,7 @@ dialog {
         width: 366px;
         font-size: 25px;
         font-weight: bold;
-        font-style: italic;
+        font-style: var(--font-style-italic);
         background-color: var(--CorSecundaria);
         box-shadow: 0px 4px 4px rgba(0, 87, 146, .25);
         border: 1px solid var(--BordaSecundaria);
@@ -425,7 +429,7 @@ dialog {
 
     .mudarModal {
         text-decoration: none;
-        font-weight: bolder;
+        font-weight: var(--font-weight-bold);
         color: var(--CorPrimaria);
         cursor: pointer;
     }

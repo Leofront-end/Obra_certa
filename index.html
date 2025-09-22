@@ -18,9 +18,9 @@
             <ul>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#feedback">Feedback</a></li>
-                <li><a href="" class="cadastro" onclick="modalCadastros(event)">Cadastrar</a></li>
+                <li><a href="" class="cadastro" data-modal-target="modalCadastro">Cadastrar</a></li>
             </ul>
-            <button class="login">Entrar</button>
+            <button class="login" data-modal-target="modalLogin">Entrar</button>
         </nav>
     </header>
     <main>
@@ -29,7 +29,7 @@
             <div>
                 <p class="Titulo">Obra Certa</p>
                 <p>Transforme como você constrói</p>
-                <button  onclick="modalCadastros()">Cadastre-se Grátis</button>
+                <button data-modal-target="modalCadastro">Cadastre-se Grátis</button>
             </div>
         </section>
         <section id="beneficios">
@@ -102,9 +102,9 @@
             </div>
             <form id="loginForm">
                 <label for="emailLogin">E-mail:</label>
-                <input type="email" name="emailLogin" id="emailLogin" placeholder="Exemplo@gmail.com">
+                <input type="email" name="emailLogin" id="emailLogin" placeholder="Exemplo@gmail.com" autocomplete="email">
                 <label for="senhaLogin">Senha:</label>
-                <input type="password" name="senhaLogin" id="senhaLogin" placeholder="Digite sua senha">
+                <input type="password" name="senhaLogin" id="senhaLogin" placeholder="Digite sua senha" autocomplete="current-password">
                 <div>
                     <div>
                         <input type="checkbox" name="lembrarSenha" id="lembrarSenha">
@@ -121,7 +121,7 @@
             </div>
             <div>
                 <p>Não tem conta?</p>
-                <p><a href="" class="mudarModal">Cadastrar</a></p>
+                <p><a href="" class="mudarModal" data-modal-target="modalCadastro">Cadastrar</a></p>
             </div>
         </dialog>
         <dialog id="modalCadastro">
@@ -136,13 +136,13 @@
                 <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
 
                 <label for="emailCadastro">Email:</label>
-                <input type="email" name="emailCadastro" id="emailCadastro" placeholder="Exemplo@gmail.com">
+                <input type="email" name="emailCadastro" id="emailCadastro" placeholder="Exemplo@gmail.com" autocomplete="email">
                 
                 <label for="senhaCadastro">Senha:</label>
-                <input type="password" name="senhaCadastro" id="senhaCadastro" placeholder="Digite sua senha">
+                <input type="password" name="senhaCadastro" id="senhaCadastro" placeholder="Digite sua senha" autocomplete="new-password">
                 
                 <label for="confirmarSenha">Confirmar senha:</label>
-                <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Digite sua senha">
+                <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Digite sua senha" autocomplete="new-password">
                 <div>
                     <input type="checkbox" name="termosUso" id="termosUso">
                     <label for="termosUso">Li e estou de acordo com o <a href="#">Termo de Uso</a> e <a href="#">Politica de Privacidade</a></label>
@@ -151,7 +151,7 @@
             </form>
             <div>
                 <p>Já tem conta?</p>
-                <p class="mudarModal">Entrar</p>
+                <p class="mudarModal" data-modal-target="modalLogin">Entrar</p>
             </div>
         </dialog>
     </main>

@@ -5,7 +5,9 @@ let lista = document.querySelectorAll('header li')
 let header = document.querySelector('header')
 
 function fecharMenu() {
-    navegacao.style.display = 'none'
+    if (window.innerWidth < 744) {
+        navegacao.style.display = 'none'
+    }
     document.querySelector('body').style.overflow = 'scroll'
     menu.textContent = 'menu'
 }
@@ -55,10 +57,3 @@ document.querySelectorAll('dialog .material-symbols-outlined').forEach(span => {
         });
     }
 });
-
-if (loginForm) {
-    loginForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        window.location.href = "dashboard.html";
-    });
-}

@@ -181,7 +181,7 @@ main .hero, main #feedback{
     cursor: pointer;
 }
 
-#beneficios, #feedback {
+#beneficios, #feedback,#experimente {
     padding: 0px 23px 30px 23px ;
     margin-top: 30px;
     background: var(--FundoGradient);
@@ -262,6 +262,140 @@ main .hero, main #feedback{
     background-color: #005792;
 }
 
+#experimente {
+    width: calc(100% - 46px);
+    padding: 23px;
+    background: var(--Fundo);
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--BordaSecundaria);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#experimente .Titulo {
+    padding: 5px;
+}
+
+form,.google {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+form > label {
+    font-size: 15px;
+}
+
+form p > a {
+    color: var(--CorPrimaria);
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+form select, form input {
+    border: 1px solid var(--BordaSecundaria);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+form input:focus, select:focus {
+    border: 2px solid var(--CorPrimaria);
+    outline: none;
+}
+
+label a {
+    color: var(--TextoSecundario);
+    font-weight: bold;
+}
+
+form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 15px auto;
+    height: 50px;
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: var(--font-style-italic);
+    background-color: var(--CorPrimaria);
+    box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
+    border: none;
+    border-radius: 15px;
+}
+
+dialog span {
+    color: var(--BordaSecundaria);
+    cursor: pointer;
+}
+
+dialog > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.modalHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.google .ou {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    color: var(--TextoSecundario);
+}
+
+.google .ou::after,.google .ou::before {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--BordaSecundaria);
+    content: var(--Linha);
+}
+
+ .google button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 50px;
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: var(--font-style-italic);
+    background-color: var(--CorSecundaria);
+    box-shadow: 0px 4px 4px rgba(0, 87, 146, .25);
+    border: 1px solid var(--BordaSecundaria);
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.google button:hover {
+    background-color: var(--TextoSecundario);
+    color: var(--CorSecundaria);
+}
+
+.mudarModal {
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    color: var(--CorPrimaria);
+    cursor: pointer;
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -286,7 +420,6 @@ footer a {
 
 footer a:hover {
     color: var(--CorPrimaria);
-    
 }
 
 dialog {
@@ -349,37 +482,11 @@ dialog {
         width: 173px;
     }
 
-    form,.google {
+    .formulario {
         display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    form > label {
-        font-size: 15px;
-    }
-
-    form p > a {
-        color: var(--CorPrimaria);
-        font-weight: bold;
-        font-size: 15px;
-        text-decoration: none;
-    }
-
-    form input {
-        height: 20px;
-        border: 1px solid var(--BordaSecundaria);
-        padding: 5px;
-        border-radius: 5px;
-    }
-
-    form input:focus {
-        border: 2px solid var(--CorPrimaria);
-        outline: none;
-    }
-
-    form input:checked {
-        accent-color: var(--TextoSecundario);
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
     }
 
     form div {
@@ -388,90 +495,17 @@ dialog {
         gap: 5px;
     }
 
-    label a {
-        color: var(--TextoSecundario);
-        font-weight: bold;
-    }
-
     form button {
-        margin: 15px auto;
-        height: 50px;
         width: 366px;
-        font-size: 25px;
-        font-weight: bold;
-        font-style: var(--font-style-italic);
-        background-color: var(--CorPrimaria);
-        box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
-        border: none;
-        border-radius: 15px;
     }
 
-    dialog span {
-        color: var(--BordaSecundaria);
-        cursor: pointer;
-    }
-    
-    .modalHeader {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
-    
     dialog > div {
-        display: flex;
-        align-items: center;
+        flex-direction: row;
         justify-content: center;
-        gap: 5px;
-    }
-
-
-
-    .google .ou {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        gap: 5px;
-        font-size: 20px;
-        font-weight: var(--font-weight-bold);
-        color: var(--TextoSecundario);
-    }
-
-    .google .ou::after,.google .ou::before {
-        display: block;
-        height: 1px;
-        width: 100%;
-        background-color: var(--BordaSecundaria);
-        content: var(--Linha);
     }
 
     .google button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        height: 50px;
         width: 366px;
-        font-size: 25px;
-        font-weight: bold;
-        font-style: var(--font-style-italic);
-        background-color: var(--CorSecundaria);
-        box-shadow: 0px 4px 4px rgba(0, 87, 146, .25);
-        border: 1px solid var(--BordaSecundaria);
-        border-radius: 15px;
-        margin-bottom: 15px;
-
-    }
-
-    .google button:hover {
-        background-color: var(--TextoSecundario);
-        color: var(--CorSecundaria);
-    }
-
-    .mudarModal {
-        text-decoration: none;
-        font-weight: var(--font-weight-bold);
-        color: var(--CorPrimaria);
-        cursor: pointer;
     }
 
     footer {

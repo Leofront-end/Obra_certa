@@ -4,6 +4,12 @@ let navegacao = document.querySelector('header nav')
 let lista = document.querySelectorAll('header li')
 let header = document.querySelector('header')
 
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    window.location.href = "dashboard.html"
+});
+
 function fecharMenu() {
     if (window.innerWidth < 744) {
         navegacao.style.display = 'none'

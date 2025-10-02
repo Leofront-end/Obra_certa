@@ -300,6 +300,19 @@ main .hero, main #feedback{
     padding: 5px;
 }
 
+.formulario {
+    width: 100%;
+}
+
+.formulario img {
+    /* margin: auto; */
+    width: 90%;
+}
+
+.formulario form {
+    padding: 10px;
+}
+
 form,.google {
     display: flex;
     flex-direction: column;
@@ -340,7 +353,7 @@ form button {
     gap: 5px;
     margin: 15px auto;
     height: 50px;
-    width: 200px;
+    padding: 10px;
     font-size: 25px;
     font-weight: bold;
     font-style: var(--font-style-italic);
@@ -387,7 +400,7 @@ dialog > div {
     content: var(--Linha);
 }
 
- .google button {
+.google button {
     display: flex;
     align-items: center;
     justify-content: center;

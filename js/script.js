@@ -1,13 +1,37 @@
 const loginForm = document.querySelector('#loginForm');
+const cadastroForm = document.querySelector('#cadastroForm')
 let menu = document.querySelector('header span')
 let navegacao = document.querySelector('header nav')
 let lista = document.querySelectorAll('header li')
 let header = document.querySelector('header')
+let invalido = document.querySelectorAll('.invalido')
+
+console.log(invalido[0]);
+
+
+cadastroForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    cadastroForm.querySelectorAll('input').forEach((input) => {
+        if (input.value.trim() == '') {
+            invalido[1].textContent = 'Preencha todos os campos'            
+        }
+    })
+    if (invalido[1].textContent == '') {
+        const modal = event.target.closest('dialog');
+        fecharModal(modal)
+    }
+
+})
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
-    window.location.href = "dashboard.html"
+    if (document.getElementById('emailLogin').value == '') {
+        invalido[0].textContent = 'Seu email está invalido'
+    } else if (document.getElementById('senhaLogin').value == '') {
+        invalido[0].textContent = 'Sua senha está invalida'
+    } else {
+        window.location.href = "dashboard.html"
+    }
 });
 
 function fecharMenu() {

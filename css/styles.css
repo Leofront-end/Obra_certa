@@ -14,6 +14,7 @@
     --CorSecundaria: #FFFFFF;
     --TextoSecundario: #005792;
     --BordaSecundaria: #005792;
+    --Erro: #ff3b3b;
     --FundoGradient: linear-gradient(180deg,rgba(245, 245, 245, 1) 0%, rgba(0, 87, 146, 1) 100%);
     --Fundo: #F5F5F5;
     --Linha: "";
@@ -464,6 +465,13 @@ dialog {
     border: 1px solid var(--BordaSecundaria);
     padding: 23px;
     border-radius: 23px;
+}
+
+.invalido {
+    font-weight: var(--font-weight-bold);
+    font-style: var(--font-style-italic);
+    color: var(--Erro);
+    text-align: center;
 }
 
 @media screen and (min-width: 744px) {

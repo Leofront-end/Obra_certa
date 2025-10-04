@@ -1,0 +1,177 @@
+/* Importação das suas variáveis e estilos principais */
+/* O seu arquivo 'style.css' já deve estar sendo importado no HTML */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Para centralizar verticalmente na tela */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.recuperacao-container {
+    background-color: var(--CorSecundaria);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; /* Largura ideal para um formulário centralizado */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.Titulo {
+    /* Reutilizando a sua classe, mas ajustando a margem */
+    margin-bottom: 25px;
+}
+
+/* Oculta as etapas que não estão ativas (a chave para o fluxo) */
+.hidden {
+    display: none;
+}
+
+/* Estilização dos Indicadores de Progresso */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 12px;
+    color: #737373;
+}
+
+.step {
+    padding-bottom: 5px;
+    border-bottom: 3px solid #ccc;
+    flex: 1;
+    cursor: default;
+    font-weight: bold;
+}
+
+.step.ativo {
+    color: var(--TextoSecundario);
+    border-bottom: 3px solid var(--TextoSecundario);
+}
+
+/* Estilo para todos os blocos de formulário */
+.step-form p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.step-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Reutilizando estilos de INPUT e LABEL do seu CSS (min-width: 744px) */
+.step-form label {
+    font-size: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.step-form input {
+    height: 30px; /* Um pouco mais alto que o original para desktop */
+    border: 1px solid var(--BordaSecundaria);
+    padding: 5px;
+    border-radius: 5px;
+    width: calc(100% - 12px); /* Ajuste de largura por causa do padding */
+    box-sizing: border-box;
+}
+
+/* Estilo para Botões de Ação Principal */
+.button-next, .button-back {
+    margin-top: 20px;
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all ease-in .3s;
+}
+
+.button-next {
+    background-color: var(--CorPrimaria);
+    color: var(--CorSecundaria);
+    box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
+}
+
+.button-back {
+    background-color: transparent;
+    color: var(--TextoSecundario);
+    border: 1px solid var(--TextoSecundario);
+    margin-top: 10px;
+}
+
+/* Estilos Específicos para a Escolha de Envio (Etapa 2) */
+.choice-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.choice-button {
+    background-color: var(--Fundo);
+    border: 1px solid var(--BordaSecundaria);
+    color: var(--TextoPrimario);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.choice-button:hover {
+    background-color: rgba(0, 87, 146, 0.1); /* Um hover suave */
+}
+
+/* Estilos Específicos para o Token (Etapa 3) */
+.token-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.token-input {
+    width: 40px !important;
+    height: 40px !important;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Estilo para o Novo Botão de Cancelar */
+.button-cancelar {
+    margin-top: 30px; /* Margem para separar do container do formulário */
+    height: 40px;
+    width: 100%;
+    max-width: 450px; /* Largura igual ao container principal */
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #ccc; 
+    background-color: transparent;
+    color: #737373; /* Cor neutra */
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all ease-in .3s;
+    
+    /* Centraliza o botão se ele for menor que 100% da largura do main */
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-cancelar:hover {
+    background-color: #f0f0f0;
+}

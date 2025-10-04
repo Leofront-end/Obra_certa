@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/recuperacao.css">
+</head>
+<body>
+    <main>
+        <div class="recuperacao-container">
+            <h2 class="Titulo">Recuperar Senha</h2>
+
+            <!-- <div class="progress-steps">
+                <div class="step ativo">1. Email</div>
+                <div class="step">2. Envio</div>
+                <div class="step">3. Token</div>
+                <div class="step">4. Nova Senha</div>
+            </div> -->
+
+            <div id="step-email" class="step-form">
+                <p>Insira seu e-mail cadastrado para iniciar a recuperação.</p>
+                <form>
+                    <label for="emailRecuperacao">E-mail:</label>
+                    <!-- colocar um required -->
+                    <input type="email" id="emailRecuperacao" placeholder="Exemplo@gmail.com">
+                    <button type="submit" class="button-next">Continuar</button>
+                </form>
+                <button type="button" class="button-cancelar" onclick="voltarParaLogin()">Voltar</button>
+            </div>
+
+            <div id="step-escolha" class="step-form hidden">
+                <p>Onde deseja receber o código de segurança?</p>
+                <div class="choice-options">
+                    <button type="button" class="choice-button">
+                        <span class="icon">📧</span> Enviar para E-mail
+                    </button>
+                    <button type="button" class="choice-button">
+                        <span class="icon">📱</span> Enviar para Telefone
+                    </button>
+                </div>
+                <button type="button" class="button-back">Voltar</button>
+            </div>
+
+            <div id="step-token" class="step-form hidden">
+                <p>Insira o código de 6 dígitos que enviamos.</p>
+                <form id="tokenForm">
+                    <div class="token-inputs">
+                        <!-- colocar um required -->
+                        <input type="text" maxlength="1" class="token-input" >
+                        <input type="text" maxlength="1" class="token-input" >
+                        <input type="text" maxlength="1" class="token-input" >
+                        <input type="text" maxlength="1" class="token-input" >
+                        <input type="text" maxlength="1" class="token-input" >
+                        <input type="text" maxlength="1" class="token-input" >
+                    </div>
+                    <button type="submit" class="button-next">Confirmar Código</button>
+                </form>
+            </div>
+
+            <div id="step-nova-senha" class="step-form hidden">
+                <p>Crie sua nova senha.</p>
+                <form>
+                    <label for="novaSenha">Nova Senha:</label>
+                    <!-- colocar um required -->
+                    <input type="password" id="novaSenha" > 
+
+                    <label for="confirmaSenha">Confirme a Nova Senha:</label>
+                    <!-- colocar um required -->
+                    <input type="password" id="confirmaSenha" >
+
+                    <button type="submit" class="button-next">Redefinir Senha</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <script src="/js/recuperacao.js"></script> 
+</body>
+</html>

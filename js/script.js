@@ -1,13 +1,39 @@
 const loginForm = document.querySelector('#loginForm');
 const cadastroForm = document.querySelector('#cadastroForm')
+const materialForm = document.querySelector('#materiaisForm')
+let superficie = materialForm.querySelector('#superficie')
+let material = materialForm.querySelector('#material')
 let menu = document.querySelector('header span')
 let navegacao = document.querySelector('header nav')
 let lista = document.querySelectorAll('header li')
 let header = document.querySelector('header')
 let invalido = document.querySelectorAll('.invalido')
 
-console.log(invalido[0]);
-
+superficie.addEventListener('change', () => {
+    let opcaoMateriais = {
+        "piso": ["Porcelanato","Cerâmica","Madeira","Cimento queimado","Vinílico"],
+        "parede": ["Bloco cerâmico","Drywall","Gesso","Reboco","Tijolo"],
+        "teto": ["Gesso","PVC","Madeira"],
+        "reboco": ["Cimento","Cal","Areia"],
+        "contrapiso": ["Cimento","Areia","Argamassa"],
+        "laje": ["Concreto armado","Bloco de concreto","Pre-moldada"],
+        "forro": ["Gesso","PVC","Isopor"]
+    }
+    if (material.hasChildNodes()) {
+        let opcoesRemover = material.querySelectorAll('option')
+        opcoesRemover.forEach(opcaoRemover => {
+            opcaoRemover.remove()
+        })
+    }
+    
+    let materialEscolhido = opcaoMateriais[superficie.value]
+    materialEscolhido.forEach(materialNovo => {
+        let opcao = document.createElement('option')
+        opcao.value = materialNovo
+        opcao.innerText = materialNovo
+        material.appendChild(opcao)
+    })
+})
 
 cadastroForm.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -20,7 +46,6 @@ cadastroForm.addEventListener('submit', (event) => {
         const modal = event.target.closest('dialog');
         fecharModal(modal)
     }
-
 })
 
 loginForm.addEventListener('submit', (event) => {

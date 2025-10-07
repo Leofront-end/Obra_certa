@@ -56,6 +56,10 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    img {
+        height: 28px;
+    }
 }
 
 .cadastro {
@@ -76,10 +80,6 @@ button {
     }   
 }
 
-.header img {
-    height: 28px;
-}
-
 .header span, li {
     cursor: pointer;
 }
@@ -90,10 +90,14 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 30px;
 
     ul {
         list-style: none;
+    }
+
+    li {
+        margin: 20px;
     }
 }
 
@@ -343,23 +347,6 @@ label a {
     font-weight: bold;
 }
 
-form button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    margin: 15px auto;
-    height: 50px;
-    padding: 10px;
-    font-size: 25px;
-    font-weight: bold;
-    font-style: var(--font-style-italic);
-    background-color: var(--CorPrimaria);
-    box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
-    border: none;
-    border-radius: 15px;
-}
-
 .modalHeader {
     display: flex;
     flex-direction: row;
@@ -460,6 +447,28 @@ dialog {
         align-items: center;
         gap: 5px;
     }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin: 15px auto;
+        height: 50px;
+        padding: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        font-style: var(--font-style-italic);
+        background-color: var(--CorPrimaria);
+        box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
+        border: none;
+        border-radius: 15px;
+    }
+}
+
+#CadastroSucesso p {
+    width: 100%;
+    text-align: center;
 }
 
 .invalido {
@@ -482,6 +491,10 @@ dialog {
 
     nav {
         flex-direction: row;
+
+        li {
+            margin: 0px;
+        }
     }
 
     .hero {

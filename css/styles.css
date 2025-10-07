@@ -65,15 +65,15 @@ header {
 button {
     cursor: pointer;
     transition: all .5s;
-}
 
-button:hover {
-    transform: scale(1.05);
-}
+    a {
+        color: var(--TextoPrimario);
+        text-decoration: none;
+    }
 
-button a {
-    color: var(--TextoPrimario);
-    text-decoration: none;
+    &:hover {
+        transform: scale(1.05);
+    }   
 }
 
 .header img {
@@ -91,6 +91,10 @@ nav {
     align-items: center;
     justify-content: center;
     gap: 15px;
+
+    ul {
+        list-style: none;
+    }
 }
 
 nav button {
@@ -103,14 +107,10 @@ nav button {
     border-radius: 15px;
     cursor: pointer;
     transition: all ease-in .5s;
-}
 
-nav button:hover {
-    background-color: var(--CorPrimaria);
-}
-
-nav ul {
-    list-style: none;
+    &:hover {
+        background-color: var(--CorPrimaria);
+    }
 }
 
 li a {
@@ -121,77 +121,65 @@ li a {
     border-radius: 6px;
     transition: all 0.2s ease;
     color: var(--TextoPrimario);
-}
 
-li a:hover {
-    background-color: var(--Fundo);
-    color: var(--TextoPrimario);
+    &:hover {
+        background-color: var(--Fundo);
+        color: var(--TextoPrimario);
+    }
 }
 
 .material-symbols-outlined{
     font-size: 30px;
 }
 
-main .hero{
+.hero {
     width: calc(100% - 46px);
     padding: 0px 23px;
-}
-
-.hero {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 30px;
-}
 
-.hero img {
-    width: 100%;
-}
+    img, p {
+        width: 100%;
+    }
 
-.hero div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.hero p {
-    width: 100%;
-    text-align: center;
+    p {
+        text-align: center;
+    }
+
+    button {
+        padding: 20px 40px;
+        margin-top: 30px;
+        font-size: 25px;
+        font-weight: var(--font-weight-bold);
+        font-style: var(--font-style-italic);
+        background-color: var(--CorPrimaria);
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+    }
 }
 
 .Titulo, .TituloFooter {
     font-size: 30px;
-
     font-weight: var(--font-weight-bold);
     font-style: var(--font-style-italic);
     color: var(--BordaSecundaria);
     margin-bottom: 5px;
     text-align: center;
-
-}
-
-.hero button {
-    padding: 20px 40px;
-    margin-top: 30px;
-    font-size: 25px;
-    font-weight: var(--font-weight-bold);
-    font-style: var(--font-style-italic);
-    background-color: var(--CorPrimaria);
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
 }
 
 #beneficios,#experimente {
     padding: 0px 23px 30px 23px ;
     margin-top: 30px;
     background: var(--FundoGradient);
-}
-
-.groupCards {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
 }
 
 .card {
@@ -204,9 +192,15 @@ main .hero{
     flex-direction: column;
 }
 
-.groupCards .card{
-    padding: 23px;
-    gap: 5px;
+.groupCards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .card{
+        padding: 23px;
+        gap: 5px;
+    }
 }
 
 #beneficios .material-symbols-outlined {
@@ -242,24 +236,24 @@ main .hero{
     display: flex;
     align-items: center;
     gap: 15px;
-}
 
-.cardHeader img {
-    margin: 10px 0px 10px 23px;
-    border-radius: 50%;
-}
+    img {
+        margin: 10px 0px 10px 23px;
+        border-radius: 50%;
+    }
 
-.cardHeader span {
-    font-size: 25px;
-    cursor: pointer;
+    span {
+        font-size: 25px;
+        cursor: pointer;
+    }
 }
 
 .cardBody {
     padding: 23px;
-}
 
-.cardBody img {
-    border-radius: 15px;
+    img {
+        border-radius: 15px;
+    }
 }
 
 .carrosel {
@@ -297,23 +291,23 @@ main .hero{
     flex-direction: column;
     align-items: center;
     gap: 5px;
+
+    .Titulo {
+        padding: 5px;
+    }
 }
 
-#experimente .Titulo {
-    padding: 5px;
-}
 
 .formulario {
     width: 100%;
-}
 
-.formulario img {
-    /* margin: auto; */
-    width: 90%;
-}
+    img {
+        width: 90%;
+    }
 
-.formulario form {
-    padding: 10px;
+    form {
+        padding: 10px;
+    }
 }
 
 form,.google {
@@ -366,18 +360,6 @@ form button {
     border-radius: 15px;
 }
 
-dialog span {
-    color: var(--BordaSecundaria);
-    cursor: pointer;
-}
-
-dialog > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
 .modalHeader {
     display: flex;
     flex-direction: row;
@@ -418,11 +400,11 @@ dialog > div {
     border: 1px solid var(--BordaSecundaria);
     border-radius: 15px;
     margin-bottom: 15px;
-}
 
-.google button:hover {
-    background-color: var(--TextoSecundario);
-    color: var(--CorSecundaria);
+    &:hover {
+        background-color: var(--TextoSecundario);
+        color: var(--CorSecundaria);
+    }
 }
 
 .mudarModal {
@@ -440,6 +422,16 @@ footer {
     background-color: var(--BordaSecundaria);
     padding: 23px;
     color: var(--CorSecundaria);
+
+    a {
+        color: var(--CorSecundaria);
+        text-decoration: none;
+        transition: 0.3s ease;
+
+        &:hover {
+            color: var(--CorPrimaria);
+        }
+    }
 }
 
 .TituloFooter {
@@ -448,15 +440,6 @@ footer {
     color: var(--CorSecundaria);
 }
 
-footer a {
-    color: var(--CorSecundaria);
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-footer a:hover {
-    color: var(--CorPrimaria);
-}
 
 dialog {
     left: 50%;
@@ -465,6 +448,18 @@ dialog {
     border: 1px solid var(--BordaSecundaria);
     padding: 23px;
     border-radius: 23px;
+
+    span {
+        color: var(--BordaSecundaria);
+        cursor: pointer;
+    }
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
 }
 
 .invalido {
@@ -493,21 +488,25 @@ dialog {
         display: flex;
         flex-direction: row;
         align-items: center;
-    }
 
-    .hero div {
-        width: 50%;
-        order: -1
-    }
+        div {
+            width: 50%;
+            order: -1;
+        }
 
-    .hero img {
-        width: 50%;
+        img {
+            width: 50%;
+        }
     }
 
     #beneficios {
         display: flex;
         flex-direction: column;
         gap: 30px;
+
+        .Titulo {
+            width: 100%;
+        }
     }
 
     .groupCards {
@@ -515,10 +514,6 @@ dialog {
         justify-content: center;
         flex-direction: row;
         gap: 30px;
-    }
-
-    #beneficios .Titulo {
-        width: 100%;
     }
 
     .card {

@@ -32,6 +32,7 @@ function setupModalTriggers() {
     });
 }
 
+import { setupCarrossel } from './carrossel.js'; 
 import { setupForms } from './forms.js';
 import { setupMenu } from './menu.js';
 
@@ -39,4 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModalTriggers();
     setupForms();
     setupMenu();
+    setupCarrossel();
 });

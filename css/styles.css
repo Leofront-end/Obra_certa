@@ -193,8 +193,11 @@ li a {
     border-radius: 15px;
     box-shadow: 0px 4px 4px rgba(0, 87, 146,.25);
     display: flex;
-    align-items: center;
     flex-direction: column;
+}
+
+#beneficios .card {
+    align-items: center;
 }
 
 .groupCards {
@@ -242,6 +245,12 @@ li a {
     align-items: center;
     gap: 15px;
 
+    div {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
     img {
         margin: 10px 0px 10px 23px;
         border-radius: 50%;
@@ -255,17 +264,58 @@ li a {
 
 .cardBody {
     padding: 23px;
+    width: 100%; 
+    box-sizing: border-box;
 
     img {
+        display: block;
+        margin: 0 auto 15px auto;
+        max-width: 100%; 
         border-radius: 15px;
+    }
+
+    .texto {
+        text-align: left;
     }
 }
 
 .carrosel {
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden; 
+
+    .card {
+        min-width: 100%;
+        flex-shrink: 0;
+    }
+}
+
+.carrosel .material-symbols-outlined {
+    cursor: pointer;
+    position: absolute; 
+    z-index: 10; 
+    font-size: 50px; 
+    color: var(--TextoSecundario); 
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+.prev-btn {
+    left: 5px;
+}
+
+.next-btn {
+    right: 5px;
+}
+
+.conteudoSlides {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
 }
 
 .indicadores {
@@ -538,8 +588,16 @@ dialog {
         gap: 30px;
     }
 
-    .card {
+    .carrosel {
+        width: 600px; 
+    }
+
+    .groupCards .card {
         width: 260px;
+    }
+
+    .carrosel .card { 
+        width: 100%; 
     }
 
     .formulario {

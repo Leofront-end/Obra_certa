@@ -99,23 +99,24 @@ nav {
     li {
         margin: 20px;
     }
-}
 
-nav button {
-    font-weight: var(--font-weight-bold);
-    font-style: var(--font-style-italic);
-    width: 100px;
-    height: 50px;
-    background-color: var(--CorSecundaria);
-    border: 1px solid var(--CorPrimaria);
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all ease-in .5s;
+    button {
+        font-weight: var(--font-weight-bold);
+        font-style: var(--font-style-italic);
+        width: 100px;
+        height: 50px;
+        background-color: var(--CorSecundaria);
+        border: 1px solid var(--CorPrimaria);
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all ease-in .5s;
 
-    &:hover {
-        background-color: var(--CorPrimaria);
+        &:hover {
+            background-color: var(--CorPrimaria);
+        }
     }
 }
+
 
 li a {
     font-weight: 600;
@@ -314,37 +315,60 @@ li a {
     }
 }
 
+form {
+    label {
+        font-size: 15px;
+    }
+
+    p > a {
+        color: var(--CorPrimaria);
+        font-weight: bold;
+        font-size: 15px;
+        text-decoration: none;
+    }
+
+    select, input {
+        border: 1px solid var(--BordaSecundaria);
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    input:focus, select:focus {
+        border: 2px solid var(--CorPrimaria);
+        outline: none;
+    }
+
+    input[type="checkbox"] {
+        accent-color: var(--BordaSecundaria);
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin: 15px auto;
+        height: 50px;
+        padding: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        font-style: var(--font-style-italic);
+        background-color: var(--CorPrimaria);
+        box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
+        border: none;
+        border-radius: 15px;
+    }
+
+    label a {
+        color: var(--TextoSecundario);
+        font-weight: bold;
+    }
+}
+
 form,.google {
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-
-form > label {
-    font-size: 15px;
-}
-
-form p > a {
-    color: var(--CorPrimaria);
-    font-weight: bold;
-    font-size: 15px;
-    text-decoration: none;
-}
-
-form select, form input {
-    border: 1px solid var(--BordaSecundaria);
-    padding: 5px;
-    border-radius: 5px;
-}
-
-form input:focus, select:focus {
-    border: 2px solid var(--CorPrimaria);
-    outline: none;
-}
-
-label a {
-    color: var(--TextoSecundario);
-    font-weight: bold;
 }
 
 .modalHeader {
@@ -362,15 +386,17 @@ label a {
     font-size: 20px;
     font-weight: var(--font-weight-bold);
     color: var(--TextoSecundario);
+
+    &::after,&::before {
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: var(--BordaSecundaria);
+        content: var(--Linha);
+    }
 }
 
-.google .ou::after,.google .ou::before {
-    display: block;
-    height: 1px;
-    width: 100%;
-    background-color: var(--BordaSecundaria);
-    content: var(--Linha);
-}
+
 
 .google button {
     display: flex;
@@ -446,23 +472,6 @@ dialog {
         flex-direction: column;
         align-items: center;
         gap: 5px;
-    }
-
-    button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        margin: 15px auto;
-        height: 50px;
-        padding: 10px;
-        font-size: 25px;
-        font-weight: bold;
-        font-style: var(--font-style-italic);
-        background-color: var(--CorPrimaria);
-        box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
-        border: none;
-        border-radius: 15px;
     }
 }
 

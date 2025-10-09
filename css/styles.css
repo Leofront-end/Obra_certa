@@ -350,7 +350,7 @@ li a {
     width: calc(100% - 46px);
     padding: 23px;
     background: var(--Fundo);
-    margin: auto;
+    margin: 10px auto;
     padding: 0;
     border: 1px solid var(--BordaSecundaria);
     border-radius: 15px;

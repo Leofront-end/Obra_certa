@@ -421,6 +421,20 @@ form {
         color: var(--TextoSecundario);
         font-weight: bold;
     }
+
+    div > button {
+        background-color: var(--CorSecundaria);
+        border: 1px solid var(--BordaSecundaria);
+        box-shadow: 0px 4px 4px hsla(204, 100%, 29%, 0.25);
+        width: 100%;
+        transition: ease-in-out .5s;
+    }
+
+    .ativarBotao {
+        background-color: var(--BordaSecundaria);
+        color: var(--CorSecundaria);
+    }
+    
 }
 
 form,.google {

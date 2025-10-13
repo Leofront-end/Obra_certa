@@ -1,51 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const adSlides = [ // textos dos slides
-        {content: 'Anúncio 1: Planeje sua obra com precisão!'},
-        {content: 'Anúncio 2: As melhores ferramentas para sua construção.'},
-        {content: 'Anúncio 3: Economize até 30% em materiais.'}
-    ];
-    
-    // setar índice inicial
-    let currentSlideIndex = 0;
+const adSlides = [ // textos dos slides
+    {content: 'Anúncio 1: Planeje sua obra com precisão!'},
+    {content: 'Anúncio 2: As melhores ferramentas para sua construção.'},
+    {content: 'Anúncio 3: Economize até 30% em materiais.'}
+];
 
-    const adContent = document.querySelector('.ad-content');
-    const arrows = document.querySelectorAll('.arrow');
-    const dots = document.querySelectorAll('.dot');
+// setar índice inicial
+let currentSlideIndex = 0;
 
-    console.log('Elemento do conteúdo encontrado:', adContent);
+const adContent = document.querySelector('.ad-content');
+const arrows = document.querySelectorAll('.arrow');
+const dots = document.querySelectorAll('.dot');
 
-    function showSlide(index) {
+console.log('Elemento do conteúdo encontrado:', adContent);
 
-        console.log('Tentando exibir o texto:', adSlides[index].content);
-        // att texto do slide
-        adContent.textContent = adSlides[index].content;
+function showSlide(index) {
 
-        // att pontinho ativo
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].classList.add('active');
+    console.log('Tentando exibir o texto:', adSlides[index].content);
+    // att texto do slide
+    adContent.textContent = adSlides[index].content;
 
-        // muda pro indice atual
-        currentSlideIndex = index;
-    };
+    // att pontinho ativo
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
 
-    arrows.forEach(arrow => {
-        arrow.addEventListener('click', () => {
-            if (arrow.textContent.includes('arrow_back_ios')) {
-                // indica q a seta pra esquerda volta um slide
-                currentSlideIndex = (currentSlideIndex > 0) ? currentSlideIndex - 1 : adSlides.length - 1;
-            } else {
-                // seta pra direita = passa um slide
-                currentSlideIndex = (currentSlideIndex < adSlides.length - 1) ? currentSlideIndex + 1 : 0;
-            }
-            showSlide(currentSlideIndex);
-        })
-    });
+    // muda pro indice atual
+    currentSlideIndex = index;
+};
 
-    dots.forEach((dot, index) => {
+arrows.forEach(arrow => {
+    arrow.addEventListener('click', () => {
+        if (arrow.textContent.includes('arrow_back_ios')) {
+            // indica q a seta pra esquerda volta um slide
+            currentSlideIndex = (currentSlideIndex > 0) ? currentSlideIndex - 1 : adSlides.length - 1;
+        } else {
+            // seta pra direita = passa um slide
+            currentSlideIndex = (currentSlideIndex < adSlides.length - 1) ? currentSlideIndex + 1 : 0;
+        }
+        showSlide(currentSlideIndex);
+    })
+});
+
+dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
         showSlide(index);
     });
-    });
-
-    showSlide(0);
 });
+
+showSlide(0);

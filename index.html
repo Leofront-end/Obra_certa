@@ -10,17 +10,20 @@
 </head>
 <body>
     <header>
-        <img src="assets/icon/semFundo/Normal.png" alt="">
-        <span class="material-symbols-outlined">
-          menu
-        </span>
+        <div class="header">
+            <img src="assets/icon/semFundo/Normal_cut.png" alt="logo da obra certa">
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+        </div>
         <nav>
             <ul>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#feedback">Feedback</a></li>
-                <li><a href="" class="cadastro" onclick="modalCadastros(event)">Cadastrar</a></li>
+                <li><a href="#experimente">Experimente</a></li>
+                <li><a href="" class="cadastro" data-modal-target="modalCadastro">Cadastrar</a></li>
             </ul>
-            <button class="login">Entrar</button>
+            <button class="login" data-modal-target="modalLogin">Entrar</button>
         </nav>
     </header>
     <main>
@@ -29,7 +32,7 @@
             <div>
                 <p class="Titulo">Obra Certa</p>
                 <p>Transforme como você constrói</p>
-                <button  onclick="modalCadastros()">Cadastre-se Grátis</button>
+                <button data-modal-target="modalCadastro">Cadastre-se Grátis</button>
             </div>
         </section>
         <section id="beneficios">
@@ -61,27 +64,51 @@
         <section id="feedback">
             <p class="Titulo">O que nossos clientes estão dizendo?</p>
             <div class="carrosel">
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined prev-btn">
                     keyboard_arrow_left
                 </span>
-                <div>
+                <div class="conteudoSlides">
                     <div class="card">
                         <div class="cardHeader">
-                            <img src="#" alt="">
+                            <img src="https://picsum.photos/50/50" alt="foto da pessoa">
                             <div>
                                 <p>Nome</p>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
+                                <p>Profissão</p>
                             </div>
                         </div>
-                        <img src="#" alt="">
-                        <p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit eveniet sunt suscipit, quidem doloribus quisquam odit quas velit pariatur quae.</p>
+                        <div class="cardBody">
+                            <img src="https://picsum.photos/200/200" alt="">
+                            <p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit eveniet sunt suscipit, quidem doloribus quisquam odit quas velit pariatur quae.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardHeader">
+                            <img src="https://picsum.photos/50/50" alt="foto da pessoa">
+                            <div>
+                                <p>Nome 2</p>
+                                <p>Profissão 2</p>
+                            </div>
+                        </div>
+                        <div class="cardBody">
+                            <img src="https://picsum.photos/200/200" alt="">
+                            <p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit eveniet sunt suscipit, quidem doloribus quisquam odit quas velit pariatur quae.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardHeader">
+                            <img src="https://picsum.photos/50/50" alt="foto da pessoa">
+                            <div>
+                                <p>Nome 3</p>
+                                <p>Profissão 3</p>
+                            </div>
+                        </div>
+                        <div class="cardBody">
+                            <img src="https://picsum.photos/200/200" alt="">
+                            <p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit eveniet sunt suscipit, quidem doloribus quisquam odit quas velit pariatur quae.</p>
+                        </div>
                     </div>
                 </div>
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined next-btn">
                     keyboard_arrow_right
                 </span>
             </div>
@@ -90,26 +117,68 @@
                 <div class="indicador"></div>
                 <div class="indicador"></div>
             </div>
-            <img src="#" alt="">
-            <p class="Titulo">+1.000 obras gerenciadas</p>
+        </section>
+        <section id="experimente">
+            <p class="Titulo">Experimente fazer um calculo</p>
+            <div class="formulario">
+                <img src="assets/images/Calculadora.png" alt="Imagem de uma calculadora">
+                <form action="#" id="materiaisForm">
+                    <label for="superficie">Superficie</label>
+                    <select name="superficie" id="superficie">
+                        <option value="" disabled selected hidden>Clique para selecionar</option>
+                        <option value="piso">Piso</option>
+                        <option value="parede">Parede</option>
+                        <option value="teto">Teto</option>
+                        <option value="reboco">Reboco</option>
+                        <option value="contrapiso">Contrapiso</option>
+                        <option value="laje">Laje</option>
+                        <option value="forro">Forro</option>
+                    </select>
+
+                    <label for="material">Tipo de Material</label>
+                    <select name="material" id="material">
+                        <option value="" disabled selected hidden>Clique para selecionar</option>
+                    </select>
+
+                    <label for="geometria">Figura Geométrica</label>
+                    <select name="geometria" id="geometria">
+                        <option value="" disabled selected hidden>Clique para selecionar</option>
+                        <option value="">Quadrado</option>
+                        <option value="">Retângulo</option>
+                        <option value="">Triângulo</option>
+                        <option value="">Triângulo Retângulo</option>
+                    </select>
+
+                    <label for="altura">Altura</label>
+                    <input type="number" name="altura" id="altura" placeholder="Digite a altura em metros">
+                    
+                    <label for="largura">Largura</label>
+                    <input type="number" name="largura" id="largura" placeholder="Digite a largura em metros">
+
+                    <button data-modal-target="modalLogin"><span class="material-symbols-outlined">calculate</span>Calcular</button>
+                </form>
+            </div>
         </section>
         <dialog id="modalLogin">
             <div class="modalHeader">
-                <p class="Titulo">Login</p>
+                <p class="Titulo">Entrar na conta</p>
                 <span class="material-symbols-outlined">
                     close
                 </span>
             </div>
             <form id="loginForm">
                 <label for="emailLogin">E-mail:</label>
-                <input type="email" name="emailLogin" id="emailLogin" placeholder="Exemplo@gmail.com">
+                <input type="email" name="emailLogin" id="emailLogin" placeholder="Exemplo@gmail.com" autocomplete="email">
                 <label for="senhaLogin">Senha:</label>
-                <input type="password" name="senhaLogin" id="senhaLogin" placeholder="Digite sua senha">
+                <input type="password" name="senhaLogin" id="senhaLogin" placeholder="Digite sua senha" autocomplete="current-password">
                 <div>
-                    <input type="checkbox" name="lembrarSenha" id="lembrarSenha">
-                    <label for="lembrarSenha">Lembrar senha</label>
-                    <p><a href="recuperar.html">Esqueceu a senha?</a></p>
+                    <div>
+                        <input type="checkbox" name="lembrarSenha" id="lembrarSenha">
+                        <label for="lembrarSenha">Lembrar senha</label>
+                    </div>
+                    <p><a href="#">Esqueceu a senha?</a></p>
                 </div>
+                <p class="invalido"></p>
                 <button>Entrar</button>
             </form>
             <div class="google">
@@ -119,7 +188,7 @@
             </div>
             <div>
                 <p>Não tem conta?</p>
-                <p><a href="" class="mudarModal">Cadastrar</a></p>
+                <p><a href="" class="mudarModal" data-modal-target="modalCadastro">Cadastrar</a></p>
             </div>
         </dialog>
         <dialog id="modalCadastro">
@@ -129,28 +198,38 @@
                     close
                 </span>
             </div>
-            <form action="">
+            <form action="#" id="cadastroForm">
+                <div>
+                    <button >Trabalhador</button>
+                    <button>Cliente</button>
+                </div>
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
 
                 <label for="emailCadastro">Email:</label>
-                <input type="email" name="emailCadastro" id="emailCadastro" placeholder="Exemplo@gmail.com">
+                <input type="email" name="emailCadastro" id="emailCadastro" placeholder="Exemplo@gmail.com" autocomplete="email">
                 
                 <label for="senhaCadastro">Senha:</label>
-                <input type="password" name="senhaCadastro" id="senhaCadastro" placeholder="Digite sua senha">
+                <input type="password" name="senhaCadastro" id="senhaCadastro" placeholder="Digite sua senha" autocomplete="new-password">
                 
                 <label for="confirmarSenha">Confirmar senha:</label>
-                <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Digite sua senha">
+                <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Digite sua senha" autocomplete="new-password">
                 <div>
                     <input type="checkbox" name="termosUso" id="termosUso">
                     <label for="termosUso">Li e estou de acordo com o <a href="#">Termo de Uso</a> e <a href="#">Politica de Privacidade</a></label>
                 </div>
+                <p class="invalido"></p>
                 <button>Cadastrar</button>
             </form>
             <div>
                 <p>Já tem conta?</p>
-                <p class="mudarModal">Entrar</p>
+                <p class="mudarModal" data-modal-target="modalLogin">Entrar</p>
             </div>
+        </dialog>
+        <dialog id="CadastroSucesso">
+            <p class="Titulo">Cadastro efetuado com sucesso</p>
+            <p>Clique no botão login para continuar</p>
+            <button data-modal-target="modalLogin">Login</button>
         </dialog>
     </main>
     <footer>
@@ -171,6 +250,6 @@
             <p><a href="#">Tik Tok</a></p>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>

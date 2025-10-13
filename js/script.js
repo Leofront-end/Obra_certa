@@ -1,31 +1,44 @@
-let botaoLogin = document.querySelector('nav button')
-let modalLogin = document.querySelector('#modalLogin')
-let modalCadastro = document.querySelector('#modalCadastro')
-let botaoCadastro = document.querySelector('.hero button')
-let fecharModal = document.querySelectorAll('dialog span')
-
-// ---------------------------------------------------------------------
-// direcionar pro dashboard após logar
-let loginForm = document.querySelector('#loginForm')
-loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    window.location.href = "dashboard.html"
-});
-// ---------------------------------------------------------------------
-
-
-fecharModal[0].addEventListener('click', () => modalLogin.close())
-fecharModal[1].addEventListener('click', () => modalCadastro.close())
-
-botaoCadastro.addEventListener('click', () => modalCadastro.showModal())
-
-function modalCadastros(e) {
-    e.preventDefault()
-    modalCadastro.showModal()
+export function abrirModal(modal) {
+    if (modal) modal.showModal();
 }
 
+export function fecharModal(modal) {
+    if (modal) modal.close();
+}
 
-botaoLogin.addEventListener('click', () => {
-    modalLogin.showModal()
-})
+function setupModalTriggers() {
+    document.querySelectorAll('[data-modal-target]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const targetId = btn.getAttribute('data-modal-target');
+            const targetModal = document.querySelector(`#${targetId}`);
+
+            const modalAberto = e.target.closest('dialog');
+            if (modalAberto) {
+                fecharModal(modalAberto);
+            }
+            abrirModal(targetModal);
+        });
+    });
+
+    document.querySelectorAll('dialog .material-symbols-outlined').forEach(span => {
+        if (span.textContent.trim() === 'close') {
+            span.addEventListener('click', (e) => {
+                const modal = e.target.closest('dialog');
+                fecharModal(modal);
+            });
+        }
+    });
+}
+
+import { setupCarrossel } from './carrossel.js'; 
+import { setupForms } from './forms.js';
+import { setupMenu } from './menu.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupModalTriggers();
+    setupForms();
+    setupMenu();
+    setupCarrossel();
+});

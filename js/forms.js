@@ -36,13 +36,32 @@ function handleSuperficieChange() {
     });
 }
 
+function botaoAtivo (botaoCadastro, botao) {
+    botaoCadastro.forEach(inativar => inativar.classList.remove('ativarBotao'))
+
+    return botao.classList.add('ativarBotao')
+}
+
 function handleCadastroSubmit() {
     if (!cadastroForm || !invalido[1]) return;
+
+    let botaoCadastro = cadastroForm.querySelectorAll('div button')
+    botaoCadastro.forEach((botao) => {
+        botao.addEventListener('click', () =>  botaoAtivo(botaoCadastro,botao))
+    })
+    
 
     cadastroForm.addEventListener('submit', (event) => {
         event.preventDefault()
         invalido[1].textContent = ''
         let inputsCadastro = cadastroForm.querySelectorAll('input')
+        
+        if (!(botaoCadastro[0].className == 'ativarBotao' || botaoCadastro[1].className == 'ativarBotao') ) {
+            invalido[1].textContent = 'Clique em um dos botões'
+            return
+        }
+        
+        let valorBotao = botaoCadastro[0].className == 'ativarBotao' ? "Trabalhador" : "Cliente";
         
         if (inputsCadastro[2].value != inputsCadastro[3].value) {
             invalido[1].textContent = 'As senhas não correspondem'

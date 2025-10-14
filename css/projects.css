@@ -7,7 +7,7 @@
 :root {
     --cor-primaria: #FF6D1F;
     --cor-secundaria: #00385c;
-    
+    --cor-primaria-hover: #e65c00;
     --cor-texto-principal: #1A1A1A;
     --cor-texto-secundario: #4d4d4d;
     --cor-fundo-app: #f4f5f7;
@@ -30,6 +30,7 @@ body {
     padding: 0 20px;
 }
 
+/* header */
 .app-header {
     background-color: white;
     padding: 10px 0;
@@ -39,6 +40,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .logo {
@@ -75,6 +77,35 @@ body {
     background-color: var(--cor-secundaria);
     color: white;
 }
+
+/* dashboard (main) */
 .dashboard-main {
     padding: 30px 0;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    background-color: var(--cor-primaria);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 20px;
 }

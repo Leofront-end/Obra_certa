@@ -118,30 +118,52 @@ body {
     margin-bottom: 20px;
 }
 
-.actions-bar {
+.search-container {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    border: 1px solid var(--cor-borda-suave);
+    border-radius: 8px;
+    background-color: #fff;
     margin-bottom: 30px;
+    font-family: sans-serif;
+    overflow: hidden; /* esconde os cantos do btn */
 }
 
-.search-bar {
+.search-container .search-icon {
+    color: #71717A;
+    padding: 0 15px;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.search-container input {
     flex-grow: 1;
-    position: relative;
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    font-size: 16px;
+    background-color: transparent;
 }
 
-.search-bar .material-symbols-outlined {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+.search-container input::placeholder {
     color: #999;
 }
 
-.search-bar input {
-    width: 100%;
-    padding: 12px 15px 12px 45px;
-    border-radius: 8px;
-    border: 1px solid var(--cor-borda-suave);
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--cor-azul-card);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
     font-size: 16px;
-    font-family: var(--fonte-principal);
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    align-self: stretch; /* faz o btn preencher, esticando ele */
+}
+
+.filter-btn:hover {
+    background-color: var(--cor-secundaria);
 }

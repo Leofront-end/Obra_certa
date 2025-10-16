@@ -268,7 +268,16 @@ body {
 }
 
 .btn-details {
+    font-weight: 600;
+    padding: 6px 12px;
+    background-color: var(--cor-azul-card);
+    color: white;
     text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn-details:hover {
+    background-color: var(--cor-secundaria);
 }
 
 /* estilo pro card 100% */
@@ -295,11 +304,15 @@ body {
 }
 
 .status-completed .btn-details {
-    padding: 3px 10px;
-    border-radius: 20px;
+    padding: 6px 12px;
+    border-radius: 6px;
     background-color: #9c9c9c;
     color: white;
     text-decoration: none;
+}
+
+.status-completed .btn-details:hover {
+    background-color: #858484;
 }
 
 .status-completed .card-progress-area {

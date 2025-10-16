@@ -61,13 +61,20 @@ function handleCadastroSubmit() {
             return
         }
         
-        let valorBotao = botaoCadastro[0].className == 'ativarBotao' ? "Trabalhador" : "Cliente";
+        // let valorBotao = botaoCadastro[0].className == 'ativarBotao' ? "Trabalhador" : "Cliente";
         
+        if (invalidateEmail(inputsCadastro[1].value)) {
+            invalido[1].textContent = 'Digite um email valido'
+            inputsCadastro[1].focus()
+            return
+        }
+
         if (inputsCadastro[2].value != inputsCadastro[3].value) {
             invalido[1].textContent = 'As senhas não correspondem'
             inputsCadastro[2].focus()
             return
         }
+
         
         for (let input of inputsCadastro) {
             if (input.value.trim() == '') {
@@ -76,6 +83,12 @@ function handleCadastroSubmit() {
                 return
             }
         }
+
+        if (!inputsCadastro[4].checked) {
+            invalido[1].textContent = 'Aceite os termos' 
+            input.focus()
+            return
+        }
         
         if (invalido[1].textContent == '') {
             const modal = event.target.closest('dialog');
@@ -83,6 +96,11 @@ function handleCadastroSubmit() {
             abrirModal(document.querySelector('#CadastroSucesso'))
         }
     })
+}
+
+function invalidateEmail (email) {
+    const regex = /^[^\s]+@[^\s]+\.[^\s]+$/
+    return !regex.test(email)
 }
 
 function handleLoginSubmit() {
@@ -95,7 +113,7 @@ function handleLoginSubmit() {
         const emailInput = document.getElementById('emailLogin');
         const senhaInput = document.getElementById('senhaLogin');
 
-        if (!emailInput || emailInput.value == '') {
+        if (!emailInput || invalidateEmail(emailInput.value)) {
             invalido[0].textContent = 'Seu email está inválido'
             if (emailInput) emailInput.focus()
         } else if (!senhaInput || senhaInput.value == '') {

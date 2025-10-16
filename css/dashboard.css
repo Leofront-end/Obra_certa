@@ -181,6 +181,10 @@ body {
     transform: translateY(-5px);
 }
 
+.shared {
+    cursor: pointer;
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;

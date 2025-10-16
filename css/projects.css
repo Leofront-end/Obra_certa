@@ -327,3 +327,11 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.status-completed .team-members {
+    filter: grayscale(70%);
+}
+
+.status-completed:hover .team-members {
+    filter: grayscale(0);
+}

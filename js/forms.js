@@ -38,7 +38,6 @@ function handleSuperficieChange() {
 
 function botaoAtivo (botaoCadastro, botao) {
     botaoCadastro.forEach(inativar => inativar.classList.remove('ativarBotao'))
-
     return botao.classList.add('ativarBotao')
 }
 
@@ -50,7 +49,6 @@ function handleCadastroSubmit() {
         botao.addEventListener('click', () =>  botaoAtivo(botaoCadastro,botao))
     })
     
-
     cadastroForm.addEventListener('submit', (event) => {
         event.preventDefault()
         invalido[1].textContent = ''

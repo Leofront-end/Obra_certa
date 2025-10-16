@@ -545,6 +545,23 @@ dialog {
         align-items: center;
         gap: 5px;
     }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin: 15px auto;
+        height: 50px;
+        padding: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        font-style: var(--font-style-italic);
+        background-color: var(--CorPrimaria);
+        box-shadow: 0px 4px 4px rgba(255, 109, 31, .25);
+        border: none;
+        border-radius: 15px;
+    }
 }
 
 #CadastroSucesso p {

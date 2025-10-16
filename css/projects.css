@@ -266,3 +266,50 @@ body {
 .team-members img:first-child {
     margin-left: 0;
 }
+
+.btn-details {
+    text-decoration: none;
+}
+
+/* estilo pro card 100% */
+
+.status-completed {
+    opacity: 0.8;
+    background-color: #fcfcfc;
+}
+
+.status-completed:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 56, 92, 0.1);
+}
+
+.status-completed .card-icon {
+    color: var(--cor-texto-secundario);
+}
+
+.status-completed .project-status{
+    color: white;
+    background-color: #9c9c9c;
+}
+
+.status-completed .btn-details {
+    padding: 3px 10px;
+    border-radius: 20px;
+    background-color: #9c9c9c;
+    color: white;
+    text-decoration: none;
+}
+
+.status-completed .card-progress-area {
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cor-texto-secundario);
+    padding: 8px;
+    margin: 16px 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

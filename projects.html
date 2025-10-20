@@ -49,7 +49,9 @@
     <dialog class="project-modal" id="project-modal">
         <form id="project-form">
             <h2 id="modal-title">Novo Projeto</h2>
-            <input type="hidden" id="project-id"> <div class="form-group">
+            <input type="hidden" id="project-id">
+
+            <div class="form-group">
                 <label for="project-title">Título do Projeto</label>
                 <input type="text" id="project-title" required>
             </div>
@@ -70,6 +72,20 @@
             </div>
         </form>
     </dialog>
+
+    <dialog class="project-modal delete-modal" id="delete-modal">
+        <h2 id="modal-title">Confirmar Exclusão</h2>
+        <p>Você tem certeza que deseja excluir o projeto "<strong id="delete-project-title"></strong>"?</p>
+        <p class="delete-warning">Esta ação não pode ser desfeita.</p>
+        
+        <input type="hidden" id="project-id-to-delete">
+
+        <div class="modal-actions">
+            <button type="button" class="btn-secondary" id="cancel-delete-btn">Cancelar</button>
+            <button type="button" class="btn-danger" id="confirm-delete-btn">Sim, Excluir</button>
+        </div>
+    </dialog>
+
     <script src="js/projects.js"></script>
 </body>
 </html>

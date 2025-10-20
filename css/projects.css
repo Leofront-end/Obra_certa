@@ -336,6 +336,108 @@ body {
     filter: grayscale(0);
 }
 
+/* --- alterações para crud --- */
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.project-modal {
+    width: 100%;
+    max-width: 500px;
+    border: none;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: fixed;
+    top: 50%;      
+    left: 50%;     
+    transform: translate(-50%, -50%); 
+    margin: 0;
+}
+
+.project-modal h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    text-align: center;
+    color: var(--cor-secundaria);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cor-borda-suave);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: var(--fonte-principal);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: var(--cor-texto-principal);
+    border: 1px solid var(--cor-borda-suave);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Novos botões de ação no card */
+.card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    background: none;
+    border: 1px solid var(--cor-borda-suave);
+    color: var(--cor-texto-secundario);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.btn-action.btn-edit:hover {
+    background-color: var(--cor-azul-card);
+    border-color: var(--cor-azul-card);
+    color: white;
+}
+.btn-action.btn-delete:hover {
+    background-color: #d9534f;
+    border-color: #d9534f;
+    color: white;
+}
+
+.empty-message {
+    text-align: center;
+    color: var(--cor-texto-secundario);
+    padding: 40px;
+}
+
 @media (max-width: 768px) {
     .app-nav { /* esconder nav */
         display: none;

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/icon/semFundo/Normal.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="css/projects.css">
+    <title>Projetos</title>
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="assets/icon/semFundo/Normal_cut.png" alt="Logo Obra Certa">
+            </a>
+            <nav class="app-nav">
+                <a href="dashboard.html"><span class="material-symbols-outlined">home</span> Início</a>
+                <a href="projects.html" class="active"><span class="material-symbols-outlined">foundation</span> Projetos</a>
+                <a href="#"><span class="material-symbols-outlined">calculate</span> Calcular</a>
+                <a href="#"><span class="material-symbols-outlined">settings</span> Configurações</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="section-title">Meus Projetos</h1>
+                <button class="btn-primary" id="open-modal-btn">
+                    <span class="material-symbols-outlined">add_circle</span>
+                    Criar Novo Projeto
+                </button>
+            </div>
+
+            <div class="search-container">
+                <span class="material-symbols-outlined search-icon">search</span>
+                <input type="text" placeholder="Buscar por projetos...">
+
+                <!-- <select name="filter" class="search-filter">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                </select> -->
+                
+                <!-- dps tem q fazer a telinha do filtro aparecer quando clicar :( -->
+                <button class="filter-btn">
+                    <span class="material-symbols-outlined">filter_alt</span>
+                    <span>Filtrar</span>
+                    <span class="material-symbols-outlined">arrow_drop_down</span>
+                </button>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- card 1 -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="material-symbols-outlined card-icon">apartment</span>
+                        <h3 class="card-title">Edifício Muito Legal!</h3>
+                        <span class="project-status in-progress">Em Andamento</span>
+                    </div>
+                    
+                    <p class="card-text">Acompanhamento de alvenaria e acabamentos do bloco A.</p>
+
+                    <div class="card-progress">
+                        <label>Progresso: 80%</label>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="team-members">
+                            <img src="https://i.pravatar.cc/32?img=1" alt="Imagem de perfil do participante 1">
+                            <img src="https://i.pravatar.cc/32?img=2" alt="Imagem de perfil do participante 2">
+                            <img src="https://i.pravatar.cc/32?img=3" alt="Imagem de perfil do participante 3">
+                        </div>
+                        <a href="#" class="btn-details">Ver Detalhes</a>
+                    </div>
+                </div>
+
+                <!-- card 2 -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="material-symbols-outlined card-icon">domain</span>
+                        <h3 class="card-title">Condomínio Power Guido</h3>
+                        <span class="project-status in-progress">Em Andamento</span>
+                    </div>
+                    
+                    <p class="card-text">Fase de fundação. Próxima medição em 25/11.</p>
+
+                    <div class="card-progress">
+                        <label>Progresso: 15%</label>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 15%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="team-members">
+                            <img src="https://i.pravatar.cc/32?img=4" alt="Imagem de perfil do participante 1">
+                            <img src="https://i.pravatar.cc/32?img=5" alt="Imagem de perfil do participante 2">
+                            <img src="https://i.pravatar.cc/32?img=6" alt="Imagem de perfil do participante 3">
+                        </div>
+                        <a href="#" class="btn-details">Ver Detalhes</a>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="material-symbols-outlined card-icon">warehouse</span>
+                        <h3 class="card-title">Galpão Industrial</h3>
+                        <span class="project-status in-progress">Em Andamento</span>
+                    </div>
+                    
+                    <p class="card-text">Projeto concluído. Aguardando documentação final.</p>
+
+                    <div class="card-progress">
+                        <label>Progresso: 99%</label>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 99%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="team-members">
+                            <img src="https://i.pravatar.cc/32?img=7" alt="Imagem de perfil do participante 1">
+                            <img src="https://i.pravatar.cc/32?img=8" alt="Imagem de perfil do participante 2">
+                            <img src="https://i.pravatar.cc/32?img=9" alt="Imagem de perfil do participante 3">
+                        </div>
+                        <a href="#" class="btn-details">Ver Detalhes</a>
+                    </div>
+                </div>
+
+                <!-- card 4 -->
+                <div class="project-card status-completed">
+                    <div class="card-header">
+                        <span class="material-symbols-outlined card-icon">storefront</span>
+                        <h3 class="card-title">Projeto Cliente X</h3>
+                        <span class="project-status">Concluído</span>
+                    </div>
+                    
+                    <p class="card-text">Acesso somente leitura para acompanhamento do cliente.</p>
+
+                    <!-- estilo card com progressão em 100% -->
+                    <div class="card-progress-area">
+                        Finalizado em 15 de Outubro de 2025
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="team-members">
+                            <img src="https://i.pravatar.cc/32?img=10" alt="Imagem de perfil do participante 1">
+                            <img src="https://i.pravatar.cc/32?img=11" alt="Imagem de perfil do participante 2">
+                            <img src="https://i.pravatar.cc/32?img=12" alt="Imagem de perfil do participante 3">
+                        </div>
+                        <a href="#" class="btn-details">Ver Relatório</a>
+                    </div>
+                </div>
+
+                <!-- card 5 -->
+                <div class="project-card status-completed">
+                    <div class="card-header">
+                        <span class="material-symbols-outlined card-icon">house</span>
+                        <h3 class="card-title">Obra Parceiro Y</h3>
+                        <span class="project-status">Concluído</span>
+                    </div>
+                    
+                    <p class="card-text">Colaboração no planejamento orçamentário.</p>
+
+                    <div class="card-progress-area">
+                        Finalizado em 09 de junho de 2024
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="team-members">
+                            <img src="https://i.pravatar.cc/32?img=13" alt="Imagem de perfil do participante 1">
+                            <img src="https://i.pravatar.cc/32?img=14" alt="Imagem de perfil do participante 2">
+                            <img src="https://i.pravatar.cc/32?img=15" alt="Imagem de perfil do participante 3">
+                        </div>
+                        <a href="#" class="btn-details">Ver Relatório</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

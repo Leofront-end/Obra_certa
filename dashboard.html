@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="css/dashboard.css">
-    <title>Início - Obra Certa</title>
+    <title>Início</title>
 </head>
 <body>
     <header class="app-header">
@@ -18,8 +18,8 @@
                 <img src="assets/icon/semFundo/Normal_cut.png" alt="Logo Obra Certa">
             </a>
             <nav class="app-nav">
-                <a href="#" class="active"><span class="material-symbols-outlined">home</span> Início</a>
-                <a href="#"><span class="material-symbols-outlined">foundation</span> Projetos</a>
+                <a href="dashboard.html" class="active"><span class="material-symbols-outlined">home</span> Início</a>
+                <a href="projects.html"><span class="material-symbols-outlined">foundation</span> Projetos</a>
                 <a href="#"><span class="material-symbols-outlined">calculate</span> Calcular</a>
                 <a href="#"><span class="material-symbols-outlined">settings</span> Configurações</a>
             </nav>
@@ -63,19 +63,54 @@
                     <!-- projetos apenas para exemplo -->
 
                     <div class="project-card">
-                        <span class="material-symbols-outlined card-icon">apartment</span>
-                        <h3 class="card-title">Edifício Residencial Muito Legal!</h3>
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="material-symbols-outlined">apartment</span>
+                                Edifício Muito Legal! 
+                            </h3>
+
+                            <span class="project-status in-progress">Em Andamento</span>
+                        </div>
+
                         <p class="card-text">Acompanhamento de alvenaria e acabamentos do bloco A.</p>
+
+                        <div class="card-footer">
+                            <a href="#" class="btn-details">Ver Detalhes</a>
+                        </div>
                     </div>
+
                     <div class="project-card">
-                        <span class="material-symbols-outlined card-icon">apartment</span>
-                        <h3 class="card-title">Casa Condomínio Power Guido</h3>
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="material-symbols-outlined">domain</span>
+                                Casa Condomínio Power Guido
+                            </h3>
+
+                            <span class="project-status in-progress">Em Andamento</span>
+                        </div>
+
                         <p class="card-text">Fase de fundação. Próxima medição em 25/11.</p>
+
+                        <div class="card-footer">
+                            <a href="#" class="btn-details">Ver Detalhes</a>
+                        </div>
                     </div>
+
                     <div class="project-card">
-                        <span class="material-symbols-outlined card-icon">apartment</span>
-                        <h3 class="card-title">Galpão Industrial</h3>
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="material-symbols-outlined">warehouse</span>
+                                Galpão Industrial
+                            </h3>
+
+                            <span class="project-status in-progress">Em Andamento</span>
+                        </div>
+
                         <p class="card-text">Projeto concluído. Aguardando documentação final.</p>
+
+                        <div class="card-footer">
+                            <a href="#" class="btn-details">Ver Detalhes</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -83,12 +118,12 @@
             <section class="projects-section">
                 <h2 class="section-title">Compartilhados</h2>
                 <div class="projects-grid">
-                    <div class="project-card">
+                    <div class="project-card shared">
                         <span class="material-symbols-outlined card-icon">apartment</span>
                         <h3 class="card-title">Projeto Cliente X</h3>
                         <p class="card-text">Acesso somente leitura para acompanhamento do cliente.</p>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card shared">
                         <span class="material-symbols-outlined card-icon">apartment</span>
                         <h3 class="card-title">Obra Parceiro Y</h3>
                         <p class="card-text">Colaboração no planejamento orçamentário.</p>

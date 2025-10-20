@@ -335,3 +335,17 @@ body {
 .status-completed:hover .team-members {
     filter: grayscale(0);
 }
+
+@media (max-width: 768px) {
+    .app-nav { /* esconder nav */
+        display: none;
+    }
+
+    .category-buttons { /* uma unica coluna */
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+}

@@ -232,7 +232,7 @@ body {
     flex-shrink: 0;
 }
 
-.project-status .in-progress {
+.in-progress {
     background-color: var(--cor-azul-card);
 }
 

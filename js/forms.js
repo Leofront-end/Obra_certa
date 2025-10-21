@@ -61,10 +61,10 @@ function handleCadastroSubmit() {
         
         // let valorBotao = botaoCadastro[0].className == 'ativarBotao' ? "Trabalhador" : "Cliente";
 
-        if ( /^[A-Za-z\u00C0-\u017F\s]+$/.test(input[0].value)) {
-            invalido[0].textContent = 'Digite um nome valido'
-            inputsCadastro[0].focus()
-        }
+        // if ( /^[A-Za-z\u00C0-\u017F\s]+$/.test(input[0].value)) {
+        //     invalido[0].textContent = 'Digite um nome valido'
+        //     inputsCadastro[0].focus()
+        // }
         
         if (invalidateEmail(inputsCadastro[1].value)) {
             invalido[1].textContent = 'Digite um email valido'

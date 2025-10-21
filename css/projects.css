@@ -394,3 +394,52 @@ body {
 .btn-danger:hover {
     background-color: var(--cor-perigo-hover);
 }
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-texto-principal);
+}
+.menu-toggle .material-symbols-outlined {
+    font-size: 30px;
+}
+
+@media (max-width: 768px) {
+    .app-nav {
+        display: none; 
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 10;
+        gap: 0;
+    }
+
+    .app-nav a {
+        padding: 12px 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .app-nav.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    .category-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+}

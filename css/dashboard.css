@@ -250,12 +250,47 @@ body {
     background-color: #f0f0f0;
 }
 
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-texto-principal);
+}
+.menu-toggle .material-symbols-outlined {
+    font-size: 30px;
+}
+
 @media (max-width: 768px) {
-    .app-nav { /* esconder nav */
-        display: none;
+    .app-nav {
+        display: none; 
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 10;
+        gap: 0;
     }
 
-    .category-buttons { /* uma unica coluna */
+    .app-nav a {
+        padding: 12px 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .app-nav.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    .category-buttons {
         grid-template-columns: 1fr;
     }
 

@@ -60,11 +60,16 @@ function handleCadastroSubmit() {
         }
         
         // let valorBotao = botaoCadastro[0].className == 'ativarBotao' ? "Trabalhador" : "Cliente";
-
-        // if ( /^[A-Za-z\u00C0-\u017F\s]+$/.test(input[0].value)) {
-        //     invalido[0].textContent = 'Digite um nome valido'
-        //     inputsCadastro[0].focus()
-        // }
+        console.log(invalidarNome(inputsCadastro[0].value));
+        console.log(inputsCadastro[0].value);
+        
+        
+        
+        if (invalidarNome(inputsCadastro[0].value)) {
+            invalido[1].textContent = 'Digite um nome valido'
+            inputsCadastro[0].focus()
+            return
+        }
         
         if (invalidateEmail(inputsCadastro[1].value)) {
             invalido[1].textContent = 'Digite um email valido'
@@ -104,6 +109,16 @@ function handleCadastroSubmit() {
 function invalidateEmail (email) {
     const regex = /^[^\s]+@[^\s]+\.[^\s]+$/
     return !regex.test(email)
+}
+
+function invalidarNome (nome) {
+    const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/
+
+    if (nome.trim() === "") {
+        return true; 
+    }
+
+    return !regex.test(nome)
 }
 
 function handleLoginSubmit() {

@@ -105,7 +105,7 @@ body {
     border: none;
     cursor: pointer;
     background-color: var(--cor-primaria);
-    color: #fff;
+    color: #000000;
 }
 
 .btn-primary:hover {

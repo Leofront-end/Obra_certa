@@ -102,7 +102,7 @@ function handleLoginSubmit() {
             invalido[0].textContent = 'Sua senha está inválida'
             if (senhaInput) senhaInput.focus()
         } else {
-            window.location.href = "dashboard.html"
+            window.location.href = "pages/home.html"
         }
     });
 }

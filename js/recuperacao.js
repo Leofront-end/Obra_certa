@@ -49,7 +49,7 @@ document.querySelector('#step-token form').onsubmit = (e) => {
 // --- 4. NOVA SENHA -> LOGIN (Ao clicar em 'Redefinir Senha') ---
 document.querySelector('#step-nova-senha form').onsubmit = (e) => {
     e.preventDefault(); 
-    window.location.href = 'index.html'; 
+    window.location.href = '../index.html'; 
 };
 
 // --- BOTÃO VOLTAR (Da Escolha para o Email) ---
@@ -60,7 +60,7 @@ document.querySelector('.button-back').onclick = () => {
 // --- FUNÇÃO PARA REDIRECIONAR PARA A PÁGINA DE LOGIN/INICIAL ---
 function voltarParaLogin() {
     // Redireciona o usuário para a página de login (index.html, ou o nome da sua página de login)
-    window.location.href = 'index.html'; 
+    window.location.href = '../index.html'; 
 }
 
 

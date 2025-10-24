@@ -54,12 +54,13 @@ header {
 }
 
 .header {
+    height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 
     img {
-        height: 28px;
+        height: 100%;
     }
 }
 

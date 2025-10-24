@@ -44,6 +44,10 @@ body {
     align-items: center;
 }
 
+.logo {
+    display: flex;
+}
+
 .logo img {
     height: 28px;
 }

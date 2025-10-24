@@ -11,11 +11,7 @@ const adContent = document.querySelector('.ad-content');
 const arrows = document.querySelectorAll('.arrow');
 const dots = document.querySelectorAll('.dot');
 
-console.log('Elemento do conteúdo encontrado:', adContent);
-
 function showSlide(index) {
-
-    console.log('Tentando exibir o texto:', adSlides[index].content);
     // att texto do slide
     adContent.textContent = adSlides[index].content;
 

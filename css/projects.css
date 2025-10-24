@@ -6,7 +6,7 @@
 
 :root {
     --cor-primaria: #FF6D1F;
-    --cor-secundaria: #00385c;
+    --cor-secundaria: #005792;
     --cor-primaria-hover: #e65c00;
     --cor-texto-principal: #1A1A1A;
     --cor-texto-secundario: #4d4d4d;
@@ -34,8 +34,11 @@ body {
 
 .app-header {
     background-color: white;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--cor-borda-suave);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--cor-secundaria);
+    box-shadow: 0px 4px 4px rgba(0, 87, 146, .25);
 }
 
 .app-header .container {

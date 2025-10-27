@@ -38,7 +38,6 @@ function handleSuperficieChange() {
 
 function botaoAtivo (botaoCadastro, botao) {
     botaoCadastro.forEach(inativar => inativar.classList.remove('ativarBotao'))
-
     return botao.classList.add('ativarBotao')
 }
 
@@ -50,7 +49,6 @@ function handleCadastroSubmit() {
         botao.addEventListener('click', () =>  botaoAtivo(botaoCadastro,botao))
     })
     
-
     cadastroForm.addEventListener('submit', (event) => {
         event.preventDefault()
         invalido[1].textContent = ''
@@ -61,13 +59,30 @@ function handleCadastroSubmit() {
             return
         }
         
-        let valorBotao = botaoCadastro[0].className == 'ativarBotao' ? "Trabalhador" : "Cliente";
+        // let valorBotao = botaoCadastro[0].className == 'ativarBotao' ? "Trabalhador" : "Cliente";
+        console.log(invalidarNome(inputsCadastro[0].value));
+        console.log(inputsCadastro[0].value);
         
+        
+        
+        if (invalidarNome(inputsCadastro[0].value)) {
+            invalido[1].textContent = 'Digite um nome valido'
+            inputsCadastro[0].focus()
+            return
+        }
+        
+        if (invalidateEmail(inputsCadastro[1].value)) {
+            invalido[1].textContent = 'Digite um email valido'
+            inputsCadastro[1].focus()
+            return
+        }
+
         if (inputsCadastro[2].value != inputsCadastro[3].value) {
             invalido[1].textContent = 'As senhas não correspondem'
             inputsCadastro[2].focus()
             return
         }
+
         
         for (let input of inputsCadastro) {
             if (input.value.trim() == '') {
@@ -76,6 +91,12 @@ function handleCadastroSubmit() {
                 return
             }
         }
+
+        if (!inputsCadastro[4].checked) {
+            invalido[1].textContent = 'Aceite os termos' 
+            input.focus()
+            return
+        }
         
         if (invalido[1].textContent == '') {
             const modal = event.target.closest('dialog');
@@ -83,6 +104,21 @@ function handleCadastroSubmit() {
             abrirModal(document.querySelector('#CadastroSucesso'))
         }
     })
+}
+
+function invalidateEmail (email) {
+    const regex = /^[^\s]+@[^\s]+\.[^\s]+$/
+    return !regex.test(email)
+}
+
+function invalidarNome (nome) {
+    const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/
+
+    if (nome.trim() === "") {
+        return true; 
+    }
+
+    return !regex.test(nome)
 }
 
 function handleLoginSubmit() {
@@ -95,7 +131,7 @@ function handleLoginSubmit() {
         const emailInput = document.getElementById('emailLogin');
         const senhaInput = document.getElementById('senhaLogin');
 
-        if (!emailInput || emailInput.value == '') {
+        if (!emailInput || invalidateEmail(emailInput.value)) {
             invalido[0].textContent = 'Seu email está inválido'
             if (emailInput) emailInput.focus()
         } else if (!senhaInput || senhaInput.value == '') {

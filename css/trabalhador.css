@@ -449,9 +449,35 @@ input:focus,select:focus, textarea:focus {
     background-color: #9c9c9c;
 }
 
+/* ---------------------------------------------------- */
+/* 8. Configurações */
+/* ---------------------------------------------------- */
+
+.perfil {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & img {
+        border-radius: 50%;
+    }
+}
+
+.setting {
+    margin: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.exit {
+    display: flex;
+    justify-content: center;
+}
 
 /* ---------------------------------------------------- */
-/* 8. MODAL (Unificado) */
+/* 9. MODAL (Unificado) */
 /* ---------------------------------------------------- */
 
 ::backdrop {
@@ -501,7 +527,7 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 9. MEDIA QUERIES (DESKTOP - min-width: 769px) */
+/* 10. MEDIA QUERIES (DESKTOP - min-width: 769px) */
 /* ---------------------------------------------------- */
 
 @media screen and (min-width: 769px) {
@@ -585,6 +611,13 @@ input:focus,select:focus, textarea:focus {
         width: auto;
         text-align: left;
         padding: 6px 12px;
+    }
+
+    /* PERFIL */
+    .perfil {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
     }
 
     /* MODAL */

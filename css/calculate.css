@@ -14,7 +14,7 @@
     --cor-inativa: #D9D9D9;
     --cor-texto-secundario: #4d4d4d;
     --cor-fundo-app: #f4f5f7;
-    --cor-borda-suave: #E0E2E7;
+    --cor-borda-suave: #005792;
     --cor-azul-card: #005792;
     --cor-perigo: #d9534f;
     --cor-perigo-hover: #c9302c;
@@ -186,4 +186,20 @@ input, select{
     flex-direction: column-reverse; 
     gap: 10px;
     margin-top: 20px;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: var(--cor-texto-principal);
+    border: 1px solid var(--cor-borda-suave);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-secundaria);
+    color: #ffffff;
 }

@@ -78,7 +78,7 @@ form {
     width: 100%;
 }
 
-label {
+label, form p {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
@@ -89,6 +89,7 @@ label {
 
 input, select{
     width: 100%;
+    margin-bottom: 15px;
     padding: 10px;
     border: 1px solid var(--cor-borda-suave);
     border-radius: 8px;
@@ -134,4 +135,55 @@ input, select{
         background-color: var(--cor-secundaria);
         content: "";
     }
+}
+
+.project-modal {
+    width: 90%;
+    max-width: 500px;
+    border: none;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.project-modal h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--cor-secundaria);
+    font-size: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--cor-texto-secundario);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--cor-borda-suave);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: var(--fonte-principal);
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column-reverse; 
+    gap: 10px;
+    margin-top: 20px;
 }

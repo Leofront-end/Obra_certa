@@ -39,15 +39,44 @@
                 <label for="tituloCalculo">Titulo do calculo</label>
                 <input type="text" name="tituloCalculo" id="tituloCalculo">
 
-                <label>Criar Projeto</label>
-                <button class="btn-primary"><span class="material-symbols-outlined">add_circle</span> Criar Projeto</button>
+                <p>Criar Projeto</p>
+                <button type="button" class="btn-primary" id="open-modal-btn"><span class="material-symbols-outlined">add_circle</span> Criar Projeto</button>
             </form>
             <p class="ou">ou</p>
             <label for="projetos">Projeto existente</label>
             <select name="projetos" id="projetos">
-                <option value=""></option>
+                        <option value="" disabled selected hidden>Clique para selecionar</option>
             </select>
         </section>
+
+        <dialog class="project-modal" id="project-modal">
+            <form id="project-form">
+                <h2 id="modal-title">Novo Projeto</h2>
+                <input type="hidden" id="project-id">
+
+                <div class="form-group">
+                    <label for="project-title">Título do Projeto</label>
+                    <input type="text" id="project-title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="project-description">Descrição</label>
+                    <textarea id="project-description" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="project-progress">Progresso (%)</label>
+                    <input type="number" id="project-progress" min="0" max="100" value="0" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancel-btn">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar Projeto</button>
+                </div>
+            </form>
+        </dialog>
     </main>
+
+    <script src="../js/calculate.js"></script>
 </body>
 </html>

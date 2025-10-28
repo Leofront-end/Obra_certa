@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/icon/semFundo/Obra Certa.svg" type="image/x-icon">    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/calculate.css">
+    <title>Calculo</title>
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <a href="home.html" class="logo">
+                <img src="../assets/icon/semFundo/Obra Certa.svg" alt="Logo Obra Certa">
+            </a>
+            <nav class="app-nav" id="app-nav"> 
+                <a href="home.html"><span class="material-symbols-outlined">home</span> Início</a>
+                <a href="projects.html"><span class="material-symbols-outlined">foundation</span> Projetos</a>
+                <a href="calculate.html" class="active"><span class="material-symbols-outlined">calculate</span> Calcular</a>
+                <a href="#"><span class="material-symbols-outlined">settings</span> Configurações</a>
+            </nav>
+
+            <button class="menu-toggle" id="menu-toggle-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <main class="container">
+        <h1 class="section-title">Calculo</h1>
+        <section class="icones">
+            <p>Projeto</p>
+            <div>
+                <span class="material-symbols-outlined">apartment</span>
+                <span class="material-symbols-outlined active">calculate</span>
+            </div>
+        </section>
+        <section>
+            <form action="" id="materiaisForm">
+                <label for="superficie">Superficies</label>
+                <select name="superficie" id="superficie">
+                    <option value="" disabled selected hidden>Clique para selecionar</option>
+                    <option value="piso">Piso</option>
+                    <option value="parede">Parede</option>
+                    <option value="teto">Teto</option>
+                    <option value="reboco">Reboco</option>
+                    <option value="contrapiso">Contrapiso</option>
+                    <option value="laje">Laje</option>
+                    <option value="forro">Forro</option>
+                </select>
+                <label for="material">Tipo de material</label>
+                <select name="material" id="material">
+                    <option value="" disabled selected hidden>Clique para selecionar</option>
+                </select>
+                <label for="figuraGeometrica">Figura Geométrica</label>
+                <select name="figuraGeometrica" id="figuraGeometrica">
+                    <option value="" disabled selected hidden>Clique para selecionar</option>
+                    <option value="">Quadrado</option>
+                    <option value="">Retângulo</option>
+                    <option value="">Triângulo</option>
+                    <option value="">Triângulo Retângulo</option>
+                </select>
+
+                <label for="altura">Altura</label>
+                <input type="number" name="altura" id="altura" placeholder="Digite a altura em metros">
+
+                <label for="largura">Largura</label>
+                <input type="number" name="largura" id="largura" placeholder="Digite a largura em metros">
+
+                <button class="btn-primary"><span class="material-symbols-outlined">calculate</span> Calcular</button>
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="../js/material.js"></script>
+</body>
+</html>

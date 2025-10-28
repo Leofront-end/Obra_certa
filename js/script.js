@@ -35,10 +35,12 @@ function setupModalTriggers() {
 import { setupCarrossel } from './carrossel.js'; 
 import { setupForms } from './forms.js';
 import { setupMenu } from './menu.js';
+import { listaMaterial } from "./material.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     setupModalTriggers();
     setupForms();
     setupMenu();
+    listaMaterial();
     setupCarrossel();
 });

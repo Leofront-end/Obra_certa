@@ -69,6 +69,17 @@
     color: white;
 }
 
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-texto-principal);
+}
+.menu-toggle .material-symbols-outlined {
+    font-size: 30px;
+}
+
 @media (min-width: 769px) {
     .container {
         max-width: 1200px;

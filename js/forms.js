@@ -111,12 +111,7 @@ function handleLoginSubmit() {
     });
 }
 
-export function materiais() {
-    handleSuperficieChange();
-};
-
 export function setupForms() {
-    handleSuperficieChange();
     handleCadastroSubmit();
     handleLoginSubmit();
 }

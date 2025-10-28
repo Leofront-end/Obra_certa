@@ -1,15 +1,11 @@
-/* ---------------------------------------------------- */
-/* ESTILOS DA APLICAÇÃO (UNIFICADO) */
-/* Consolidação de calculate.css, home.css e projects.css com classes originais. */
-/* Abordagem Mobile First. */
-/* ---------------------------------------------------- */
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(header.css); 
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
 
 :root {
@@ -95,13 +91,14 @@ main, .dashboard-main {
 
 /* Botão Secundário (Modal) */
 .btn-secondary {
-    background-color: #f0f0f0; 
+    background-color: #fff; 
     color: var(--cor-texto-principal);
-    border: 1px solid var(--cor-borda-suave);
+    border: 1px solid var(--cor-secundaria);
 }
 
 .btn-secondary:hover {
-    background-color: #e0e0e0;
+    background-color: var(--cor-secundaria);
+    color: #fff;
 }
 
 /* Botão de Perigo/Delete (Modal) */
@@ -175,6 +172,10 @@ input, select, textarea,
     border-radius: 8px;
     font-size: 14px;
     font-family: var(--fonte-principal);
+}
+
+input:focus,select:focus, textarea:focus {
+    outline: 2px solid var(--cor-primaria);
 }
 
 .search-container {
@@ -291,6 +292,7 @@ input, select, textarea,
 /* 6. CALCULATE - ÍCONES */
 /* ---------------------------------------------------- */
 .icones {
+    margin-top: 15px;
     background: linear-gradient(180deg, rgba(0, 87, 146, .25) 0%, rgba(0, 87, 146, 1) 100%);
     border-radius: 5px;
     padding: 15px;
@@ -377,6 +379,7 @@ input, select, textarea,
     font-size: 1rem;
     font-weight: 600;
     flex-grow: 1;
+    display: flex;
 }
 
 .project-status {
@@ -532,7 +535,7 @@ input, select, textarea,
     .page-header {
         flex-direction: row; 
         justify-content: space-between;
-        align-items: center;
+        align-items: baseline;
         margin-bottom: 30px;
         gap: 0;
     }

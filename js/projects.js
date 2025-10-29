@@ -76,11 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="card-footer">
-                     <div class="card-actions">
+                    <div class="card-actions">
                         <button class="btn-action btn-edit">Editar</button>
                         <button class="btn-action btn-delete">Excluir</button>
                     </div>
-                    <a href="#" class="btn-details">Ver Detalhes</a>
+                    <a href="projects/project.html" class="btn-details">Ver Detalhes</a>
                 </div>
             `;
             projectsGrid.appendChild(projectCard);

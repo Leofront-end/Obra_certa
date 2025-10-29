@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/icon/semFundo/Obra Certa.svg" type="image/x-icon">    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="../../css/trabalhador.css">
-    <title>Projeto</title>
+    <title>Tarefas</title>
 </head>
 <body>
     <header class="app-header">
@@ -25,36 +25,20 @@
             </button>
         </div>
     </header>
-    <main  class="container">
-        <section class="page-header">
-            <h1 class="section-title">Titulo</h1>
-            <button class="btn-secondary" id="open-modal-btn">
-                <span class="material-symbols-outlined">share</span>
-                Compartilhar
-            </button>
-        </section>
-        <section class="buttons">
-            <button class="btn-primary">
-                <a href="tasks.html">
-                    <span class="material-symbols-outlined">check_circle</span> Tarefas
-                </a>
-            </button>
-            <button class="btn-primary">
-                <a href="../measurementRecording.html">
-                    <span class="material-symbols-outlined">calculate</span> Registro de medições
-                </a>
-            </button>
-            <button class="btn-primary">
-                <a href="#">
-                    <span class="material-symbols-outlined">attach_money</span> Planejamento Financeiro
-                </a>
-            </button>
-            <button class="btn-primary">
-                <a href="#">
-                    <span class="material-symbols-outlined">add_a_photo</span> Fotos ou videos
-                </a>
-            </button>
+    <main class="container">
+        <section>
+            <form action="">
+                <label for="tarefa">Nome da tarefa</label>
+                <input type="text" name="tarefa" id="tarefa" placeholder="Digite o nome da tarefa">
+                <label for="itens">Itens a fazer</label>
+                <input type="number" name="itens" id="itens" placeholder="Digite a quantidade de tarefa">
+                <label for="prioridade">Prioridade</label>
+                <select name="prioridade" id="prioridade">
+                    <option value="" disabled selected hidden>Clique para selecionar</option>
+                </select>
+                <button class="btn-primary">Adicionar tarefa</button>
+            </form>
         </section>
     </main>
 </body>
-</html>
+</html>    

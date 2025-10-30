@@ -146,6 +146,11 @@ main, .dashboard-main {
     cursor: pointer;
     font-size: 12px;
     transition: all 0.2s ease;
+
+    a {
+        text-decoration: none;
+        color: var(--cor-texto-secundario);
+    }
 }
 
 .btn-action.btn-edit:hover {

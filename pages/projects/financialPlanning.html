@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/icon/semFundo/Obra Certa.svg" type="image/x-icon">    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/trabalhador.css">
+    <title>Planejamento Financeiro</title>
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <a href="../home.html" class="logo">
+                <img src="../../assets/icon/semFundo/Obra Certa.svg" alt="Logo Obra Certa">
+            </a>
+            <nav class="app-nav" id="app-nav"> 
+                <a href="../home.html"><span class="material-symbols-outlined">home</span> Início</a>
+                <a href="../projects.html" class="active"><span class="material-symbols-outlined">foundation</span> Projetos</a>
+                <a href="../calculate.html"><span class="material-symbols-outlined">calculate</span> Calcular</a>
+                <a href="../setting.html"><span class="material-symbols-outlined">settings</span> Configurações</a>
+            </nav>
+
+            <button class="menu-toggle" id="menu-toggle-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="section-title">Planejamento Financeiro</h1>
+                <button class="btn-primary" id="open-modal-btn">
+                    <a href="../../pdfs/PDFVazio.pdf" download="PDFVazio.pdf">
+                        <span class="material-symbols-outlined">download</span>
+                        Baixar o relatório
+                    </a>
+                </button>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input type="text" id="search-input" placeholder="Buscar por calculos...">
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+            <div class="project-card">
+                <div class="card-header">
+                    <h3 class="card-title">Titulo</h3>
+                </div>
+                <p class="card-text">Altura x Largura</p>
+                <div class="card-footer">
+                    <div class="card-actions">
+                        <button class="btn-action btn-edit"><a href="../calculo2.html">Editar</a></button>
+                        <button class="btn-action btn-delete">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

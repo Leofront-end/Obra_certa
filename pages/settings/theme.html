@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/icon/semFundo/Normal.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="shortcut icon" href="../../assets/icon/semFundo/Obra Certa.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/trabalhador.css">
+    <title>Tema</title>
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <a href="home.html" class="logo">
+                <img src="../../assets/icon/semFundo/Obra Certa.svg" alt="Logo Obra Certa">
+            </a>
+            <nav class="app-nav" id="app-nav"> 
+                <a href="../home.html"><span class="material-symbols-outlined">home</span> Início</a>
+                <a href="../projects.html"><span class="material-symbols-outlined">foundation</span> Projetos</a>
+                <a href="../calculate.html"><span class="material-symbols-outlined">calculate</span> Calcular</a>
+                <a href="../setting.html" class="active"><span class="material-symbols-outlined">settings</span> Configurações</a>
+            </nav>
+
+            <button class="menu-toggle" id="menu-toggle-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <main class="container">
+        <section class="page-header">
+            <h1 class="section-title">Mudar aparência</h1>
+        </section>
+
+        <form action="">
+            <label for="font">Tamanho da fonte</label>
+            <select name="font" id="font">
+                <option value="" disabled selected hidden>Clique para selecionar</option>
+                <option value="pequena">Pequena</option>
+                <option value="medio">Médio</option>
+                <option value="grande">Grande</option>
+            </select>
+            <label for="theme">Modo de Cor</label>
+            <select name="theme" id="theme">
+                <option value="" disabled selected hidden>Clique para selecionar</option>
+                <option value="claro">Claro</option>
+                <option value="escuro">Escuro</option>
+                <option value="daltonico">Daltonico</option>
+            </select>
+
+            <button class="btn-primary">Salvar</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -371,6 +371,10 @@ input:focus,select:focus, textarea:focus {
     margin-bottom: 40px;
 }
 
+.data {
+    grid-column: 1 / -1 ;
+}
+
 .empty-message {
     text-align: center;
     color: var(--cor-texto-secundario);

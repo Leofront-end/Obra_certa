@@ -114,7 +114,6 @@ main, .dashboard-main {
 
 /* Botão Secundário (Modal) */
 .btn-secondary {
-
     background-color: #fff; 
     color: var(--cor-texto-principal);
     border: 1px solid var(--cor-secundaria);
@@ -123,6 +122,11 @@ main, .dashboard-main {
 .btn-secondary:hover {
     background-color: var(--cor-secundaria);
     color: #fff;
+
+    & a {
+        color: #fff;
+    }
+
 }
 
 /* Botão de Perigo/Delete (Modal) */

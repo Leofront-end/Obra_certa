@@ -10,8 +10,10 @@
 
 :root {
     --cor-primaria: #FF6D1F;
+    --cor-primaria-daltonismo:#00B894;
     --cor-secundaria: #005792;
     --cor-primaria-hover: #e65c00;
+    --cor-primaria-daltonismo-hover: #00A382;
     --cor-texto-principal: #1A1A1A;
     --cor-texto-principal-dark: #ececec;
     --cor-inativa: #D9D9D9;
@@ -21,7 +23,9 @@
     --cor-borda-suave: #E0E2E7;
     --cor-azul-card: #005792;
     --cor-perigo: #d9534f;
+    --cor-perigo-daltonismo:#C70039;
     --cor-perigo-hover: #c9302c;
+    --cor-perigo-daltonismo-hover: #B30033
     --fonte-principal: "Montserrat", sans-serif;
 }
 
@@ -603,6 +607,34 @@ input:focus,select:focus, textarea:focus {
     .ou::after, .ou::before {
         background-color: var(--cor-primaria);
         border-radius: 15px;
+    }
+}
+
+.colorblind {
+    .category-btn, .btn-primary  {
+        background-color: var(--cor-primaria-daltonismo);
+        box-shadow: 0px 4px 4px #00b89352;
+    }
+    input:focus,select:focus, textarea:focus {
+        outline: 2px solid var(--cor-primaria-daltonismo);
+    }
+    .category-btn:hover,.btn-primary:hover{
+        background-color: var(--cor-primaria-daltonismo-hover);
+    }
+    .ou {
+        color: var(--cor-primaria-daltonismo);
+    }
+    .ou::after, .ou::before {
+        color: var(--cor-primaria-daltonismo);
+    }
+    .btn-danger {
+        background-color: var(--cor-perigo-daltonismo);
+    }
+    .btn-danger:hover, .btn-action.btn-delete:hover{
+        background-color: var(--cor-perigo-daltonismo-hover);
+    }
+    .active {
+        background-color: var(--cor-primaria-daltonismo);
     }
 }
 

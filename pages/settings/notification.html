@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="shortcut icon" href="../../assets/icon/semFundo/Obra Certa.svg" type="image/x-icon">
     <link rel="stylesheet" href="../../css/trabalhador.css">
-    <title>Perfil</title>
+    <title>Notificações</title>
 </head>
 <body class="">
     <header class="app-header">
@@ -32,21 +32,24 @@
     </header>
     <main>
         <section class="page-header">
-            <h1 class="section-title">Perfil</h1>
-        </section>
-        <section class="photoProfile">
-            <img src="https://picsum.photos/200" alt="foto de perfil">
-            <button class="btn-secondary"><span class="material-symbols-outlined">add_a_photo</span> Mudar foto</button>
+            <h1 class="section-title">Notificações</h1>
         </section>
         <section>
             <form action="">
-                <label for="name">Nome:</label>
-                <input type="text" name="name" id="name">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-                <button class="btn-primary">Mudar</button>
+                <label for="deadline">Deseja receber notificações do razo de obra?</label >
+                <select name="deadline" id="deadline">
+                    <option value="true" selected>Sim</option>
+                    <option value="false">Não</option>
+                </select>
+                <label for="wordStage">Atualização de Etapa da Obra</label>
+                <select name="wordStage" id="wordStage">
+                    <option value="true" selected>Sim</option>
+                    <option value="false">Não</option>
+                </select>
+                <button class="btn-primary">Salvar</button>
             </form>
         </section>
     </main>
+
 </body>
 </html>

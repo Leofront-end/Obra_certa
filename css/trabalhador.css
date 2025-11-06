@@ -588,8 +588,26 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 10. MEDIA QUERIES (DESKTOP - min-width: 769px) */
+/* 10. Setting options */
 /* ---------------------------------------------------- */
+.photoProfile{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    img {
+        border-radius: 50%;
+    }
+}
+
+.photoProfile::after {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--cor-secundaria);
+    content: "";
+}
+
 .dark {
     header {
         background-color: var(--cor-fundo-dark);

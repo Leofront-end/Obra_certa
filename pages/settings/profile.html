@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/icon/semFundo/Normal.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="shortcut icon" href="../../assets/icon/semFundo/Obra Certa.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/trabalhador.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <a href="../home.html" class="logo">
+                <img src="../../assets/icon/semFundo/Obra Certa.svg" alt="Logo Obra Certa">
+            </a>
+            <nav class="app-nav" id="app-nav"> 
+                <a href="../home.html"><span class="material-symbols-outlined">home</span> Início</a>
+                <a href="../projects.html"><span class="material-symbols-outlined">foundation</span> Projetos</a>
+                <a href="../calculate.html"><span class="material-symbols-outlined">calculate</span> Calcular</a>
+                <a href="../setting.html" class="active"><span class="material-symbols-outlined">settings</span> Configurações</a>
+            </nav>
+
+            <button class="menu-toggle" id="menu-toggle-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="page-header">
+            <h1 class="section-title">Perfil</h1>
+        </section>
+        <section class="photoProfile">
+            <img src="https://picsum.photos/200" alt="foto de perfil">
+            <button class="btn-secondary"><span class="material-symbols-outlined">add_a_photo</span> Mudar foto</button>
+        </section>
+        <section>
+            <form action="">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <button class="btn-primary">Mudar</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

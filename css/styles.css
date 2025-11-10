@@ -146,19 +146,30 @@ li a {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    animation: heroi 1s ;
 
-    img, p {
+    img {
         width: 100%;
+        border-radius: 15px;
+    }
+
+    .Titulo {
+        text-align: start;
+    }
+
+    .subTitulo {
+        font-weight: 700;
+    }
+
+    .texto {
+        font-weight: 300;
     }
 
     div {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-
-    p {
-        text-align: center;
+        gap: 5px;
     }
 
     button {
@@ -171,12 +182,13 @@ li a {
         border: none;
         border-radius: 15px;
         cursor: pointer;
+        width: fit-content;
     }
 }
 
 .Titulo, .TituloFooter {
     font-size: 30px;
-    font-weight: var(--font-weight-bold);
+    font-weight: 900;
     font-style: var(--font-style-italic);
     color: var(--BordaSecundaria);
     margin-bottom: 5px;
@@ -469,8 +481,6 @@ form,.google {
     }
 }
 
-
-
 .google button {
     display: flex;
     align-items: center;
@@ -526,7 +536,6 @@ footer {
     color: var(--CorSecundaria);
 }
 
-
 dialog {
     left: 50%;
     top: 50%;
@@ -575,6 +584,15 @@ dialog {
     font-style: var(--font-style-italic);
     color: var(--Erro);
     text-align: center;
+}
+
+@keyframes heroi {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @media screen and (min-width: 744px) {

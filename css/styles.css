@@ -231,13 +231,16 @@ li a {
 
 #beneficios .subTitulo {
     height: 50px;
+    display: flex;
+    align-items: center;
     font-size: 20px;
     color: #000000;
-    font-weight: var(--font-weight-bold);
+    font-weight: 700;
     text-align: center;
 }
 
 #beneficios .texto {
+    font-weight: 500;
     font-size: 15px;
 }
 
@@ -265,11 +268,11 @@ li a {
         color: var(--CorSecundaria);
 
         p {
-            font-weight: var(--font-weight-bold);
+            font-weight: 700;
         }
 
         p:last-child{
-            font-weight: var(--font-weight-normal);
+            font-weight: 500;
         }
     }
 
@@ -297,6 +300,7 @@ li a {
     }
 
     .texto {
+        font-weight: 300;
         text-align: left;
         word-wrap: break-word; 
     }
@@ -388,6 +392,7 @@ li a {
 
 form {
     label {
+        font-weight: 500;
         font-size: 15px;
     }
 
@@ -519,14 +524,23 @@ footer {
     padding: 23px;
     color: var(--CorSecundaria);
 
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
     a {
         color: var(--CorSecundaria);
-        text-decoration: none;
         transition: 0.3s ease;
 
         &:hover {
             color: var(--CorPrimaria);
         }
+    }
+
+    p {
+        font-weight: 500
     }
 }
 

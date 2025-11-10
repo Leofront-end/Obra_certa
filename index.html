@@ -19,22 +19,25 @@
     <title>Obra Certa</title>
 </head>
 <body>
-    <header>
-        <div class="header">
-            <img src="assets/icon/semFundo/Obra Certa.svg" alt="logo da obra certa">
-            <span class="material-symbols-outlined">
-                menu
-            </span>
+    <header class="app-header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="assets/icon/semFundo/Obra Certa.svg" alt="logo da obra certa">
+            </a>
+
+            <nav class="app-nav" id="app-nav">
+                <a href="#beneficios">Beneficios</a></li>
+                <a href="#feedback">Feedback</a></li>
+                <a href="#experimente">Experimente</a></li>
+                <a href="" class="cadastro" data-modal-target="modalCadastro">Cadastrar</a></li>
+                </ul>
+                <button class="login" data-modal-target="modalLogin">Entrar</button>
+            </nav>
+
+            <button class="menu-toggle" id="menu-toggle-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#beneficios">Beneficios</a></li>
-                <li><a href="#feedback">Feedback</a></li>
-                <li><a href="#experimente">Experimente</a></li>
-                <li><a href="" class="cadastro" data-modal-target="modalCadastro">Cadastrar</a></li>
-            </ul>
-            <button class="login" data-modal-target="modalLogin">Entrar</button>
-        </nav>
     </header>
     <main>
         <section class="hero">

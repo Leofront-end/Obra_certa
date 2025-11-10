@@ -9,9 +9,10 @@
     height: 70px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--cor-secundaria);
+    border-bottom: 1px solid #005792;
     box-shadow: 0px 4px 4px rgba(0, 87, 146,.25);
 }
+
 .app-header .container {
     display: flex;
     justify-content: space-between;
@@ -35,7 +36,7 @@
     top: 70px;
     left: 0;
     width: 100%;
-    background-color: white;
+    background-color: #FFFFFF;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 20px;
@@ -52,21 +53,22 @@
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    color: var(--cor-texto-secundario);
-    font-weight: 600;
+    color: #000000;
+    font-weight: 700;
     font-size: 15px;
     padding: 12px 0;
     width: 100%;
     border-radius: 0;
     transition: all 0.2s ease;
 }
+
 .app-nav a:hover {
-    background-color: var(--cor-fundo-app);
-    color: var(--cor-texto-principal);
+    background-color: #F5F5F5;
+    color: #1A1A1A;
 }
 .app-nav a.active {
-    background-color: var(--cor-secundaria);
-    color: white;
+    background-color: #005792;
+    color: #FFFFFF;
 }
 
 .menu-toggle {
@@ -74,8 +76,9 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--cor-texto-principal);
+    color: #1A1A1A;
 }
+
 .menu-toggle .material-symbols-outlined {
     font-size: 30px;
 }

@@ -37,14 +37,4 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal();
     });
 
-    // 4. LISTENERS DO MENU
-    const menuToggleBtn = document.getElementById('menu-toggle-btn');
-    const appNav = document.getElementById('app-nav');
-
-    if (menuToggleBtn && appNav) {
-        menuToggleBtn.addEventListener('click', () => {
-            appNav.classList.toggle('active');
-        });
-    }
-
 });

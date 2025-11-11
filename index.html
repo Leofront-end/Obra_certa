@@ -183,7 +183,10 @@
                 <label for="emailLogin">E-mail:</label>
                 <input type="email" name="emailLogin" id="emailLogin" placeholder="Exemplo@gmail.com" autocomplete="email">
                 <label for="senhaLogin">Senha:</label>
-                <input type="password" name="senhaLogin" id="senhaLogin" placeholder="Digite sua senha" autocomplete="current-password">
+                <div class="input-container">
+                    <input type="password" name="senhaLogin" id="senhaLogin" placeholder="Digite sua senha" autocomplete="current-password">
+                    <span class="material-symbols-outlined icon-button">visibility_off</span>
+                </div>
                 <div>
                     <div>
                         <input type="checkbox" name="lembrarSenha" id="lembrarSenha">
@@ -223,10 +226,16 @@
                 <input type="email" name="emailCadastro" id="emailCadastro" placeholder="Exemplo@gmail.com" autocomplete="email">
                 
                 <label for="senhaCadastro">Senha:</label>
-                <input type="password" name="senhaCadastro" id="senhaCadastro" placeholder="Digite sua senha" autocomplete="new-password">
+                <div class="input-container">
+                    <input type="password" name="senhaCadastro" id="senhaCadastro" placeholder="Digite sua senha" autocomplete="new-password">
+                    <span class="material-symbols-outlined icon-button">visibility_off</span>
+                </div>
                 
                 <label for="confirmarSenha">Confirmar senha:</label>
-                <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Digite sua senha" autocomplete="new-password">
+                <div class="input-container">
+                    <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Digite sua senha" autocomplete="new-password">
+                    <span class="material-symbols-outlined icon-button">visibility_off</span>
+                </div>
                 <div>
                     <input type="checkbox" name="termosUso" id="termosUso">
                     <label for="termosUso">Li e estou de acordo com o <a href="#">Termo de Uso</a> e <a href="#">Politica de Privacidade</a></label>

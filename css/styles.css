@@ -312,10 +312,14 @@ nav button {
 
 .formulario {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     form {
         padding: 10px;
-    }
+        width: 100%;
+    }   
 }
 
 form {
@@ -332,6 +336,7 @@ form {
     }
 
     select, input {
+        background-color: #FFFFFF;
         border: 1px solid var(--BordaSecundaria);
         padding: 5px;
         border-radius: 5px;
@@ -601,10 +606,18 @@ dialog {
     }
 
     .formulario {
-        display: flex;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         gap: 50px;
+
+        form {
+            width: 30%;
+
+            button {
+                width: fit-content;
+            }
+        }
     }
 
     form div {

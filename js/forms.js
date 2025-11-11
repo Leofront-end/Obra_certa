@@ -2,7 +2,41 @@ import { abrirModal, fecharModal } from './script.js';
 
 const loginForm = document.querySelector('#loginForm');
 const cadastroForm = document.querySelector('#cadastroForm');
+const passwordLogin = loginForm.querySelector('.icon-button');
+const passwordsCadastro = cadastroForm.querySelectorAll('.icon-button')
 const invalido = document.querySelectorAll('.invalido');
+
+function mudarPassword() {
+    passwordLogin.addEventListener('click', () => {
+        if (loginForm.querySelector('#senhaLogin').type == "password") {
+            loginForm.querySelector('#senhaLogin').type = "text"
+            passwordLogin.textContent = "visibility"
+        } else {
+            loginForm.querySelector('#senhaLogin').type = "password"
+            passwordLogin.textContent = "visibility_off"
+        }
+    })
+
+    passwordsCadastro[0].addEventListener('click', () => {
+        if (cadastroForm.querySelector('#senhaCadastro').type == "password") {
+            cadastroForm.querySelector('#senhaCadastro').type = "text"
+            passwordsCadastro[0].textContent = "visibility"
+        } else {
+            cadastroForm.querySelector('#senhaCadastro').type = "password"
+            passwordsCadastro[0].textContent = "visibility_off"
+        }
+    })
+
+    passwordsCadastro[1].addEventListener('click', () => {
+        if (cadastroForm.querySelector('#confirmarSenha').type == "password") {
+            cadastroForm.querySelector('#confirmarSenha').type = "text"
+            passwordsCadastro[1].textContent = "visibility"
+        } else {
+            cadastroForm.querySelector('#confirmarSenha').type = "password"
+            passwordsCadastro[1].textContent = "visibility_off"
+        }
+    })
+}
 
 function botaoAtivo (botaoCadastro, botao) {
     botaoCadastro.forEach(inativar => inativar.classList.remove('ativarBotao'))
@@ -112,6 +146,7 @@ function handleLoginSubmit() {
 }
 
 export function setupForms() {
+    mudarPassword()
     handleCadastroSubmit();
     handleLoginSubmit();
 }

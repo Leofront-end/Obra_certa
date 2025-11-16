@@ -141,13 +141,38 @@ function handleLoginSubmit() {
         const senhaInput = document.getElementById('senhaLogin');
 
         if (!emailInput || invalidateEmail(emailInput.value)) {
-            invalido[0].textContent = 'Seu email está inválido'
+            invalido[0].textContent = 'Preencha seu email'
             if (emailInput) emailInput.focus()
         } else if (!senhaInput || senhaInput.value == '') {
-            invalido[0].textContent = 'Sua senha está inválida'
+            invalido[0].textContent = 'Preencha sua senha'
             if (senhaInput) senhaInput.focus()
         } else {
-            window.location.href = "pages/home.html"
+            let dados = {
+                "email": emailInput.value,
+                "senha": senhaInput.value
+            }
+
+            fetch('http://localhost:8080/api/usuarios/login', {
+                method:"POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            })
+                .then(resposta => {
+                    if (resposta.ok) {
+                        return resposta.text()
+                    }
+                    return resposta.text().then(erroBody => {
+                        throw new Error(erroBody);
+                    })
+                })
+                .then(() => {
+                    window.location.href = "pages/home.html"
+                })
+                .catch(() => {
+                    invalido[0].textContent = 'Email ou senha invalidos'
+                })
         }
     });
 }

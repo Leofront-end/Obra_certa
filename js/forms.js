@@ -61,12 +61,6 @@ function handleCadastroSubmit() {
             return
         }
         
-        // let valorBotao = botaoCadastro[0].className == 'ativarBotao' ? "Trabalhador" : "Cliente";
-        console.log(invalidarNome(inputsCadastro[0].value));
-        console.log(inputsCadastro[0].value);
-        
-        
-        
         if (invalidarNome(inputsCadastro[0].value)) {
             invalido[1].textContent = 'Digite um nome valido'
             inputsCadastro[0].focus()
@@ -84,7 +78,6 @@ function handleCadastroSubmit() {
             inputsCadastro[2].focus()
             return
         }
-
         
         for (let input of inputsCadastro) {
             if (input.value.trim() == '') {
@@ -102,6 +95,20 @@ function handleCadastroSubmit() {
         
         if (invalido[1].textContent == '') {
             const modal = event.target.closest('dialog');
+            let dados = {
+                "nome": inputsCadastro[0].value,
+                "email": inputsCadastro[1].value,
+                "senha":inputsCadastro[2].value
+            }
+            fetch('http://localhost:8080/api/usuarios/cadastro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            }).then(response => response.json())
+                .then(json => console.log(json))
+                .catch(error => console.error('Erro:', error));
             fecharModal(modal)
             abrirModal(document.querySelector('#CadastroSucesso'))
         }

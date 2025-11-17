@@ -100,7 +100,7 @@ function handleCadastroSubmit() {
                 "email": inputsCadastro[1].value,
                 "senha":inputsCadastro[2].value
             }
-            fetch('http://localhost:8080/api/usuarios/cadastro', {
+            fetch('https://obracerta-api.onrender.com/api/usuarios/cadastro', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

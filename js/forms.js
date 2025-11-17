@@ -152,7 +152,7 @@ function handleLoginSubmit() {
                 "senha": senhaInput.value
             }
 
-            fetch('http://https://obracerta-api.onrender.com/api/usuarios/login', {
+            fetch('https://obracerta-api.onrender.com/api/usuarios/login', {
                 method:"POST",
                 headers: {
                     'Content-Type': 'application/json'

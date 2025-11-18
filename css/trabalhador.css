@@ -522,6 +522,7 @@ input:focus,select:focus, textarea:focus {
 
     & img {
         border-radius: 50%;
+        width: 80px;
     }
 }
 

@@ -3,12 +3,12 @@ const superficie = materialForm ? materialForm.querySelector('#superficie') : nu
 const material = materialForm ? materialForm.querySelector('#material') : null;
 
 const opcaoMateriais = {
-    "piso": ["Porcelanato","Cerâmica","Madeira","Cimento queimado","Vinílico"],
-    "parede": ["Bloco cerâmico","Drywall","Bloco de concreto","Tijolo ecológico","Tijolimho"],
-    "revestimento": ["Textura","Textura Projetada","Monocapa"],
+    "piso": ["Porcelanato","Cerâmica","Laminado ","Cimentício","Vinílico", "Emborrachado", "Pedras"],
+    "parede": ["Bloco cerâmico","Drywall","Bloco de concreto","Tijolo ecológico","Tijolinho"],
+    "revestimento": ["Textura","Textura Projetada","Monocapa", "Textura com rolo"],
     "reboco": ["Tradicional","Projetado","Monocapa"],
     "contrapiso": ["Cimento","Argamassa"],
-    "laje": ["Concreto armado","Bloco de concreto","Pré-moldada (treliçada)"],
+    "laje": ["Concreto armado","Lajota","Pré-moldada (treliçada)"],
     "forro": ["Gesso","PVC","Isopor", "Metálico"]
 };
 

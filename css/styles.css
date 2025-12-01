@@ -631,7 +631,7 @@ dialog {
             width: 30%;
 
             button {
-                width: fit-content;
+                width: 100%;
             }
         }
     }

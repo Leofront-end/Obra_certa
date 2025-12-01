@@ -80,6 +80,42 @@ main, .dashboard-main {
 /* 3. BOTÕES (Unificados, Mantendo Nomes Originais) */
 /* ---------------------------------------------------- */
 
+.carrosel {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; 
+
+    .card {
+        width: 100%;
+        flex-shrink: 0;
+        box-sizing: border-box; 
+    }
+}
+
+.carrosel .material-symbols-outlined {
+    cursor: pointer;
+    position: absolute; 
+    z-index: 10; 
+    font-size: 50px; 
+    color: var(--TextoSecundario); 
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+
+/* ---------------------------------------------------- */
+/* 4. BOTÕES (Unificados, Mantendo Nomes Originais) */
+/* ---------------------------------------------------- */
+
 /* Estilo Base para todos os botões que não são do card de ação */
 .btn-primary, .btn-secondary, .btn-danger, .btn-details {
     display: inline-flex;
@@ -186,7 +222,7 @@ main, .dashboard-main {
 }
 
 /* ---------------------------------------------------- */
-/* 4. FORMULÁRIOS E CAMPOS (Unificado) */
+/* 5. FORMULÁRIOS E CAMPOS (Unificado) */
 /* ---------------------------------------------------- */
 
 .form-group {
@@ -263,7 +299,7 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 5. HOME - CATEGORIA E CAROUSEL */
+/* 6. HOME - CATEGORIA E CAROUSEL */
 /* ---------------------------------------------------- */
 
 .category-buttons {
@@ -328,7 +364,7 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 6. CALCULATE - ÍCONES */
+/* 7. CALCULATE - ÍCONES */
 /* ---------------------------------------------------- */
 .icones {
     margin-top: 15px;
@@ -368,7 +404,7 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 7. PROJECTS - CARDS */
+/* 8. PROJECTS - CARDS */
 /* ---------------------------------------------------- */
 .projects-grid {
     display: grid;
@@ -511,7 +547,7 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 8. Configurações */
+/* 9. Configurações */
 /* ---------------------------------------------------- */
 
 .perfil {
@@ -539,7 +575,7 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 9. MODAL (Unificado) */
+/* 10. MODAL (Unificado) */
 /* ---------------------------------------------------- */
 
 ::backdrop {
@@ -589,7 +625,7 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 10. Setting options */
+/* 11. Setting options */
 /* ---------------------------------------------------- */
 .photoProfile{
     display: flex;
@@ -659,7 +695,7 @@ input:focus,select:focus, textarea:focus {
 }
 
 /* ---------------------------------------------------- */
-/* 11. MEDIA QUERIES (DESKTOP - min-width: 769px) */
+/* 12. MEDIA QUERIES (DESKTOP - min-width: 769px) */
 /* ---------------------------------------------------- */
 
 @media screen and (min-width: 769px) {

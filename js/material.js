@@ -40,11 +40,6 @@ try {
     
 }
 
-    
-
-
-
-
 export function listaMaterial() {
     handleSuperficieChange();
 }

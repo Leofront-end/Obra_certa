@@ -167,8 +167,11 @@ function handleLoginSubmit() {
                         throw new Error(erroBody);
                     })
                 })
-                .then(() => {
-                    window.location.href = "pages/home.html"
+                .then((dado) => {
+                    let resultado = JSON.parse(dado)
+                    let id = resultado.id
+                
+                    window.location.href = `pages/home.html?id=${id}`
                 })
                 .catch(() => {
                     invalido[0].textContent = 'Email ou senha invalidos'

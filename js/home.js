@@ -1,3 +1,7 @@
+const urlParametros = new URLSearchParams(window.location.search)
+const idPessoa = urlParametros.get('id')
+export let id = idPessoa;
+
 const adSlides = [ // textos dos slides
     {content: 'Anúncio 1: Planeje sua obra com precisão!'},
     {content: 'Anúncio 2: As melhores ferramentas para sua construção.'},

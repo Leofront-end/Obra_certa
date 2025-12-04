@@ -43,3 +43,84 @@ try {
 export function listaMaterial() {
     handleSuperficieChange();
 }
+
+// ... (seu código existente de mudança de select continua acima) ...
+
+// 1. Configurar o evento de clique no botão Calcular
+document.addEventListener("DOMContentLoaded", () => {
+    const btnCalcular = document.getElementById("btnCalcular");
+    if (btnCalcular) {
+        btnCalcular.addEventListener("click", enviarCalculo);
+    }
+});
+
+async function enviarCalculo() {
+    // A. Capturar os valores dos inputs
+    const superficieEl = document.getElementById('superficie');
+    const materialEl = document.getElementById('material');
+    const alturaEl = document.getElementById('altura');
+    const larguraEl = document.getElementById('largura');
+
+    // Validação básica
+    if (!superficieEl.value || !materialEl.value || !alturaEl.value || !larguraEl.value) {
+        alert("Por favor, preencha todos os campos!");
+        return;
+    }
+
+    // B. Definir o ID do Projeto
+    // IMPORTANTE: Como estamos testando, vamos "chumbar" o ID 1.
+    // Em produção, você pegaria isso da URL (ex: ?id=1) ou do localStorage.
+    const projetoId = 1; 
+
+    // C. Montar o Objeto JSON (Igual ao do Thunder Client)
+    const dadosCalculo = {
+        projetoId: projetoId,
+        superficie: superficieEl.value,
+        material: materialEl.value,
+        altura: parseFloat(alturaEl.value), // Converter texto para número decimal
+        largura: parseFloat(larguraEl.value)
+    };
+
+    try {
+        // D. Enviar para o Back-end (Fetch API)
+        const response = await fetch('http://localhost:8080/api/calculadora', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dadosCalculo)
+        });
+
+        // E. Verificar se deu certo
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.statusText);
+        }
+
+        // F. Receber a resposta do Java
+        const resultado = await response.json();
+        
+        // G. Mostrar na tela
+        exibirResultado(resultado);
+
+    } catch (error) {
+        console.error('Erro:', error);
+        alert("Erro ao calcular. Verifique se o Back-end está rodando e se o Projeto ID 1 existe.");
+    }
+}
+
+function exibirResultado(data) {
+    const divResultado = document.getElementById("resultadoCalculo");
+    const msgEl = document.getElementById("msgResultado");
+    const qtdEl = document.getElementById("qtdResultado");
+    const unidadeEl = document.getElementById("unidadeResultado");
+    const areaEl = document.getElementById("areaResultado");
+
+    // Preencher os dados
+    msgEl.innerText = data.mensagem || "Cálculo realizado com sucesso!";
+    qtdEl.innerText = data.quantidadeNecessaria;
+    unidadeEl.innerText = data.unidadeMedida;
+    areaEl.innerText = data.areaTotal;
+
+    // Mostrar a div
+    divResultado.style.display = "block";
+}

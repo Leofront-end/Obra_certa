@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Área Principal ---
     const projectsGrid = document.getElementById('projects-grid');
     const searchInput = document.getElementById('search-input');
+    
 
     // 2. DADOS E API
     let projects = []; 
@@ -123,6 +124,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closeDeleteModal = () => deleteModal.close();
 
+    const verificarEPreencherModal = () => {
+        const dadosSalvos = localStorage.getItem('projetoPendente');
+        if (!dadosSalvos) return;
+
+        const projetoObj =JSON.parse(dadosSalvos);
+
+        const titleInput = document.getElementById('project-title');
+        const descInput = document.getElementById('project-description');
+
+        if (titleInput && descInput) {
+            titleInput.value = projetoObj.titulo;
+            descInput.value = projetoObj.descricao;
+            
+            modalTitle.textContent = "Salvar cálculo em projeto";
+
+            modal.showModal();
+
+            localStorage.removeItem('projetoPendente');
+        }
+    };
+        
     // 4. EVENT LISTENERS (AÇÕES DO USUÁRIO)
 
     /**
@@ -245,4 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. INICIALIZAÇÃO
     fetchAndRenderProjects();
+
+    // 
+    verificarEPreencherModal();
 });
+

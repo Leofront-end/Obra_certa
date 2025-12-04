@@ -12,7 +12,7 @@ function setupModalTriggers() {
             e.preventDefault();
 
             const targetId = btn.getAttribute('data-modal-target');
-            const targetModal = document.querySelector(`#${targetId}`);
+            const targetModal = document.querySelector('#${targetId}');
 
             const modalAberto = e.target.closest('dialog');
             if (modalAberto) {
@@ -42,3 +42,37 @@ document.addEventListener('DOMContentLoaded', () => {
     listaMaterial();
     setupCarrossel();
 });
+
+function configurarCalculadoraIndex() {
+    const formCalculadora = document.getElementById("materiaisForm")
+    if (!formCalculadora) return;
+
+    const btnCalcular = formCalculadora.querySelector('button');
+
+    btnCalcular.addEventListener('click', (e) => {
+        e.preventDefault;
+
+        const superficie = document.getElementById('superficie').value;
+        const material = document.getElementById('material').value;
+        const altura = document.getElementById('altura').value;
+        const largura = document.getElementById('largura').value;
+
+        if (!superficie || !material || !altura || !largura) {
+            alert("Por favor, preencha todos os campos do cálculo.")
+            return;
+        }
+
+        const calculoTemp = {
+            titulo: 'Projeto: ${material} em ${superficie}',
+            descricao: 'Cálculo automático: Altura ${altura}m x Largura ${largura}m.',
+            progresso: 0
+        }
+
+        localStorage.setItem('projetoPendente', JSON.stringify(calculoTemp));
+
+        const btnLogin = document.querySelector('[data-modal-target="modalLogin]');
+        if (btnLogin) btnLogin.click();
+     })
+
+     Document.addEventListener('DOMContentLoaded', configurarCalculadoraIndex);
+}

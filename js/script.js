@@ -63,15 +63,15 @@ function configurarCalculadoraIndex() {
         }
 
         const calculoTemp = {
-            titulo: 'Projeto: ${material} em ${superficie}',
-            descricao: 'Cálculo automático: Altura ${altura}m x Largura ${largura}m.',
+            titulo: '${superficie} de ${material}',
+            descricao: 'Cálculo de ${superficie}: ${altura}m x ${largura}m. Material: ${material}',
             progresso: 0
         }
 
         localStorage.setItem('projetoPendente', JSON.stringify(calculoTemp));
 
-        const btnLogin = document.querySelector('[data-modal-target="modalLogin]');
-        if (btnLogin) btnLogin.click();
+        const btnCadastro = document.querySelector('[data-modal-target="modalCadastro]');
+        if (btnCadastro) btnCadastro.click();
      })
 
      Document.addEventListener('DOMContentLoaded', configurarCalculadoraIndex);

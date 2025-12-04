@@ -3,7 +3,9 @@ import { id } from "./id.js";
 let nomeInput = document.querySelector('#name')
 let emailInput = document.querySelector('#email')
 let botaoEditar = document.querySelector('.btn-edit')
-let modalEditar = document.querySelector('.project-modal')
+let botaoExcluir = document.querySelector('.btn-delete')
+let modalEditar = document.querySelector('.modal-editar')
+let modalExcluir = document.querySelector('.modal-excluir')
 
 fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
     method:"GET",
@@ -22,11 +24,11 @@ fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
 
 botaoEditar.addEventListener('click', () => {
     modalEditar.showModal()
-    let confirmarEdição = modalEditar.querySelector('.btn-primary') 
+    let confirmarEdicao = modalEditar.querySelector('.btn-primary') 
     let sair = modalEditar.querySelector('.btn-secondary')
     sair.addEventListener('click', () => modalEditar.close())
 
-    confirmarEdição.addEventListener('click', () => {
+    confirmarEdicao.addEventListener('click', () => {
         let dados = {
             nome: `${nomeInput.value}`,
             email: `${emailInput.value}`
@@ -42,5 +44,23 @@ botaoEditar.addEventListener('click', () => {
                 response.json()
                 modalEditar.close()
             })
+    })
+})
+
+botaoExcluir.addEventListener('click', () => {
+    modalExcluir.showModal()
+    let confirmarExclusao = modalExcluir.querySelector('.btn-danger')
+    let sair = modalExcluir.querySelector('.btn-secondary')
+    sair.addEventListener('click', () => modalExcluir.close())
+
+    confirmarExclusao.addEventListener('click', () => {
+        fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
+            window.location.href = "/"
+        })
     })
 })

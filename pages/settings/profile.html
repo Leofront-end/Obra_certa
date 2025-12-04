@@ -53,7 +53,7 @@
             </form>
         </section>
     </main>
-    <dialog class="project-modal">
+    <dialog class="project-modal modal-editar">
         <h2 id="modal-title">Confirmar edição?</h2>
         <p>Você tem certeza que deseja editar o seu nome ou email?</p>
 
@@ -62,6 +62,16 @@
             <button type="button" class="btn-primary">Sim, Editar</button>
         </div>
     </dialog>
+    <dialog class="project-modal modal-excluir">
+        <h2 id="modal-title">Confirmar Exclusão?</h2>
+        <p>Você tem certeza que deseja excluir o seu perfil?</p>
+
+        <div class="modal-actions">
+            <button type="button" class="btn-secondary">Cancelar</button>
+            <button type="button" class="btn-danger">Sim, Excluir</button>
+        </div>
+    </dialog>
+
 
     <script src="../../js/menu.js"></script>
     <script type="module" src="../../js/id.js"></script>

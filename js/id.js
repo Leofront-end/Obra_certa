@@ -3,6 +3,10 @@ const urlParametros = new URLSearchParams(window.location.search)
 let idPessoa = urlParametros.get('id')
 export let id = idPessoa
 
+if (idPessoa == "null" || !id) {
+    window.location.href = "/"
+}
+
 const nav = document.querySelector('header .container')
 const botoes = document.querySelector('.buttons')
 function AdicionarId(elemento) {

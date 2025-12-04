@@ -229,6 +229,14 @@ main, .dashboard-main {
     margin-bottom: 15px;
 }
 
+.invalido {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--cor-perigo);
+    text-align: center;
+}
+
+
 label, .form-group label, .card-progress label {
     display: block;
     margin-bottom: 5px;

@@ -1,4 +1,3 @@
-
 const urlParametros = new URLSearchParams(window.location.search)
 let idPessoa = urlParametros.get('id')
 export let id = idPessoa

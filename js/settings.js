@@ -1,5 +1,4 @@
 import { id } from "./id.js";
-console.log(id);
 
 const nome = document.querySelector('.nome')
 const email = document.querySelector('.email')

@@ -12,7 +12,7 @@ function setupModalTriggers() {
             e.preventDefault();
 
             const targetId = btn.getAttribute('data-modal-target');
-            const targetModal = document.querySelector('#${targetId}');
+            const targetModal = document.querySelector(`#${targetId}`);
 
             const modalAberto = e.target.closest('dialog');
             if (modalAberto) {
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupForms();
     listaMaterial();
     setupCarrossel();
+    configurarCalculadoraIndex()
 });
 
 function configurarCalculadoraIndex() {
@@ -63,8 +64,8 @@ function configurarCalculadoraIndex() {
         }
 
         const calculoTemp = {
-            titulo: '${superficie} de ${material}',
-            descricao: 'Cálculo de ${superficie}: ${altura}m x ${largura}m. Material: ${material}',
+            titulo: `${superficie} de ${material}`,
+            descricao: `Cálculo de ${superficie}: ${altura}m x ${largura}m. Material: ${material}`,
             progresso: 0
         }
 
@@ -72,7 +73,6 @@ function configurarCalculadoraIndex() {
 
         const btnCadastro = document.querySelector('[data-modal-target="modalCadastro]');
         if (btnCadastro) btnCadastro.click();
-     })
+    })
 
-     Document.addEventListener('DOMContentLoaded', configurarCalculadoraIndex);
 }

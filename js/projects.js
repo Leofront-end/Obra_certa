@@ -1,3 +1,4 @@
+import { id } from "./id.js";
 document.addEventListener('DOMContentLoaded', () => {
     const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
 
@@ -34,13 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 // GET: Busca todos os projetos
                 const response = await fetch(API_URL);
-                if (!response.ok) throw new Error(`Falha ao carregar projetos (Status: ${response.status})`);
+                if (!response.ok) throw new Error('Falha ao carregar projetos (Status: ${response.status})');
                 
                 projects = await response.json(); 
                 
             } catch (error) {
                 console.error('Erro ao buscar projetos:', error);
-                projectsGrid.innerHTML = `<p class="error-message">Erro ao carregar projetos. Verifique a API. Detalhe: ${error.message}</p>`;
+                projectsGrid.innerHTML = '<p class="error-message">Erro ao carregar projetos. Verifique a API. Detalhe: ${error.message}</p>';
                 return;
             }
         }
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderProjects = (projectList) => {
         projectsGrid.innerHTML = ''; 
         if (projectList.length === 0) {
-            projectsGrid.innerHTML = `<p class="empty-message">Nenhum projeto encontrado.</p>`;
+            projectsGrid.innerHTML = '<p class="empty-message">Nenhum projeto encontrado.</p>';
             return;
         }
         
@@ -67,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const icon = isCompleted ? 'storefront' : 'apartment';
             const projectCard = document.createElement('div');
             projectCard.className = cardClass;
-            projectCard.setAttribute('data-id', project.id); 
-            projectCard.innerHTML = `
+            projectCard.setAttribute('data-id', project.id);
+            projectCard.innerHTML = '
                 <div class="card-header">
                     <span class="material-symbols-outlined card-icon">${icon}</span>
                     <h3 class="card-title">${project.titulo}</h3>
@@ -86,9 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-action btn-edit">Editar</button>
                         <button class="btn-action btn-delete">Excluir</button>
                     </div>
-                     <a href="projects/project.html?id=${id}&ProjetoId=${project.id}" class="btn-details">Ver Detalhes</a>
+                    <a href="projects/project.html?id=${id}&ProjetoId=${project.id}" class="btn-details">Ver Detalhes</a>
                 </div>
-            `;
+            ;
             projectsGrid.appendChild(projectCard);
         });
     };
@@ -128,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dadosSalvos = localStorage.getItem('projetoPendente');
         if (!dadosSalvos) return;
 
-        const projetoObj =JSON.parse(dadosSalvos);
+        const projetoObj = JSON.parse(dadosSalvos);
 
         const titleInput = document.getElementById('project-title');
         const descInput = document.getElementById('project-description');
@@ -174,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (id) { 
             // UPDATE: Método PUT. O ID é usado na URL.
-            url = `${API_URL}/${id}`;
+            url = '${API_URL}/${id}';
             method = 'PUT';
         } else { 
             // CREATE: Método POST. O ID não é usado na URL.
@@ -199,8 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
 
         } catch (error) {
-            console.error(`Erro na operação CRUD (${method}):`, error); 
-            alert(`Erro: Falha na requisição ${method}. Verifique as permissões da API (erro 403). Detalhe: ${error.message}`);
+            console.error('Erro na operação CRUD (${method}):', error); 
+            alert('Erro: Falha na requisição ${method}. Verifique as permissões da API (erro 403). Detalhe: ${error.message}');
         }
     });
 
@@ -226,18 +227,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             // DELETE: Excluir projeto
-            const response = await fetch(`${API_URL}/${projectId}`, {
+            const response = await fetch('${API_URL}/${projectId}', {
                 method: 'DELETE',
             });
             
-            if (!response.ok) throw new Error(`Falha ao excluir projeto (Status: ${response.status}).`);
+            if (!response.ok) throw new Error('Falha ao excluir projeto (Status: ${response.status}).');
             
             await fetchAndRenderProjects(); 
             closeDeleteModal();
             
         } catch (error) {
             console.error('Erro na operação DELETE:', error);
-            alert(`Erro: Falha na requisição DELETE. Verifique as permissões da API (erro 403). Detalhe: ${error.message}`);
+            alert('Erro: Falha na requisição DELETE. Verifique as permissões da API (erro 403). Detalhe: ${error.message}');
         }
     });
 
@@ -271,4 +272,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // 
     verificarEPreencherModal();
 });
-

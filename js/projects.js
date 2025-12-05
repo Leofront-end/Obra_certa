@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
+    // const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
+    const API_URL = 'http://localhost:8080/api/projetos';
 
     // --- Modal Principal (Criar/Editar) ---
     const openModalBtn = document.getElementById('open-modal-btn');

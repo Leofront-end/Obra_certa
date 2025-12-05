@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const projectCard = document.createElement('div');
             projectCard.className = cardClass;
             projectCard.setAttribute('data-id', project.id);
-            projectCard.innerHTML = '
+            projectCard.innerHTML = `
                 <div class="card-header">
                     <span class="material-symbols-outlined card-icon">${icon}</span>
                     <h3 class="card-title">${project.titulo}</h3>
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-action btn-delete">Excluir</button>
                     </div>
                     <a href="projects/project.html?id=${id}&ProjetoId=${project.id}" class="btn-details">Ver Detalhes</a>
-                </div>
+                </div>`;
             ;
             projectsGrid.appendChild(projectCard);
         });

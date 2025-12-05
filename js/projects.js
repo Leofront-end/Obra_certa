@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-action btn-edit">Editar</button>
                         <button class="btn-action btn-delete">Excluir</button>
                     </div>
-                    <a href="projects/project.html" class="btn-details">Ver Detalhes</a>
+                     <a href="projects/project.html?id=${id}&ProjetoId=${project.id}" class="btn-details">Ver Detalhes</a>
                 </div>
             `;
             projectsGrid.appendChild(projectCard);

@@ -1,7 +1,5 @@
-import { id } from "./id.js";
 document.addEventListener('DOMContentLoaded', () => {
-    // const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
-    const API_URL = 'http://localhost:8080/api/projetos';
+    const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
 
     // --- Modal Principal (Criar/Editar) ---
     const openModalBtn = document.getElementById('open-modal-btn');
@@ -88,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-action btn-edit">Editar</button>
                         <button class="btn-action btn-delete">Excluir</button>
                     </div>
-                    <a href="projects/project.html?id=${id}&ProjetoId=${project.id}" class="btn-details">Ver Detalhes</a>
+                    <a href="projects/project.html" class="btn-details">Ver Detalhes</a>
                 </div>
             `;
             projectsGrid.appendChild(projectCard);

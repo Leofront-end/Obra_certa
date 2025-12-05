@@ -1,59 +1,46 @@
-import { id } from "./id.js";
+import { id as usuarioIdImportado } from "./id.js";
 document.addEventListener('DOMContentLoaded', () => {
     const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
 
-    // --- Modal Principal (Criar/Editar) ---
     const openModalBtn = document.getElementById('open-modal-btn');
     const modal = document.getElementById('project-modal');
     const cancelBtn = document.getElementById('cancel-btn');
     const projectForm = document.getElementById('project-form');
     const modalTitle = document.getElementById('modal-title');
     const projectIdInput = document.getElementById('project-id');
-
-    // --- Modal de Exclusão ---
     const deleteModal = document.getElementById('delete-modal');
     const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
     const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
     const deleteProjectTitle = document.getElementById('delete-project-title');
     const projectIdToDeleteInput = document.getElementById('project-id-to-delete');
-
-    // --- Área Principal ---
     const projectsGrid = document.getElementById('projects-grid');
     const searchInput = document.getElementById('search-input');
     
-
-    // 2. DADOS E API
     let projects = []; 
-
-    // 3. FUNÇÕES PRINCIPAIS (CRUD com Fetch)
-
-    /**
-     * READ: Busca projetos da API e desenha os cards.
-     */
+    
     const fetchAndRenderProjects = async (projectList = null) => {
         if (!projectList) {
             try {
-                // GET: Busca todos os projetos
                 const response = await fetch(API_URL);
-                if (!response.ok) throw new Error('Falha ao carregar projetos (Status: ${response.status})');
+                if (!response.ok) throw new Error(`Falha ao carregar projetos (Status: ${response.status})`);
                 
-                projects = await response.json(); 
+                projects = await response.json();
                 
             } catch (error) {
                 console.error('Erro ao buscar projetos:', error);
-                projectsGrid.innerHTML = '<p class="error-message">Erro ao carregar projetos. Verifique a API. Detalhe: ${error.message}</p>';
+                projectsGrid.innerHTML = `<p class="error-message">Erro ao carregar projetos. Verifique a API. Detalhe: ${error.message}</p>`;
                 return;
             }
         }
         
-        renderProjects(projectList || projects); 
+        renderProjects(projectList || projects);
     };
 
     /**
      * READ: Desenha os cards de projeto na tela. (Usa: project.titulo, project.descricao, project.progresso)
      */
     const renderProjects = (projectList) => {
-        projectsGrid.innerHTML = ''; 
+        projectsGrid.innerHTML = '';
         if (projectList.length === 0) {
             projectsGrid.innerHTML = '<p class="empty-message">Nenhum projeto encontrado.</p>';
             return;
@@ -87,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-action btn-edit">Editar</button>
                         <button class="btn-action btn-delete">Excluir</button>
                     </div>
-                    <a href="projects/project.html?id=${id}&ProjetoId=${project.id}" class="btn-details">Ver Detalhes</a>
+                    <a href="projects/project.html?id=${usuarioIdImportado}&ProjetoId=${project.id}" class="btn-details">Ver Detalhes</a>
                 </div>`;
             ;
             projectsGrid.appendChild(projectCard);
@@ -147,37 +134,36 @@ document.addEventListener('DOMContentLoaded', () => {
     };
         
     // 4. EVENT LISTENERS (AÇÕES DO USUÁRIO)
-
-    /**
-     * --- Listener para Submissão do Formulário (CREATE/UPDATE) ---
-     * CORRIGIDO: Declarando 'method' e 'url' no escopo correto.
-     * ENVIA: titulo, descricao, progresso.
-     */
     projectForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const id = projectIdInput.value; 
+        const idProjeto = projectIdInput.value;
         
         const titleValue = document.getElementById('project-title').value;
         const descriptionValue = document.getElementById('project-description').value;
         const progressValue = document.getElementById('project-progress').value;
 
-        const projectData = { 
+        const urlParams = new URLSearchParams(window.location.search);
+        const userIdParaSalvar = urlParams.get('id') || usuarioIdImportado;
+
+        const projectData = {
             "titulo": titleValue,
             "descricao": descriptionValue,
-            "progresso": Number(progressValue) // Garante o tipo numérico
+            "progresso": Number(progressValue),
+            "usuario": {
+                "id": userIdParaSalvar
+            }
         };
         
-        // 💡 Variáveis declaradas antes do try/catch para evitar ReferenceError no bloco catch
         let response;
         let url;
         let method;
 
-        if (id) { 
+        if (idProjeto) {
             // UPDATE: Método PUT. O ID é usado na URL.
-            url = '${API_URL}/${id}';
+            url = '${API_URL}/${idProjeto}';
             method = 'PUT';
-        } else { 
+        } else {
             // CREATE: Método POST. O ID não é usado na URL.
             url = API_URL;
             method = 'POST';
@@ -200,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
 
         } catch (error) {
-            console.error('Erro na operação CRUD (${method}):', error); 
-            alert('Erro: Falha na requisição ${method}. Verifique as permissões da API (erro 403). Detalhe: ${error.message}');
+            console.error(`Erro na operação CRUD (${method}):`, error);
+            alert(`Erro: Falha na requisição ${method}. Detalhe: ${error.message}`);
         }
     });
 
@@ -227,18 +213,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             // DELETE: Excluir projeto
-            const response = await fetch('${API_URL}/${projectId}', {
+            const response = await fetch(`${API_URL}/${projectId}`, {
                 method: 'DELETE',
             });
             
-            if (!response.ok) throw new Error('Falha ao excluir projeto (Status: ${response.status}).');
-            
+            if (!response.ok) throw new Error(`Falha ao excluir projeto (Status: ${response.status}).`);
+
             await fetchAndRenderProjects(); 
             closeDeleteModal();
             
         } catch (error) {
             console.error('Erro na operação DELETE:', error);
-            alert('Erro: Falha na requisição DELETE. Verifique as permissões da API (erro 403). Detalhe: ${error.message}');
+            alert(`Erro: Falha na requisição DELETE. Detalhe: ${error.message}`);
         }
     });
 

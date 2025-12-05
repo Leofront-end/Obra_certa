@@ -1,3 +1,4 @@
+import { id } from "./id.js";
 document.addEventListener('DOMContentLoaded', () => {
     const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
 
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-action btn-edit">Editar</button>
                         <button class="btn-action btn-delete">Excluir</button>
                     </div>
-                    <a href="projects/project.html" class="btn-details">Ver Detalhes</a>
+                    <a href="projects/project.html?id=${id}&ProjetoId=${project.id}"" class="btn-details">Ver Detalhes</a>
                 </div>
             `;
             projectsGrid.appendChild(projectCard);
@@ -128,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dadosSalvos = localStorage.getItem('projetoPendente');
         if (!dadosSalvos) return;
 
-        const projetoObj =JSON.parse(dadosSalvos);
+        const projetoObj = JSON.parse(dadosSalvos);
 
         const titleInput = document.getElementById('project-title');
         const descInput = document.getElementById('project-description');

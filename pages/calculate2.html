@@ -53,22 +53,21 @@
                 <select name="material" id="material">
                     <option value="" disabled selected hidden>Clique para selecionar</option>
                 </select>
-                <!-- <label for="figuraGeometrica">Figura Geométrica</label> -->
-                <!-- <select name="figuraGeometrica" id="figuraGeometrica">
-                    <option value="" disabled selected hidden>Clique para selecionar</option>
-                    <option value="">Quadrado</option>
-                    <option value="">Retângulo</option>
-                    <option value="">Triângulo</option>
-                    <option value="">Triângulo Retângulo</option>
-                </select> -->
 
                 <label for="altura">Altura</label>
-                <input type="number" name="altura" id="altura" placeholder="Digite a altura em metros">
+                <input type="number" name="altura" id="altura" placeholder="Digite a altura em metros (exemplo: 1.20)">
 
                 <label for="largura">Largura</label>
-                <input type="number" name="largura" id="largura" placeholder="Digite a largura em metros">
+                <input type="number" name="largura" id="largura" placeholder="Digite a altura em metros (exemplo: 1.20)">
 
-                <button class="btn-primary"><span class="material-symbols-outlined">calculate</span> Calcular</button>
+                <button type= "button" id="btnCalcular" class="btn-primary"><span class="material-symbols-outlined">calculate</span> Calcular</button>
+                
+                <div id="resultadoCalculo" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9;">
+                    <h3>Resultado:</h3>
+                    <p id="msgResultado"></p>
+                    <p><strong>Quantidade:</strong> <span id="qtdResultado"></span> <span id="unidadeResultado"></span></p>
+                    <p><strong>Área Total:</strong> <span id="areaResultado"></span> m²</p>
+                </div>
             </form>
         </section>
     </main>

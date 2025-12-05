@@ -175,6 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(projectData)
             });
+
+            
             
             if (!response.ok) {
                 const errorDetail = await response.text(); 

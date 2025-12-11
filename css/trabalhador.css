@@ -306,6 +306,29 @@ input:focus,select:focus, textarea:focus {
     content: "";
 }
 
+.tarefas {
+    margin-top: 25px;
+}
+
+.tarefa {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 10px 0px;
+    gap: 2px;
+
+    &>button {
+        margin-right: 0
+    }
+
+    &::after {
+        display: block;
+        width: 500%;
+        height: 1px;
+        background-color: var(--cor-secundaria);
+        content: "";
+    }
+}
+
 /* ---------------------------------------------------- */
 /* 6. HOME - CATEGORIA E CAROUSEL */
 /* ---------------------------------------------------- */
@@ -805,5 +828,10 @@ input:focus,select:focus, textarea:focus {
         flex-direction: row; 
         justify-content: flex-end;
         gap: 12px;
+    }
+
+    /* Tarefa */
+    .tarefa button {
+        margin-right: 10px;
     }
 }

@@ -41,6 +41,7 @@ if(window.location.pathname == "/pages/projects/project.html") {
         resposta.forEach(resposta => {
             const listaDeTarefas = document.querySelector("ul")
             const lista = document.createElement("li")
+            lista.className = "tarefa"
             const titulo = document.createElement("p")
             titulo.textContent = resposta.nome
 
@@ -84,6 +85,7 @@ if(window.location.pathname == "/pages/projects/project.html") {
         }).then(() => {
             const listaDeTarefas = document.querySelector("ul")
             const lista = document.createElement("li")
+            lista.className = "tarefa"
 
             const titulo = document.createElement("p")
             titulo.textContent = dados.nome

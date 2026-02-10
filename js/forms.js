@@ -157,25 +157,12 @@ function handleLoginSubmit() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                // ADICIONE ESTA LINHA:
+                credentials: 'include', 
+                // Isso avisa o navegador: "Pegue o cookie que o Java mandar e salve!"
+                
                 body: JSON.stringify(dados)
             })
-                .then(resposta => {
-                    if (resposta.ok) {
-                        return resposta.text()
-                    }
-                    return resposta.text().then(erroBody => {
-                        throw new Error(erroBody);
-                    })
-                })
-                .then((dado) => {
-                    let resultado = JSON.parse(dado)
-                    let id = resultado.id
-                
-                    window.location.href = `pages/home.html?id=${id}`
-                })
-                .catch(() => {
-                    invalido[0].textContent = 'Email ou senha invalidos'
-                })
         }
     });
 }

@@ -1,4 +1,5 @@
 import { id as usuarioIdImportado } from "./id.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
 
@@ -18,17 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let projects = []; 
     
+    // --- 1. LISTAR PROJETOS (READ) ---
     const fetchAndRenderProjects = async (projectList = null) => {
         if (!projectList) {
             try {
-                const response = await fetch(API_URL);
-                if (!response.ok) throw new Error(`Falha ao carregar projetos (Status: ${response.status})`);
+                // CORREÇÃO 1: Adicionado credentials: 'include'
+                const response = await fetch(API_URL, { credentials: 'include' }); 
+                
+                if (!response.ok) throw new Error(`Erro API: ${response.status}`);
                 
                 projects = await response.json();
                 
             } catch (error) {
                 console.error('Erro ao buscar projetos:', error);
-                projectsGrid.innerHTML = `<p class="error-message">Erro ao carregar projetos. Verifique a API. Detalhe: ${error.message}</p>`;
+                projectsGrid.innerHTML = `<p class="error-message">Erro ao carregar projetos. Tente recarregar a página.</p>`;
                 return;
             }
         }
@@ -37,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * READ: Desenha os cards de projeto na tela. (Usa: project.titulo, project.descricao, project.progresso)
+     * READ: Desenha os cards de projeto na tela.
      */
     const renderProjects = (projectList) => {
         projectsGrid.innerHTML = '';
@@ -47,12 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         projectList.forEach(project => {
-            // Usa as chaves da API para renderizar
             const isCompleted = project.progresso === 100;
             const cardClass = isCompleted ? 'project-card status-completed' : 'project-card';
             const statusText = isCompleted ? 'Concluído' : 'Em Andamento';
             const statusClass = isCompleted ? '' : 'in-progress';
             const icon = isCompleted ? 'storefront' : 'apartment';
+            
             const projectCard = document.createElement('div');
             projectCard.className = cardClass;
             projectCard.setAttribute('data-id', project.id);
@@ -76,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <a href="projects/project.html?id=${usuarioIdImportado}&ProjetoId=${project.id}" class="btn-details">Ver Detalhes</a>
                 </div>`;
-            ;
             projectsGrid.appendChild(projectCard);
         });
     };
@@ -89,9 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.showModal();
     };
 
-    /**
-     * Preenche o modal de edição. (Usa: project.titulo, project.descricao, project.progresso)
-     */
     const openModalForEdit = (project) => {
         modalTitle.textContent = 'Editar Projeto';
         projectIdInput.value = project.id;
@@ -124,21 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (titleInput && descInput) {
             titleInput.value = projetoObj.titulo;
             descInput.value = projetoObj.descricao;
-            
             modalTitle.textContent = "Salvar cálculo em projeto";
-
             modal.showModal();
-
             localStorage.removeItem('projetoPendente');
         }
     };
         
-    // 4. EVENT LISTENERS (AÇÕES DO USUÁRIO)
+    // --- 2. CRIAR E ATUALIZAR (CREATE / UPDATE) ---
     projectForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        // Definição de Variáveis
         const idProjeto = projectIdInput.value;
-        
         const titleValue = document.getElementById('project-title').value;
         const descriptionValue = document.getElementById('project-description').value;
         const progressValue = document.getElementById('project-progress').value;
@@ -155,33 +152,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         
-        let response;
         let url;
         let method;
 
         if (idProjeto) {
-            // UPDATE: Método PUT. O ID é usado na URL.
-            url = '${API_URL}/${idProjeto}';
+            // UPDATE: Método PUT.
+            // CORREÇÃO 2: Usei crases (`) aqui, senão a variável não funciona
+            url = `${API_URL}/${idProjeto}`; 
             method = 'PUT';
         } else {
-            // CREATE: Método POST. O ID não é usado na URL.
+            // CREATE: Método POST.
             url = API_URL;
             method = 'POST';
         }
 
         try {
-            response = await fetch(url, {
+            // CORREÇÃO 3: Fetch ÚNICO com credentials
+            const response = await fetch(url, {
                 method: method,
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'include', // <--- Importante
                 body: JSON.stringify(projectData)
             });
-
-            
             
             if (!response.ok) {
                 const errorDetail = await response.text(); 
-                // Agora 'method' está acessível aqui e no catch
-                throw new Error(`Falha ao ${id ? 'atualizar' : 'criar'} projeto. Status: ${response.status}. Detalhe: ${errorDetail.substring(0, 100)}...`);
+                throw new Error(`Falha na requisição. Status: ${response.status}. Detalhe: ${errorDetail.substring(0, 100)}...`);
             }
             
             await fetchAndRenderProjects(); 
@@ -189,11 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error(`Erro na operação CRUD (${method}):`, error);
-            alert(`Erro: Falha na requisição ${method}. Detalhe: ${error.message}`);
+            alert(`Erro: Falha na requisição. Detalhe: ${error.message}`);
         }
     });
 
-    // --- Listeners para os botões nos Cards (Editar e Excluir) ---
+    // --- Listeners para os botões nos Cards ---
     projectsGrid.addEventListener('click', (e) => {
         const card = e.target.closest('.project-card');
         if (!card) return;
@@ -209,17 +205,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Listener para Confirmação de Exclusão (DELETE) ---
+    // --- 3. EXCLUIR (DELETE) ---
     confirmDeleteBtn.addEventListener('click', async () => {
         const projectId = projectIdToDeleteInput.value;
         
         try {
-            // DELETE: Excluir projeto
+            // CORREÇÃO 4: Fetch ÚNICO com credentials
             const response = await fetch(`${API_URL}/${projectId}`, {
                 method: 'DELETE',
+                credentials: 'include' // <--- Importante
             });
             
-            if (!response.ok) throw new Error(`Falha ao excluir projeto (Status: ${response.status}).`);
+            if (!response.ok) throw new Error(`Falha ao excluir (Status: ${response.status}).`);
 
             await fetchAndRenderProjects(); 
             closeDeleteModal();
@@ -230,10 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /**
-     * --- Listener para a Barra de Busca ---
-     * (Usa: project.titulo e project.descricao)
-     */
+    // --- Listener para a Barra de Busca ---
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         const filteredProjects = projects.filter(p => 
@@ -243,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProjects(filteredProjects); 
     });
     
-    // --- Listeners para Abertura e Fechamento de Modais (Mesmos de antes) ---
+    // --- Listeners de Modal ---
     openModalBtn.addEventListener('click', openModalForCreate);
     cancelBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
@@ -256,7 +250,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. INICIALIZAÇÃO
     fetchAndRenderProjects();
-
-    // 
     verificarEPreencherModal();
 });

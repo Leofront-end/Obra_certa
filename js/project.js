@@ -12,7 +12,8 @@ if(window.location.pathname == "/pages/projects/project.html") {
         method: "GET",
         headers: {
             "Content-Type": "Application/json"
-        }
+        },
+        credentials: 'include'
     }).then((resposta) => {
         return resposta.json()
     }).then((data) => {

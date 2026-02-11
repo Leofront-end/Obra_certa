@@ -11,7 +11,8 @@ fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
     method:"GET",
     headers: {
         'Content-Type': 'application/json'
-    }
+    },
+    credentials: 'include'
 })
     .then((res) => res.json())
     .then((dado) => {
@@ -38,6 +39,7 @@ botaoEditar.addEventListener('click', () => {
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8'
             },
+            credentials: 'include',
             body: JSON.stringify(dados)
         })
             .then((response) => {
@@ -58,7 +60,8 @@ botaoExcluir.addEventListener('click', () => {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         }).then(() => {
             window.location.href = "/"
         })

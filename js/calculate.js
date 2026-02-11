@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 "Content-Type": "application/json"
             },
+            credentials: 'include',
         }).then((result) => {
             return result.json()
         }).then((projects) => {
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 "Content-Type": "application/json"
             },
+            credentials: 'include',
             body: JSON.stringify(dado)
         }).then(() => {
             window.location.href = `calculate2.html?id=${id}`

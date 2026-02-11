@@ -153,16 +153,51 @@ function handleLoginSubmit() {
             }
 
             fetch('https://obracerta-api.onrender.com/api/usuarios/login', {
-                method:"POST",
+                method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                // ADICIONE ESTA LINHA:
-                credentials: 'include', 
-                // Isso avisa o navegador: "Pegue o cookie que o Java mandar e salve!"
-                
+                credentials: 'include', // Importante manter isso da nossa correção anterior
                 body: JSON.stringify(dados)
             })
+            .then(resposta => {
+                if (resposta.ok) {
+                    return resposta.text()
+                }
+                return resposta.text().then(erroBody => {
+                    throw new Error(erroBody);
+                })
+            })
+            // --- AQUI COMEÇA A MUDANÇA (Passo 1) ---
+            .then((dado) => {
+                console.log("✅ Login Sucesso! Resposta bruta:", dado); 
+                
+                try {
+                    let resultado = JSON.parse(dado);
+                    let id = resultado.id;
+                    
+                    console.log("🚀 Redirecionando para ID:", id);
+                    
+                    // Verifica se o ID veio mesmo
+                    if (!id) {
+                        throw new Error("O ID do usuário veio vazio!");
+                    }
+
+                    // Tenta redirecionar
+                    window.location.href = `pages/home.html?id=${id}`;
+                    
+                } catch (jsonError) {
+                    console.error("❌ Erro ao ler JSON ou ID:", jsonError);
+                    throw new Error("Erro ao processar dados do usuário.");
+                }
+            })
+            .catch((erro) => {
+                // Isso vai mostrar o erro REAL no Console (F12) do navegador
+                console.error("🚨 ERRO CRÍTICO NO LOGIN:", erro);
+                
+                // Isso mostra um feedback na tela
+                invalido[0].textContent = 'Falha: ' + erro.message;
+            });
         }
     });
 }

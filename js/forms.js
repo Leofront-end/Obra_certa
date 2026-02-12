@@ -183,6 +183,8 @@ function handleLoginSubmit() {
                         throw new Error("O ID do usuário veio vazio!");
                     }
 
+                    localStorage.setItem('usuarioId', id);
+
                     // Tenta redirecionar
                     window.location.href = `pages/home.html?id=${id}`;
                     

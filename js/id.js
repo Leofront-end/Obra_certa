@@ -1,28 +1,32 @@
-const urlParametros = new URLSearchParams(window.location.search)
-let idPessoa = urlParametros.get('id')
-export let id = idPessoa
+// id.js - Versão Final e Simplificada
 
-if (idPessoa == "null" || !id) {
-    window.location.href = "/"
+// 1. Tenta recuperar o ID de dois lugares: URL (prioridade) ou Memória do Navegador
+const params = new URLSearchParams(window.location.search);
+const idUrl = params.get('id');
+const idStorage = localStorage.getItem('usuarioId');
+
+// A variável exportada será o que encontrar (URL vence Storage se existir)
+export let id = idUrl || idStorage;
+
+// 2. Lógica de Segurança
+// Verifica se estamos na página de login (index ou raiz) para não criar loop infinito
+const path = window.location.pathname;
+const estouNoLogin = path.endsWith('/') || path.includes('index.html') || path === '/';
+
+// Se NÃO tem ID e NÃO estou no login -> Chuta para fora
+if (!id && !estouNoLogin) {
+    console.warn("Usuário não autenticado. Redirecionando para login...");
+    window.location.href = "/"; // Ou "../index.html" dependendo da sua estrutura de pastas
 }
 
-const nav = document.querySelector('header .container')
-const botoes = document.querySelector('.buttons')
-function AdicionarId(elemento) {
-    elemento.addEventListener('click', (e) => {
-        let link = e.target.closest('a')
-
-        e.preventDefault()
-
-        const urlAtual =  link.getAttribute('href')
-
-        if (urlAtual && !urlAtual.includes('?id=')) {
-            const novaUrl = `${urlAtual}?id=${id}`
-            window.location.href = novaUrl
-        } else {
-            window.location.href = urlAtual
-        }
-    })
+// 3. Persistência
+// Se o ID veio pela URL (ex: logo após o login), salva ele no Storage para o futuro
+if (idUrl && idUrl !== "null") {
+    localStorage.setItem('usuarioId', idUrl);
 }
-if (nav) AdicionarId(nav)
-if (botoes) AdicionarId(botoes)
+
+// Se o ID for inválido ("null"), limpa tudo
+if (id === "null") {
+    localStorage.removeItem('usuarioId');
+    if (!estouNoLogin) window.location.href = "/";
+}

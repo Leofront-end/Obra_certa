@@ -83,7 +83,7 @@ async function enviarCalculo() {
 
     try {
         // D. Enviar para o Back-end (Fetch API)
-        const response = await fetch('http://localhost:8080/api/calculadora', {
+        const response = await fetch('https://obracerta-api.onrender.com/api/calculadora', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

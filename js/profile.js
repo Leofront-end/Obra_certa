@@ -1,69 +1,59 @@
 import { id } from "./id.js";
 
-let nomeInput = document.querySelector('#name')
-let emailInput = document.querySelector('#email')
-let botaoEditar = document.querySelector('.btn-edit')
-let botaoExcluir = document.querySelector('.btn-delete')
-let modalEditar = document.querySelector('.modal-editar')
-let modalExcluir = document.querySelector('.modal-excluir')
+const nomeInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const botaoEditar = document.querySelector('.btn-edit');
+const botaoExcluir = document.querySelector('.btn-delete');
+const modalEditar = document.querySelector('.modal-editar');
+const modalExcluir = document.querySelector('.modal-excluir');
 
 fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
-    method:"GET",
-    headers: {
-        'Content-Type': 'application/json'
-    },
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
     credentials: 'include'
 })
-    .then((res) => res.json())
-    .then((dado) => {
-        nomeInput.value = dado.nome
-        emailInput.value = dado.email
-    })
-    .catch(() => {
-        console.error('HOuve um erro')
-    })
-
-botaoEditar.addEventListener('click', () => {
-    modalEditar.showModal()
-    let confirmarEdicao = modalEditar.querySelector('.btn-primary') 
-    let sair = modalEditar.querySelector('.btn-secondary')
-    sair.addEventListener('click', () => modalEditar.close())
-
-    confirmarEdicao.addEventListener('click', () => {
-        let dados = {
-            nome: `${nomeInput.value}`,
-            email: `${emailInput.value}`
-        }
-        fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
-            method:"PUT",
-            headers: {
-                'Content-Type': 'application/json; charset=UTF-8'
-            },
-            credentials: 'include',
-            body: JSON.stringify(dados)
-        })
-            .then((response) => {
-                response.json()
-                modalEditar.close()
-            })
-    })
+.then(res => res.json())
+.then(dado => {
+    nomeInput.value = dado.nome;
+    emailInput.value = dado.email;
 })
+.catch(() => console.error('Erro ao carregar perfil'));
 
-botaoExcluir.addEventListener('click', () => {
-    modalExcluir.showModal()
-    let confirmarExclusao = modalExcluir.querySelector('.btn-danger')
-    let sair = modalExcluir.querySelector('.btn-secondary')
-    sair.addEventListener('click', () => modalExcluir.close())
+const confirmarEdicao = modalEditar.querySelector('.btn-primary');
+const sairEditar = modalEditar.querySelector('.btn-secondary');
+const confirmarExclusao = modalExcluir.querySelector('.btn-danger');
+const sairExcluir = modalExcluir.querySelector('.btn-secondary');
 
-    confirmarExclusao.addEventListener('click', () => {
-        fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
-            method: "DELETE",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include'
-        }).then(() => {
-            window.location.href = "/"
-        })
+botaoEditar.addEventListener('click', () => modalEditar.showModal());
+sairEditar.addEventListener('click', () => modalEditar.close());
+
+confirmarEdicao.addEventListener('click', () => {
+    fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+        credentials: 'include',
+        body: JSON.stringify({ nome: nomeInput.value, email: emailInput.value })
     })
-})
+    .then(res => {
+        if (!res.ok) throw new Error('Falha ao atualizar');
+        return res.json();
+    })
+    .then(() => modalEditar.close())
+    .catch(err => console.error('Erro ao atualizar perfil:', err));
+});
+
+botaoExcluir.addEventListener('click', () => modalExcluir.showModal());
+sairExcluir.addEventListener('click', () => modalExcluir.close());
+
+confirmarExclusao.addEventListener('click', () => {
+    fetch(`https://obracerta-api.onrender.com/api/usuarios/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include'
+    })
+    .then(() => {
+        localStorage.removeItem('usuarioId');
+        window.location.href = '/';
+    })
+    .catch(err => console.error('Erro ao excluir conta:', err));
+});

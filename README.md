@@ -64,11 +64,11 @@ O **ObraCerta** consiste em uma plataforma digital Full Stack desenvolvida para 
 <table>
   <tr>
     <td align="center">
-      <img src="/frontend/assets/images/calc.png" alt="Tela da Calculadora" width="600"><br>
+      <img src="/assets/images/calc.png" alt="Tela da Calculadora" width="600"><br>
       <sup>Tela de Inserção de Dados</sup>
     </td>
     <td align="center">
-      <img src="/frontend/assets/images/result.png" alt="Resultado da Calculadora" width="400"><br>
+      <img src="/assets/images/result.png" alt="Resultado da Calculadora" width="400"><br>
       <sup>Resultado do Cálculo</sup>
     </td>
   </tr>
@@ -82,10 +82,3 @@ Certifique-se de possuir em seu ambiente:
 - Java JDK 21+
 - Apache Maven 3.8+
 - Docker e Docker Compose (Opcional, para conteinerização)
-
-## 🚀 Como Instalar e Executar
-
-**1. Clone o repositório completo:**
-```bash
-git clone [https://github.com/seu-usuario/obracerta-fullstack.git](https://github.com/seu-usuario/obracerta-fullstack.git)
-cd obracerta-fullstack

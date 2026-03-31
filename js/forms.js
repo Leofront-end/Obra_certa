@@ -87,7 +87,7 @@ function handleCadastroSubmit() {
             }
         }
 
-        if (!inputsCadastro[4].checked) {
+        if (!inputs[4].checked) {
             invalido[1].textContent = 'Aceite os termos' 
             input.focus()
             return
@@ -115,20 +115,6 @@ function handleCadastroSubmit() {
     })
 }
 
-function invalidateEmail (email) {
-    const regex = /^[^\s]+@[^\s]+\.[^\s]+$/
-    return !regex.test(email)
-}
-
-function invalidarNome (nome) {
-    const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/
-
-    if (nome.trim() === "") {
-        return true; 
-    }
-
-    return !regex.test(nome)
-}
 
 function handleLoginSubmit() {
     if (!loginForm || !invalido[0]) return;
@@ -141,71 +127,56 @@ function handleLoginSubmit() {
         const senhaInput = document.getElementById('senhaLogin');
 
         if (!emailInput || invalidateEmail(emailInput.value)) {
-            invalido[0].textContent = 'Preencha seu email'
-            if (emailInput) emailInput.focus()
-        } else if (!senhaInput || senhaInput.value == '') {
-            invalido[0].textContent = 'Preencha sua senha'
-            if (senhaInput) senhaInput.focus()
-        } else {
-            let dados = {
-                "email": emailInput.value,
-                "senha": senhaInput.value
-            }
-
-            fetch('https://obracerta-api.onrender.com/api/usuarios/login', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                credentials: 'include', // Importante manter isso da nossa correção anterior
-                body: JSON.stringify(dados)
-            })
-            .then(resposta => {
-                if (resposta.ok) {
-                    return resposta.text()
-                }
-                return resposta.text().then(erroBody => {
-                    throw new Error(erroBody);
-                })
-            })
-            // --- AQUI COMEÇA A MUDANÇA (Passo 1) ---
-            .then((dado) => {
-                console.log("✅ Login Sucesso! Resposta bruta:", dado); 
-                
-                try {
-                    let resultado = JSON.parse(dado);
-                    let id = resultado.id;
-                    
-                    console.log("🚀 Redirecionando para ID:", id);
-                    
-                    // Verifica se o ID veio mesmo
-                    if (!id) {
-                        throw new Error("O ID do usuário veio vazio!");
-                    }
-
-                    localStorage.setItem('usuarioId', id);
-
-                    // Tenta redirecionar
-                    window.location.href = `pages/home.html?id=${id}`;
-                    
-                } catch (jsonError) {
-                    console.error("❌ Erro ao ler JSON ou ID:", jsonError);
-                    throw new Error("Erro ao processar dados do usuário.");
-                }
-            })
-            .catch((erro) => {
-                // Isso vai mostrar o erro REAL no Console (F12) do navegador
-                console.error("🚨 ERRO CRÍTICO NO LOGIN:", erro);
-                
-                // Isso mostra um feedback na tela
-                invalido[0].textContent = 'Falha: ' + erro.message;
-            });
+            invalido.textContent = 'Preencha seu email';
+            if (emailInput) emailInput.focus();
+            return;
         }
+        if (!senhaInput || senhaInput.value === '') {
+            invalido.textContent = 'Preencha sua senha';
+            senhaInput.focus();
+            return;
+        }
+
+
+        fetch('https://obracerta-api.onrender.com/api/usuarios/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ email: emailInput.value, senha: senhaInput.value })
+        })
+        .then(resposta => {
+            if (resposta.ok) return resposta.text();
+            return resposta.text().then(msg => { throw new Error(msg); });
+        })
+        .then(dado => {
+            const resultado = JSON.parse(dado);
+            if (!resultado.id) throw new Error('ID do usuário veio vazio');
+            localStorage.setItem('usuarioId', resultado.id);
+            window.location.href = `pages/home.html?id=${resultado.id}`;
+        })
+        .catch(erro => {
+            invalido.textContent = 'Falha: ' + erro.message;
+        });
     });
 }
 
+function invalidateEmail(email) {
+    return !/^[^\s]+@[^\s]+\.[^\s]+$/.test(email);
+}
+
+function invalidarNome(nome) {
+    if (nome.trim() === '') return true;
+    return !/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/.test(nome);
+}
+
 export function setupForms() {
-    mudarPassword()
-    handleCadastroSubmit();
-    handleLoginSubmit();
+    const loginForm = document.querySelector('#loginForm');
+    const cadastroForm = document.querySelector('#cadastroForm');
+    if (!loginForm || !cadastroForm) return;
+
+    const invalidos = document.querySelectorAll('.invalido');
+
+    mudarPassword(loginForm, cadastroForm);
+    handleCadastroSubmit(cadastroForm, invalidos[1]);
+    handleLoginSubmit(loginForm, invalidos[0]);
 }

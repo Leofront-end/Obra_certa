@@ -1,4 +1,5 @@
 import { id } from "./id.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const openModalBtn = document.getElementById('open-modal-btn');
     const modal = document.getElementById('project-modal');
@@ -20,11 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     projetosSelect.addEventListener('change', () => {
         let idProjeto = projetosSelect.value
-        window.location.href = `calculate2.html?id=${id}`
+        window.location.href = `calculate2.html?id=${id}&ProjetoIde=${idProjeto}`;
     })
 
     projetosSelect.addEventListener('click', () => {
-        fetch("https://obracerta-api.onrender.com/api/projetos", {
+        fetch(`https://obracerta-api.onrender.com/api/projetos/usuario/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"

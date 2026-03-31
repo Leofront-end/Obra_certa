@@ -44,9 +44,7 @@ export function listaMaterial() {
     handleSuperficieChange();
 }
 
-// ... (seu código existente de mudança de select continua acima) ...
 
-// 1. Configurar o evento de clique no botão Calcular
 document.addEventListener("DOMContentLoaded", () => {
     const btnCalcular = document.getElementById("btnCalcular");
     if (btnCalcular) {
@@ -55,56 +53,47 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function enviarCalculo() {
-    // A. Capturar os valores dos inputs
     const superficieEl = document.getElementById('superficie');
     const materialEl = document.getElementById('material');
     const alturaEl = document.getElementById('altura');
     const larguraEl = document.getElementById('largura');
 
-    // Validação básica
     if (!superficieEl.value || !materialEl.value || !alturaEl.value || !larguraEl.value) {
-        alert("Por favor, preencha todos os campos!");
+        alert('Por favor, preencha todos os campos!');
         return;
     }
 
-    // B. Definir o ID do Projeto
-    // IMPORTANTE: Como estamos testando, vamos "chumbar" o ID 1.
-    // Em produção, você pegaria isso da URL (ex: ?id=1) ou do localStorage.
-    const projetoId = 1; 
+    const urlParams = new URLSearchParams(window.location.search);
+    const projetoId = urlParams.get('ProjetoId');
 
-    // C. Montar o Objeto JSON (Igual ao do Thunder Client)
+    if (!projetoId) {
+        alert('Nenhum projeto selecionado. Volte e selecione um projeto.');
+        return;
+    }
+
     const dadosCalculo = {
-        projetoId: projetoId,
+        projetoId: Number(projetoId),
         superficie: superficieEl.value,
         material: materialEl.value,
-        altura: parseFloat(alturaEl.value), // Converter texto para número decimal
+        altura: parseFloat(alturaEl.value),
         largura: parseFloat(larguraEl.value)
     };
 
     try {
-        // D. Enviar para o Back-end (Fetch API)
         const response = await fetch('https://obracerta-api.onrender.com/api/calculadora', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify(dadosCalculo)
         });
 
-        // E. Verificar se deu certo
-        if (!response.ok) {
-            throw new Error('Erro na requisição: ' + response.statusText);
-        }
+        if (!response.ok) throw new Error('Erro na requisição: ' + response.statusText);
 
-        // F. Receber a resposta do Java
         const resultado = await response.json();
-        
-        // G. Mostrar na tela
         exibirResultado(resultado);
-
     } catch (error) {
         console.error('Erro:', error);
-        alert("Erro ao calcular. Verifique se o Back-end está rodando e se o Projeto ID 1 existe.");
+        alert('Erro ao calcular. Verifique sua conexão e tente novamente.');
     }
 }
 
@@ -115,12 +104,10 @@ function exibirResultado(data) {
     const unidadeEl = document.getElementById("unidadeResultado");
     const areaEl = document.getElementById("areaResultado");
 
-    // Preencher os dados
     msgEl.innerText = data.mensagem || "Cálculo realizado com sucesso!";
     qtdEl.innerText = data.quantidadeNecessaria;
     unidadeEl.innerText = data.unidadeMedida;
     areaEl.innerText = data.areaTotal;
 
-    // Mostrar a div
     divResultado.style.display = "block";
 }

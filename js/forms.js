@@ -87,9 +87,9 @@ function handleCadastroSubmit() {
             }
         }
 
-        if (!inputs[4].checked) {
+        if (!inputsCadastro[4].checked) {
             invalido[1].textContent = 'Aceite os termos' 
-            input.focus()
+            inputsCadastro[4].focus()
             return
         }
         
@@ -127,7 +127,7 @@ function handleLoginSubmit() {
         const senhaInput = document.getElementById('senhaLogin');
 
         if (!emailInput || invalidateEmail(emailInput.value)) {
-            invalido.textContent = 'Preencha seu email';
+            invalido[0].textContent = 'Preencha seu email';
             if (emailInput) emailInput.focus();
             return;
         }

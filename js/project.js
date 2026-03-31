@@ -1,62 +1,72 @@
 import { id } from "./id.js";
-if(window.location.pathname == "/pages/projects/project.html") {
-    let titulo = document.querySelector('h1')
-    const queryString = window.location.search
 
-    const urlParametros = new URLSearchParams(queryString)
-    const projectId = urlParametros.get('ProjetoId');
-    const butoes = document.querySelector('.buttons')
-    AdicionarId(butoes,projectId)
+const API_TAREFAS = 'https://obracerta-api.onrender.com/api/tarefas';
+
+if (window.location.pathname.includes('project.html')) {
+    const titulo = document.querySelector('h1');
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('ProjetoId');
+    const butoes = document.querySelector('.buttons');
+
+    adicionarId(butoes, projectId);
 
     fetch(`https://obracerta-api.onrender.com/api/projetos/${projectId}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "Application/json"
-        },
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include'
-    }).then((resposta) => {
-        return resposta.json()
-    }).then((data) => {
-        titulo.textContent = data.titulo
     })
-} else if (window.location.pathname == "/pages/projects/tasks.html") {
-    const queryString = window.location.search
+    .then(res => res.json())
+    .then(data => { titulo.textContent = data.titulo; })
+    .catch(err => console.error('Erro ao buscar projeto:', err));
 
-    const urlParametros = new URLSearchParams(queryString)
-    const projectId = urlParametros.get('ProjetoId');
+} else if (window.location.pathname.includes('tasks.html')) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('ProjetoId');
+    const formulario = document.querySelector('form');
+    const tituloInput = formulario.querySelector('#tarefa');
+    const itensInput = formulario.querySelector('#itens');
+    const selecao = formulario.querySelector('select');
 
-    let formulario = document.querySelector('form')
-    let titulo = formulario.querySelector('#tarefa')
-    let itensFazer = formulario.querySelector('#itens')
-    let selecao = formulario.querySelector('select')
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault(); // ← não tinha isso no original
 
-    formulario.addEventListener('submit', () => {
-        if (titulo.value == ""|| itensFazer.value == ""|| selecao.options[selecao.selectedIndex].value == "") {
-            alert()
-            return
+        if (!tituloInput.value || !itensInput.value || !selecao.value) {
+            alert('Preencha todos os campos');
+            return;
         }
-        let dados = {
-            "nome": `${titulo.value}`,
-            "itensAFazer": `${itensFazer.value}`,
-            "prioridade": `${selecao.options[selecao.selectedIndex].value}`,
-            "projetoId": projectId
-        }
-    })
+
+        const dados = {
+            nome: tituloInput.value,
+            itensAFazer: Number(itensInput.value),
+            prioridade: selecao.value,
+            projetoId: Number(projectId)
+        };
+
+
+        fetch(API_TAREFAS, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify(dados)
+        })
+        .then(res => {
+            if (!res.ok) throw new Error('Falha ao criar tarefa');
+            window.location.href = `project.html?id=${id}&ProjetoId=${projectId}`;
+        })
+        .catch(err => console.error('Erro ao criar tarefa:', err));
+    });
 }
 
-function AdicionarId(elemento,projectId) {
+function adicionarId(elemento, projectId) {
     elemento.addEventListener('click', (e) => {
-        let link = e.target.closest('a')
-
-        e.preventDefault()
-
-        const urlAtual =  link.getAttribute('href')
-
+        const link = e.target.closest('a');
+        if (!link) return;
+        e.preventDefault();
+        const urlAtual = link.getAttribute('href');
         if (urlAtual && !urlAtual.includes('?id=')) {
-            const novaUrl = `${urlAtual}?id=${id}&ProjetoId=${projectId}`
-            window.location.href = novaUrl
+            window.location.href = `${urlAtual}?id=${id}&ProjetoId=${projectId}`;
         } else {
-            window.location.href = urlAtual
+            window.location.href = urlAtual;
         }
-    })
+    });
 }

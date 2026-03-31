@@ -10,10 +10,8 @@ function setupModalTriggers() {
     document.querySelectorAll('[data-modal-target]').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-
             const targetId = btn.getAttribute('data-modal-target');
             const targetModal = document.querySelector(`#${targetId}`);
-
             const modalAberto = e.target.closest('dialog');
             if (modalAberto) {
                 fecharModal(modalAberto);
@@ -51,7 +49,7 @@ function configurarCalculadoraIndex() {
     const btnCalcular = formCalculadora.querySelector('button');
 
     btnCalcular.addEventListener('click', (e) => {
-        e.preventDefault;
+        e.preventDefault();
 
         const superficie = document.getElementById('superficie').value;
         const material = document.getElementById('material').value;
@@ -71,7 +69,7 @@ function configurarCalculadoraIndex() {
 
         localStorage.setItem('projetoPendente', JSON.stringify(calculoTemp));
 
-        const btnCadastro = document.querySelector('[data-modal-target="modalCadastro]');
+        const btnCadastro = document.querySelector('[data-modal-target="modalCadastro"]');
         if (btnCadastro) btnCadastro.click();
     })
 

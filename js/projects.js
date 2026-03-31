@@ -1,8 +1,7 @@
 import { id as usuarioIdImportado } from "./id.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'https://obracerta-api.onrender.com/api/projetos'; 
-
+    const API_URL = 'https://obracerta-api.onrender.com/api/projetos';
     const openModalBtn = document.getElementById('open-modal-btn');
     const modal = document.getElementById('project-modal');
     const cancelBtn = document.getElementById('cancel-btn');
@@ -16,47 +15,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectIdToDeleteInput = document.getElementById('project-id-to-delete');
     const projectsGrid = document.getElementById('projects-grid');
     const searchInput = document.getElementById('search-input');
-    
-    let projects = []; 
-    
-    // --- 1. LISTAR PROJETOS (READ) ---
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('id') || usuarioIdImportado;
+
+    let projects = [];
+
     const fetchAndRenderProjects = async (projectList = null) => {
         if (!projectList) {
             try {
-                // CORREÇÃO 1: Adicionado credentials: 'include'
-                const response = await fetch(API_URL, { credentials: 'include' }); 
-                
+                const response = await fetch(`${API_URL}/usuario/${userId}`, {
+                    credentials: 'include'
+                });
+
                 if (!response.ok) throw new Error(`Erro API: ${response.status}`);
-                
+
                 projects = await response.json();
-                
+
             } catch (error) {
                 console.error('Erro ao buscar projetos:', error);
                 projectsGrid.innerHTML = `<p class="error-message">Erro ao carregar projetos. Tente recarregar a página.</p>`;
                 return;
             }
         }
-        
+
         renderProjects(projectList || projects);
     };
 
-    /**
-     * READ: Desenha os cards de projeto na tela.
-     */
     const renderProjects = (projectList) => {
         projectsGrid.innerHTML = '';
         if (projectList.length === 0) {
             projectsGrid.innerHTML = '<p class="empty-message">Nenhum projeto encontrado.</p>';
             return;
         }
-        
+
         projectList.forEach(project => {
             const isCompleted = project.progresso === 100;
             const cardClass = isCompleted ? 'project-card status-completed' : 'project-card';
             const statusText = isCompleted ? 'Concluído' : 'Em Andamento';
             const statusClass = isCompleted ? '' : 'in-progress';
             const icon = isCompleted ? 'storefront' : 'apartment';
-            
+
             const projectCard = document.createElement('div');
             projectCard.className = cardClass;
             projectCard.setAttribute('data-id', project.id);
@@ -83,8 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsGrid.appendChild(projectCard);
         });
     };
-    
-    // --- Funções do Modal de Criar/Editar ---
+
     const openModalForCreate = () => {
         modalTitle.textContent = 'Criar Novo Projeto';
         projectForm.reset();
@@ -100,10 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('project-progress').value = project.progresso;
         modal.showModal();
     };
-    
+
     const closeModal = () => modal.close();
 
-    // --- Funções do Modal de Exclusão ---
     const openDeleteModal = (project) => {
         deleteProjectTitle.textContent = project.titulo;
         projectIdToDeleteInput.value = project.id;
@@ -115,140 +112,100 @@ document.addEventListener('DOMContentLoaded', () => {
     const verificarEPreencherModal = () => {
         const dadosSalvos = localStorage.getItem('projetoPendente');
         if (!dadosSalvos) return;
-
         const projetoObj = JSON.parse(dadosSalvos);
-
         const titleInput = document.getElementById('project-title');
         const descInput = document.getElementById('project-description');
-
         if (titleInput && descInput) {
             titleInput.value = projetoObj.titulo;
             descInput.value = projetoObj.descricao;
-            modalTitle.textContent = "Salvar cálculo em projeto";
+            modalTitle.textContent = 'Salvar cálculo em projeto';
             modal.showModal();
             localStorage.removeItem('projetoPendente');
         }
     };
-        
-    // --- 2. CRIAR E ATUALIZAR (CREATE / UPDATE) ---
+
     projectForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // Definição de Variáveis
+
         const idProjeto = projectIdInput.value;
         const titleValue = document.getElementById('project-title').value;
         const descriptionValue = document.getElementById('project-description').value;
         const progressValue = document.getElementById('project-progress').value;
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const userIdParaSalvar = urlParams.get('id') || usuarioIdImportado;
-
         const projectData = {
-            "titulo": titleValue,
-            "descricao": descriptionValue,
-            "progresso": Number(progressValue),
-            "usuario": {
-                "id": userIdParaSalvar
-            }
+            titulo: titleValue,
+            descricao: descriptionValue,
+            progresso: Number(progressValue),
+            usuarioId: Number(userId)
         };
-        
-        let url;
-        let method;
 
-        if (idProjeto) {
-            // UPDATE: Método PUT.
-            // CORREÇÃO 2: Usei crases (`) aqui, senão a variável não funciona
-            url = `${API_URL}/${idProjeto}`; 
-            method = 'PUT';
-        } else {
-            // CREATE: Método POST.
-            url = API_URL;
-            method = 'POST';
-        }
+        const url = idProjeto ? `${API_URL}/${idProjeto}` : API_URL;
+        const method = idProjeto ? 'PUT' : 'POST';
 
         try {
-            // CORREÇÃO 3: Fetch ÚNICO com credentials
             const response = await fetch(url, {
                 method: method,
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include', // <--- Importante
+                credentials: 'include',
                 body: JSON.stringify(projectData)
             });
-            
+
             if (!response.ok) {
-                const errorDetail = await response.text(); 
+                const errorDetail = await response.text();
                 throw new Error(`Falha na requisição. Status: ${response.status}. Detalhe: ${errorDetail.substring(0, 100)}...`);
             }
-            
-            await fetchAndRenderProjects(); 
-            closeModal();
 
+            await fetchAndRenderProjects();
+            closeModal();
         } catch (error) {
             console.error(`Erro na operação CRUD (${method}):`, error);
             alert(`Erro: Falha na requisição. Detalhe: ${error.message}`);
         }
     });
 
-    // --- Listeners para os botões nos Cards ---
     projectsGrid.addEventListener('click', (e) => {
         const card = e.target.closest('.project-card');
         if (!card) return;
         const projectId = Number(card.getAttribute('data-id'));
-        const project = projects.find(p => p.id === projectId); 
+        const project = projects.find(p => p.id === projectId);
         if (!project) return;
-        
-        if (e.target.classList.contains('btn-edit')) {
-            openModalForEdit(project);
-        }
-        if (e.target.classList.contains('btn-delete')) {
-            openDeleteModal(project);
-        }
+
+        if (e.target.classList.contains('btn-edit')) openModalForEdit(project);
+        if (e.target.classList.contains('btn-delete')) openDeleteModal(project);
     });
 
-    // --- 3. EXCLUIR (DELETE) ---
     confirmDeleteBtn.addEventListener('click', async () => {
         const projectId = projectIdToDeleteInput.value;
-        
         try {
-            // CORREÇÃO 4: Fetch ÚNICO com credentials
             const response = await fetch(`${API_URL}/${projectId}`, {
                 method: 'DELETE',
-                credentials: 'include' // <--- Importante
+                credentials: 'include'
             });
-            
-            if (!response.ok) throw new Error(`Falha ao excluir (Status: ${response.status}).`);
 
-            await fetchAndRenderProjects(); 
+            if (!response.ok) throw new Error(`Falha ao excluir (Status: ${response.status}).`);
+            await fetchAndRenderProjects();
             closeDeleteModal();
-            
         } catch (error) {
             console.error('Erro na operação DELETE:', error);
             alert(`Erro: Falha na requisição DELETE. Detalhe: ${error.message}`);
         }
     });
 
-    // --- Listener para a Barra de Busca ---
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
-        const filteredProjects = projects.filter(p => 
-            p.titulo.toLowerCase().includes(searchTerm) || 
+        const filteredProjects = projects.filter(p =>
+            p.titulo.toLowerCase().includes(searchTerm) ||
             p.descricao.toLowerCase().includes(searchTerm)
         );
-        renderProjects(filteredProjects); 
-    });
-    
-    // --- Listeners de Modal ---
-    openModalBtn.addEventListener('click', openModalForCreate);
-    cancelBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-    cancelDeleteBtn.addEventListener('click', closeDeleteModal);
-    deleteModal.addEventListener('click', (e) => {
-        if (e.target === deleteModal) closeDeleteModal();
+        renderProjects(filteredProjects);
     });
 
-    // 5. INICIALIZAÇÃO
+    openModalBtn.addEventListener('click', openModalForCreate);
+    cancelBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    cancelDeleteBtn.addEventListener('click', closeDeleteModal);
+    deleteModal.addEventListener('click', (e) => { if (e.target === deleteModal) closeDeleteModal(); });
+
     fetchAndRenderProjects();
     verificarEPreencherModal();
 });

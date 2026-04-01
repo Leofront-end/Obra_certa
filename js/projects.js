@@ -135,8 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectData = {
             titulo: titleValue,
             descricao: descriptionValue,
-            progresso: Number(progressValue),
-            usuarioId: Number(userId)
+            progresso: Number(progressValue)
         };
 
         const url = idProjeto ? `${API_URL}/${idProjeto}` : API_URL;

@@ -139,6 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
             usuarioId: Number(userId)
         };
 
+        console.log("DADOS QUE ESTOU MANDANDO PRO JAVA:", projectData);
+
         const url = idProjeto ? `${API_URL}/${idProjeto}` : API_URL;
         const method = idProjeto ? 'PUT' : 'POST';
 
